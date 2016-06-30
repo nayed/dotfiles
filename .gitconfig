@@ -1,0 +1,12 @@
+[color]
+	ui = true
+[user]
+	name = Nayed Saïd Ali
+	email = nayed.saidali@gmail.com
+[alias]
+    aa = add --all
+    sb = status -sb
+    st = status
+    cm = commit -m
+    pl = pull
+    ps = push
