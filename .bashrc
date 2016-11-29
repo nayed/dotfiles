@@ -114,3 +114,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# if there is not zsh
+# function cd {
+#     builtin cd "$@" && ls -F
+# }
