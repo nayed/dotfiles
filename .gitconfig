@@ -1,8 +1,10 @@
 [color]
-	ui = true
+  ui = true
 [user]
-	name = Nayed Saïd Ali
-	email = nayed.saidali@gmail.com
+  name = Nayed Saïd Ali
+  email = nayed.saidali@gmail.com
+[credential]
+  helper = cache --timeout=2678400
 [alias]
     aa = add --all
     sb = status -sb
@@ -10,3 +12,4 @@
     cm = commit -m
     pl = pull
     ps = push
+    co = checkout
