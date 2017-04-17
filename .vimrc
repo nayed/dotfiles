@@ -119,3 +119,6 @@ nmap <leader>m A # => <Esc>
 "  "
 vmap <leader>m :norm A # => <Esc>
 
+" Plugin call to ctrl p for fuzzy file search
+
+set runtimepath^=~/.vim/bundle/ctrlp.vim
