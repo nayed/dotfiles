@@ -139,3 +139,6 @@ set wildmenu
 " - use * to make it fuzzy
 " Things to consider:
 " - :b lets you autocomplete any open buffer
+
+" Display hidden files in NERDTree
+let NERDTreeShowHidden=1
