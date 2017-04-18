@@ -162,3 +162,6 @@ touch .vimrc; mkdir .vim
 ### Basic autocomplete
 - ctrl + n - autocomplete
 - ctrl + x + ctrl + n - autocomplete only from this file
+
+### Preview Markdown
+- ctrl + m
