@@ -125,3 +125,17 @@ vmap <leader>m :norm A # => <Esc>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Finding files
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" Now we can:
+" - hit tab to :find by partial match
+" - use * to make it fuzzy
+" Things to consider:
+" - :b lets you autocomplete any open buffer
