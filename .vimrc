@@ -27,6 +27,7 @@ Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'vim-airline/vim-airline'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -183,3 +184,6 @@ let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 " Markdown Preview by running ctrl + m
 let vim_markdown_preview_hotkey='<C-m>'
 let vim_markdown_preview_github=1
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
