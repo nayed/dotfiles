@@ -18,7 +18,6 @@ call vundle#begin()
 
 " Vundle Plugin
 
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
@@ -26,6 +25,8 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'tpope/vim-endwise'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'vim-airline/vim-airline'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -42,6 +43,8 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+
+set updatetime=250 "Related to vim-gitgutter package
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
