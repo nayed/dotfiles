@@ -18,16 +18,17 @@ call vundle#begin()
 
 " Vundle Plugin
 
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ervandew/supertab'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'tpope/vim-endwise'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-Plugin 'vim-airline/vim-airline'
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ervandew/supertab'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'VundleVim/Vundle.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -44,6 +45,10 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+
+" switch between buffers
+nmap <F2> :bprevious<CR>
+nmap <F3> :bnext<CR>
 
 set updatetime=250 "Related to vim-gitgutter package
 
@@ -187,3 +192,9 @@ let vim_markdown_preview_github=1
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" Vim airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
