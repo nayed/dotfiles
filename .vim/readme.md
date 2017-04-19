@@ -6,6 +6,8 @@
 - [syntastic](https://github.com/vim-syntastic/syntastic): syntax checking
 - [vim-endwise](https://github.com/tpope/vim-endwise): add `END` to `if`, `def` and `do`
 - [vim Markdown Preview](https://github.com/JamshedVesuna/vim-markdown-preview): markdown preview
+- [vim-airline](https://github.com/vim-airline/vim-airline): status bar
+- [vundle](https://github.com/VundleVim/Vundle.vim): vim package manager
 
 ## Dependencies needed
 - [Grip](https://github.com/joeyespo/grip)

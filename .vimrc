@@ -7,9 +7,32 @@ if filereadable(expand("~/.vimrc.before"))
 source ~/.vimrc.before
 endif
 
+" ====================== Vundle ====================== 
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Vundle Plugin
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ervandew/supertab'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'tpope/vim-endwise'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'vim-airline/vim-airline'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
 " ================ General Config ====================
 
-execute pathogen#infect()
+set laststatus=2
 
 set number relativenumber       "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
@@ -153,3 +176,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+
+" Markdown Preview by running ctrl + m
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_github=1
