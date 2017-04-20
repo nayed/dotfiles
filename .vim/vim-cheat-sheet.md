@@ -17,7 +17,10 @@
 - Forward multiple letters: 5l
 - Back multiple letters: 5h
 - Forward to the next 'y': fy (case sensitive)
-
+- Switch window
+  * Navigate to the window you'd like to move
+  * Press `<leader>ww`
+  * Navigate to the window you'd like to swap with
 
 ### Editing
 
