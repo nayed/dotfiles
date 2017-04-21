@@ -26,8 +26,10 @@ Plugin 'majutsushi/tagbar'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ternjs/tern_for_vim'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'VundleVim/Vundle.vim'
@@ -62,6 +64,9 @@ set hidden
 
 "turn on syntax highlighting
 syntax on
+
+" color popup autocomplete
+highlight Pmenu ctermbg=12 guibg=DarkSlateGray
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
