@@ -23,6 +23,8 @@ Plugin 'ervandew/supertab'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
@@ -200,5 +202,8 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " prettier js
-autocmd FileType javascript set formatprg=prettier\ --stdin
+autocmd FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin\ --no-semi
 autocmd BufWritePre *.js exe 'normal! gggqG\<C-o>\<C-o>'
+
+" vim-jsx
+let g:jsx_ext_required = 0

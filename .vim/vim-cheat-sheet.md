@@ -12,11 +12,16 @@
 - Go to end of the line: $
 - Go to beginning of the line: 0
 - Go to top of the screen: shift + h
+- Go to top of the middle: shift + m
 - Go to bottom of the screen: shift + l
 - Forward multiple words: 5w
 - Forward multiple letters: 5l
 - Back multiple letters: 5h
 - Forward to the next 'y': fy (case sensitive)
+- Scroll the window down: ctrl + e
+- Scroll the window up: ctrl + y
+- Scroll down one page: ctrl + f
+- Scroll the window up: ctrl + b
 - Switch window
   * Navigate to the window you'd like to move
   * Press `<leader>ww`
@@ -33,11 +38,11 @@
 - Paste copied line: p
 - Change multiple words: 5cw
 - Insert at the end of the line: A
-
+- Delete full word and replace: c + a + w
 
 ### Deleting
 
-- d<leftArrow> will delete current and left character
+- `d<leftArrow>` will delete current and left character
 - d$ will delete from current position to end of line
 - d^ will delete from current backward to first non-white-space character
 - d0 will delete from current backward to beginning of line
@@ -48,9 +53,13 @@
 - Delete entire word: cw
 - Delete to the end of the line: shift + C
 - Delete multiple lines: d + number of lines + enter
-- Delete from current position to a specific line number: d<line number>G
-- Deleting all items in a file that start with a pattern: :g/< search term>/d
+- Delete from current position to a specific line number: `d<line number>G`
+- Deleting all items in a file that start with a pattern:` :g/< search term>/d`
 - Deleting all lines that are empty or that contain only whitespace: :g/^\s*$/d
+- Deletes all text inside parenthesis/brackets: d + i + item / or { or [
+- Deletes all text inside parenthesis/brackets INCLUDES: d + a + item / or { or [
+- Deletes all text inside parenthesis/brackets AND INSERT: c + i + item / or { or [
+- Deletes all text inside parenthesis/brackets INCLUDES AND INSERT: c + a + item / or { or [
 
 
 ### Selecting
@@ -60,7 +69,8 @@
 - Select a column: control + v
 - Reselect a block: gv
 - Select all: ggVG
-
+- Select all inside element like { ( " ' : v + i + item
+- Select all inside element like { ( " ' WITH the element: v + a + item
 
 ### Find and Replace
 
@@ -86,7 +96,7 @@
 
 ### Search
 
-- While on current line: f + <queried item>
+- While on current line: `f + <queried item>`
 - Search for word in file: /word + enter
 - Find next search result: n
 - Search backwards: N
