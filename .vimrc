@@ -19,6 +19,7 @@ call vundle#begin()
 " Vundle Plugin
 
 Plugin 'airblade/vim-gitgutter'
+Plugin 'ayu-theme/ayu-vim'
 Plugin 'ervandew/supertab'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'kien/ctrlp.vim'
@@ -34,6 +35,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'wesQ3/vim-windowswap'
+Plugin 'Yggdroot/indentLine'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,8 +67,11 @@ set hidden
 "turn on syntax highlighting
 syntax on
 
-" color popup autocomplete
-highlight Pmenu ctermbg=12 guibg=DarkSlateGray
+" Color scheme
+set termguicolors
+let ayucolor="dark"
+" let ayucolor="mirage"
+colorscheme ayu
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
@@ -125,6 +130,10 @@ filetype indent on
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
+let g:indentLine_char = '┆'
+let g:indentLine_first_char = '┆'
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
