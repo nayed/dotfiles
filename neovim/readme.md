@@ -17,6 +17,7 @@
 - [vim-javascript](https://github.com/pangloss/vim-javascript): some js support
 - [vim-jsx'](https://github.com/mxw/vim-jsx'): jsx highlight
 - [vim-markdown-preview](https://github.com/JamshedVesuna/vim-markdown-preview): markdown preview
+- [vim-surround](https://github.com/tpope/vim-surround): switch between parenthesis, brackets, quotes, HTML tags, etc
 - [vim-windowswap](https://github.com/wesQ3/vim-windowswap): swap windows position
 
 ### Dependencies needed
