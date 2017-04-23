@@ -39,6 +39,8 @@
 - Change multiple words: 5cw
 - Insert at the end of the line: A
 - Delete full word and replace: c + a + w
+- Changes 'surroundings': for examples from "hello" to 'hello': c s " '
+
 
 ### Deleting
 
@@ -139,6 +141,8 @@
 - Comment: visual block select with CTRL-V then I# (insert # in the begining)
 - Uncomment: visual block select with CTRL-V then X (delete the first symbol on the line)
 
+- Comment: `<leader> c c`
+- Uncomment: `<leader> c u`
 
 ### Visual Mode
 
