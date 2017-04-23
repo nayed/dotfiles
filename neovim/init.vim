@@ -38,6 +38,7 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-syntastic/syntastic'
 NeoBundle 'wesQ3/vim-windowswap'
@@ -255,3 +256,12 @@ let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+" Highlight Match Tags
+let g:mta_filetypes = {
+    \'javascript.jsx': 1,
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \}
