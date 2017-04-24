@@ -77,6 +77,8 @@
 ### Find and Replace
 
 - %s/pattern/text to replace
+- %s/pattern/text/g to replace all occurence
+- 6,10s/pattern/text/g to replace all occurence from line 6 to 10
 
 
 ### Saving
@@ -90,10 +92,11 @@
 
 - Use horizontal split: :sp filename
 - Use vertical split: :vsp filename
-- Switch from top to bottom: control + w + j
-- Switch from left to right: control + w + l
-- Switch from bottom to top: control + w + j
-- Switch from right to left: control + w + h
+- Switch from top to bottom: ctrl + w + j
+- Switch from left to right: ctrl + w + l
+- Switch from bottom to top: ctrl + w + j
+- Switch from right to left: ctrl + w + h
+- Resize window: ctrl w > AND ctrl w <
 
 
 ### Search
@@ -176,9 +179,11 @@ touch .vimrc; mkdir .vim
 - `c + i + t` will remove the code between HTML tags, such as: `<div>Some content</div>`
 - `c + i + }` will remove the code inside of a JavaScript function
 
+
 ### Basic autocomplete
 - ctrl + n - autocomplete
 - ctrl + x + ctrl + n - autocomplete only from this file
+
 
 ### Preview Markdown
 - ctrl + m

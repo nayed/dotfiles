@@ -24,6 +24,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ajh17/Spacegray.vim'
+NeoBundle 'ap/vim-css-color'
 NeoBundle 'ayu-theme/ayu-vim'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'dylanaraps/crayon'
@@ -34,6 +35,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'qpkorr/vim-bufkill'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Raimondi/delimitMate'
@@ -273,3 +275,5 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \}
 
+" Kill buffer without killing a window with ctrl w
+map <C-x> :BD<cr>
