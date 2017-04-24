@@ -2,7 +2,9 @@
 - [ayu-vim](https://github.com/ayu-theme/ayu-vim): theme
 - [ctrlp.vim](https://github.com/kien/ctrlp.vim): fuzzy file
 - [delimitMate](https://github.com/Raimondi/delimitMate): add closing parenthesis, quote, brackets, etc
+- [emmet vim](https://github.com/mattn/emmet-vim): emmet
 - [indent line](https://github.com/Yggdroot/indentLine): display indentation with a line
+- [match tag always](http://github.com/Valloric/MatchTagAlways): highlight same html tag
 - [neovim](https://github.com/neovim/neovim): neovim package manager
 - [nerdtree](https://github.com/scrooloose/nerdtree): tree explorer
 - [supertab](https://github.com/ervandew/supertab): vim completion with tab

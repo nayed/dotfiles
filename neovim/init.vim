@@ -23,11 +23,15 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'ajh17/Spacegray.vim'
 NeoBundle 'ayu-theme/ayu-vim'
+NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'dylanaraps/crayon'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'JamshedVesuna/vim-markdown-preview'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'scrooloose/nerdcommenter'
@@ -41,6 +45,7 @@ NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-syntastic/syntastic'
+NeoBundle 'wakatime/vim-wakatime'
 NeoBundle 'wesQ3/vim-windowswap'
 NeoBundle 'Yggdroot/indentLine'
 
@@ -77,9 +82,12 @@ syntax on
 
 " Color scheme
 set termguicolors
-let ayucolor="dark"
+" let ayucolor="dark"
 " let ayucolor="mirage"
-colorscheme ayu
+" colorscheme ayu
+" colorscheme base16-default-dark
+" colorscheme crayon
+colorscheme spacegray
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
@@ -107,7 +115,6 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
-"
 " ================ Scrolling ========================
 
 set scrolloff=8         "Start scrolling when we're 8 lines away from margins
@@ -265,3 +272,4 @@ let g:mta_filetypes = {
     \ 'xml' : 1,
     \ 'jinja' : 1,
     \}
+
