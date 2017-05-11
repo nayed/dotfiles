@@ -73,6 +73,8 @@
 - Select all: ggVG
 - Select all inside element like { ( " ' : v + i + item
 - Select all inside element like { ( " ' WITH the element: v + a + item
+- Select block of code: v i p
+
 
 ### Find and Replace
 

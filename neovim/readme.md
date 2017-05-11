@@ -24,6 +24,9 @@
 
 ### Dependencies needed
 - [grip](https://github.com/joeyespo/grip): needed for markdown preview
+- [neovim python](https://github.com/neovim/python-client): needed for some python vim package
+- [neovim ruby](https://github.com/alexgenco/neovim-ruby): needed for some gem
 - [prettier](https://github.com/prettier/prettier): format javascript code
 - [rubocop](https://github.com/bbatsov/rubocop): ruby linter
+- [silversearcher-ag](https://github.com/ggreer/the_silver_searcher): code searching tool (vim Ag command)
 - [xdotool](https://github.com/jordansissel/xdotool): needed for markdown preview

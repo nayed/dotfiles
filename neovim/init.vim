@@ -23,14 +23,12 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'ajh17/Spacegray.vim'
 NeoBundle 'ap/vim-css-color'
-NeoBundle 'ayu-theme/ayu-vim'
-NeoBundle 'chriskempson/base16-vim'
-NeoBundle 'dylanaraps/crayon'
+NeoBundle 'danchoi/ri.vim'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'JamshedVesuna/vim-markdown-preview'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mxw/vim-jsx'
@@ -40,6 +38,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'ternjs/tern_for_vim'
+NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
@@ -50,6 +49,11 @@ NeoBundle 'vim-syntastic/syntastic'
 NeoBundle 'wakatime/vim-wakatime'
 NeoBundle 'wesQ3/vim-windowswap'
 NeoBundle 'Yggdroot/indentLine'
+
+" Color Scheme
+NeoBundle 'ayu-theme/ayu-vim'
+NeoBundle 'jansenfuller/crayon'
+NeoBundle 'noahfrederick/vim-hemisu'
 
 call neobundle#end()
 
@@ -87,9 +91,11 @@ set termguicolors
 " let ayucolor="dark"
 " let ayucolor="mirage"
 " colorscheme ayu
-" colorscheme base16-default-dark
-" colorscheme crayon
-colorscheme spacegray
+
+colorscheme crayon
+
+" set background=dark
+" colorscheme hemisu
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
@@ -148,7 +154,7 @@ set list listchars=tab:\ \ ,trail:·
 let g:indentLine_char = '┆'
 let g:indentLine_first_char = '┆'
 let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_setColors = 0
+let g:indentLine_setColors = 1
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
@@ -185,8 +191,7 @@ nmap <leader>m A # => <Esc>
 "
 vmap <leader>m :norm A # => <Esc>
 
-" Plugin call to ctrl p for fuzzy file search
-
+" open NERDTee if no file is specified when neovim is called
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -277,3 +282,60 @@ let g:mta_filetypes = {
 
 " Kill buffer without killing a window with ctrl w
 map <C-x> :BD<cr>
+
+" Save file on ctrl s
+:nmap <c-s> :w<CR>
+:imap <c-s> <Esc>:w<CR>a
+
+"-------------------------------------- FZF ----------------------------------------
+" ,s to start global search
+nnoremap <Leader>s :Ag<CR>
+nnoremap <Leader>S :Ag! 
+
+" ,f to start files search
+nnoremap <Leader>f :Files<CR>
+
+
+" Command for git grep
+" - fzf#vim#grep(command, with_column, [options], [fullscreen])
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+
+" Override Colors command. You can safely do this in your .vimrc as fzf.vim
+" will not override existing commands.
+command! -bang Colors
+  \ call fzf#vim#colors({'left': '15%', 'options': '--reverse --margin 30%,0'}, <bang>0)
+
+" Augmenting Ag command using fzf#vim#with_preview function
+"   * fzf#vim#with_preview([[options], preview window, [toggle keys...]])
+"     * For syntax-highlighting, Ruby and any of the following tools are required:
+"       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
+"       - CodeRay: http://coderay.rubychan.de/
+"       - Rouge: https://github.com/jneen/rouge
+"
+"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
+"   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+"during insert, kj escapes, `^ is so that the cursor doesn't move
+inoremap kj <Esc>`^
+"during insert, lkj escapes and saves
+inoremap lkj <Esc>`^:w<CR>
+"during insert, lkj escapes and saves and QUITS
+inoremap ;lkj <Esc>:wq<CR>
