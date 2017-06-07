@@ -24,7 +24,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ap/vim-css-color'
+NeoBundle 'cespare/vim-toml'
 NeoBundle 'danchoi/ri.vim'
+NeoBundle 'elixir-lang/vim-elixir'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'JamshedVesuna/vim-markdown-preview'
 NeoBundle 'junegunn/fzf'
@@ -32,11 +34,19 @@ NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'mxw/vim-jsx'
+NeoBundle 'neomake/neomake'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'qpkorr/vim-bufkill'
+NeoBundle 'racer-rust/vim-racer'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'rhysd/rust-doc.vim'
+NeoBundle 'rust-lang/rust.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'slashmili/alchemist.vim'
+NeoBundle 'Shougo/deoplete.nvim'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'ternjs/tern_for_vim'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-endwise'
@@ -45,6 +55,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'Valloric/MatchTagAlways'
 NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'vim-syntastic/syntastic'
 NeoBundle 'wakatime/vim-wakatime'
 NeoBundle 'wesQ3/vim-windowswap'
@@ -53,6 +64,7 @@ NeoBundle 'Yggdroot/indentLine'
 " Color Scheme
 NeoBundle 'ayu-theme/ayu-vim'
 NeoBundle 'jansenfuller/crayon'
+NeoBundle 'lifepillar/vim-solarized8'
 NeoBundle 'noahfrederick/vim-hemisu'
 
 call neobundle#end()
@@ -67,10 +79,12 @@ set number relativenumber       "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
+set showmode  showcmd  cmdheight=2                     "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+au CursorHold * checktime
+set mouse=a                     "Enable mouse support
 
 " switch between buffers
 nmap <F2> :bprevious<CR>
@@ -92,10 +106,12 @@ set termguicolors
 " let ayucolor="mirage"
 " colorscheme ayu
 
-colorscheme crayon
+" colorscheme crayon
 
 " set background=dark
 " colorscheme hemisu
+
+colorscheme solarized8_light_low
 
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
@@ -221,7 +237,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+" let g:syntastic_rust_checkers = ['rustc', 'cargo']
+let g:rust_bang_comment_leader = 1
 
 " Markdown Preview by running ctrl + m
 let vim_markdown_preview_hotkey='<C-m>'
@@ -234,6 +253,35 @@ nmap <F8> :TagbarToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '◀'
+" let g:airline_symbols.crypt = '🔒'
+" " let g:airline_symbols.linenr = '␊'
+" " let g:airline_symbols.maxlinenr = '☰'
+" let g:airline_symbols.linenr = '¶'
+" " let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.branch = '⎇'
+" let g:airline_symbols.paste = 'Þ'
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.notexists = '∄'
+" let g:airline_symbols.whitespace = 'Ξ'
+" let g:airline_symbols.linenr = ''
+
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+let g:airline_theme='luna'
 
 " prettier js
 autocmd FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin\ --no-semi
@@ -290,7 +338,7 @@ map <C-x> :BD<cr>
 "-------------------------------------- FZF ----------------------------------------
 " ,s to start global search
 nnoremap <Leader>s :Ag<CR>
-nnoremap <Leader>S :Ag! 
+nnoremap <Leader>S :Ag!
 
 " ,f to start files search
 nnoremap <Leader>f :Files<CR>
@@ -339,3 +387,25 @@ inoremap kj <Esc>`^
 inoremap lkj <Esc>`^:w<CR>
 "during insert, lkj escapes and saves and QUITS
 inoremap ;lkj <Esc>:wq<CR>
+
+
+" Rustfmt on save
+let g:rustfmt_autosave = 1
+
+let g:racer_cmd = "/home/nayed/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
+let g:rust_doc#downloaded_rust_doc_dir = '~/Documents/rust-docs'
+
+nnoremap <C-o> :RustRun<CR>
+
+nnoremap <C-p> :Unite<CR>
+
+" Neomake
+autocmd! BufWritePost * Neomake
+
+let g:deoplete#enable_at_startup = 1
+let g:alchemist_keyword_map = '<leader>R'

@@ -5,7 +5,7 @@
 - [emmet vim](https://github.com/mattn/emmet-vim): emmet
 - [indent line](https://github.com/Yggdroot/indentLine): display indentation with a line
 - [match tag always](http://github.com/Valloric/MatchTagAlways): highlight same html tag
-- [neovim](https://github.com/neovim/neovim): neovim package manager
+- [neobundle](https://github.com/Shougo/neobundle.vim): neovim package manager
 - [nerdtree](https://github.com/scrooloose/nerdtree): tree explorer
 - [supertab](https://github.com/ervandew/supertab): vim completion with tab
 - [syntastic](https://github.com/vim-syntastic/syntastic): syntax checking
@@ -27,6 +27,7 @@
 - [neovim python](https://github.com/neovim/python-client): needed for some python vim package
 - [neovim ruby](https://github.com/alexgenco/neovim-ruby): needed for some gem
 - [prettier](https://github.com/prettier/prettier): format javascript code
+- [racer](https://github.com/phildawes/racer): Rust autocomplete
 - [rubocop](https://github.com/bbatsov/rubocop): ruby linter
 - [silversearcher-ag](https://github.com/ggreer/the_silver_searcher): code searching tool (vim Ag command)
 - [xdotool](https://github.com/jordansissel/xdotool): needed for markdown preview

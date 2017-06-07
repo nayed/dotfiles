@@ -99,3 +99,15 @@ man() {
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
             man "$@"
 }
+
+if [ -d "$HOME/.fzf" ] ; then
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    # use ag
+    export FZF_DEFAULT_COMMAND='ag --hidden -U --ignore .git -g ""'
+    # To apply the command to CTRL-T as well
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    # preview
+    export FZF_CTRL_T_OPTS="--preview '(coderay {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+    export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+    export FZF_DEFAULT_OPTS='--height 70% --reverse'
+fi
