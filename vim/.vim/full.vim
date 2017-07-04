@@ -1,8 +1,10 @@
 Plug 'airblade/vim-gitgutter'
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'junegunn/fzf'
+Plug 'johngrib/vim-game-code-break'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'mbbill/undotree'
 Plug 'majutsushi/tagbar'
 Plug 'neomake/neomake'
 Plug 'powerman/vim-plugin-AnsiEsc'
@@ -11,13 +13,17 @@ Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/deoplete.nvim'
+if has("nvim")
+  Plug 'Shougo/deoplete.nvim'
+  let g:deoplete#enable_at_startup = 1
+endif
 Plug 'Shougo/unite.vim'
+Plug 'skwp/greplace.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer'}
 Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -76,8 +82,8 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
+  let g:airline_symbols = {}
+endif
 
 " let g:airline_left_sep = '▶'
 " let g:airline_right_sep = '◀'
@@ -102,7 +108,8 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
-function! RandomNumber()
+if has("nvim")
+  function! RandomNumber()
 python << EOF
 import vim
 from random import randint
@@ -110,14 +117,15 @@ r = randint(0, 15)
 vim.command("let rInVim = %r"% r)
 EOF
 return rInVim
-endfunction
+  endfunction
 
-let air_theme = ['base16_ashes', 'base16_bright', 'base16_chalk', 
-\ 'base16_oceanicnext', 'base16_ocean', 'base16_railscasts', 
-\ 'base16_spacemacs', 'base16_tomorrow', 'base16',
-\ 'cobalt2', 'cool', 'luna', 
-\ 'molokai', 'onedark', 'powerlineish', 'wombat']
-let g:airline_theme=air_theme[RandomNumber()]
+  let air_theme = ['base16_ashes', 'base16_bright', 'base16_chalk', 
+  \ 'base16_oceanicnext', 'base16_ocean', 'base16_railscasts', 
+  \ 'base16_spacemacs', 'base16_tomorrow', 'base16',
+  \ 'cobalt2', 'cool', 'luna', 
+  \ 'molokai', 'onedark', 'powerlineish', 'wombat']
+  let g:airline_theme=air_theme[RandomNumber()]
+endif
 
 " nerd commenter
 " Add spaces after comment delimiters by default
@@ -196,4 +204,9 @@ nnoremap <C-p> :Unite<CR>
 " Neomake
 autocmd! BufWritePost * Neomake
 
-let g:deoplete#enable_at_startup = 1
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
+
+nnoremap <F6> :UndotreeToggle<cr>

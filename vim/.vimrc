@@ -13,10 +13,10 @@ filetype off                  " required
 " - For Vim: ~/.vim/plugged
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 source $HOME/.vim/basic.vim
-source $HOME/.vim/full.vim
+" source $HOME/.vim/full.vim
 
 " Languages stuff
 Plug 'sheerun/vim-polyglot'
@@ -28,8 +28,8 @@ Plug 'sheerun/vim-polyglot'
 
 " Color Scheme
 Plug 'ayu-theme/ayu-vim'
-Plug 'jansenfuller/crayon'
 Plug 'lifepillar/vim-solarized8'
+Plug 'nyomaszto/crayon'
 
 " Initialize plugin system
 call plug#end()
@@ -40,10 +40,11 @@ syntax on
 set termguicolors "Term colors
 
 " Color scheme
-" let ayucolor="dark"
+let ayucolor="dark"
 " let ayucolor="mirage"
-" colorscheme ayu
+colorscheme ayu
 
 " colorscheme crayon
 
-colorscheme solarized8_light_flat
+" colorscheme solarized8_light_flat
+
