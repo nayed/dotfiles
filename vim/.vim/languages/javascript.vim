@@ -1,5 +1,5 @@
 Plug 'mxw/vim-jsx'
-Plug 'ternjs/tern_for_vim'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm i'}
 
 " prettier js
 autocmd FileType javascript.jsx,javascript setlocal formatprg=prettier\ --stdin\ --no-semi

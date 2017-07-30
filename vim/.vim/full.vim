@@ -17,11 +17,12 @@ if has("nvim")
   Plug 'Shougo/deoplete.nvim'
   let g:deoplete#enable_at_startup = 1
 endif
-Plug 'Shougo/unite.vim'
+Plug 'Shougo/denite.nvim'
 Plug 'skwp/greplace.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer'}
 Plug 'Valloric/MatchTagAlways'
@@ -198,15 +199,12 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-
-nnoremap <C-p> :Unite<CR>
-
 " Neomake
 autocmd! BufWritePost * Neomake
 
 if has("persistent_undo")
-    set undodir=~/.undodir/
-    set undofile
+  set undodir=~/.undodir/
+  set undofile
 endif
 
 nnoremap <F6> :UndotreeToggle<cr>
