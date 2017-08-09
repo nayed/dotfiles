@@ -22,8 +22,6 @@ nmap <F3> :bnext<CR>
 " http://items.sjbach.com/319/configuring-vim-right
 set hidden
 
-
-
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
 let mapleader=","
@@ -122,3 +120,13 @@ inoremap kj <Esc>`^
 inoremap lkj <Esc>`^:w<CR>
 "during insert, lkj escapes and saves and QUITS
 inoremap ;lkj <Esc>:wq<CR>
+
+" Disable conceal in markdown =>
+" conceal : '[link text](link url)' will look 'link text'
+let g:vim_markdown_conceal = 0
+
+" copy and paste
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
