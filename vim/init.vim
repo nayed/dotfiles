@@ -28,9 +28,9 @@ Plug 'sheerun/vim-polyglot'
 
 " Color Scheme
 Plug 'ayu-theme/ayu-vim'
-Plug 'jansenfuller/crayon'
 Plug 'lifepillar/vim-solarized8'
-
+Plug 'nyomaszto/crayon'
+Plug 'whatyouhide/vim-gotham'
 " Initialize plugin system
 call plug#end()
 
@@ -46,4 +46,8 @@ set termguicolors "Term colors
 
 " colorscheme crayon
 
-colorscheme solarized8_light_flat
+" colorscheme solarized8_light_flat
+
+colorscheme gotham
+
+" set t_Co=256

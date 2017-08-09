@@ -1,4 +1,5 @@
 Plug 'airblade/vim-gitgutter'
+Plug 'edkolev/tmuxline.vim'
 Plug 'ervandew/supertab'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'johngrib/vim-game-code-break'
@@ -79,8 +80,8 @@ nmap <F8> :TagbarToggle<CR>
 
 " Vim airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -108,6 +109,14 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'c'    : ['#(whoami)'],
+      \'win'  : ['#I', '#W'],
+      \'cwin' : ['#I', '#W', '#F'],
+      \'x'    : '#(date)',
+      \'z'    : '#H'}
 
 if has("nvim")
   function! RandomNumber()
