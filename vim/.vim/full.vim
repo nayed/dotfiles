@@ -29,6 +29,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-co
 Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/renamer.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'wakatime/vim-wakatime'
 Plug 'wesQ3/vim-windowswap'
@@ -123,17 +124,16 @@ if has("nvim")
 python << EOF
 import vim
 from random import randint
-r = randint(0, 15)
+r = randint(0, 10)
 vim.command("let rInVim = %r"% r)
 EOF
 return rInVim
   endfunction
 
   let air_theme = ['base16_ashes', 'base16_bright', 'base16_chalk', 
-  \ 'base16_oceanicnext', 'base16_ocean', 'base16_railscasts', 
-  \ 'base16_spacemacs', 'base16_tomorrow', 'base16',
+  \ 'base16_ocean', 'base16_tomorrow',
   \ 'cobalt2', 'cool', 'luna', 
-  \ 'molokai', 'onedark', 'powerlineish', 'wombat']
+  \ 'molokai', 'powerlineish', 'wombat']
   let g:airline_theme=air_theme[RandomNumber()]
 endif
 
