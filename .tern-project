@@ -5,6 +5,6 @@
     "jquery"
     ],
     "plugins": {
-    "node": {}
+      "node": {}
   }
 }
