@@ -11,6 +11,7 @@ Plug 'neomake/neomake'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'qpkorr/vim-bufkill'
 Plug 'Raimondi/delimitMate'
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -21,6 +22,7 @@ endif
 Plug 'Shougo/denite.nvim'
 Plug 'skwp/greplace.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -124,15 +126,15 @@ if has("nvim")
 python << EOF
 import vim
 from random import randint
-r = randint(0, 7)
+r = randint(0, 6)
 vim.command("let rInVim = %r"% r)
 EOF
 return rInVim
   endfunction
 
-  let air_theme = ['base16_bright', 'base16_chalk', 
-  \ 'base16_tomorrow', 'cobalt2', 'luna', 
-  \ 'molokai', 'powerlineish', 'wombat']
+  let air_theme = ['base16_bright', 'base16_chalk',
+  \ 'base16_tomorrow', 'cobalt2', 'luna',
+  \ 'powerlineish', 'wombat']
   let g:airline_theme=air_theme[RandomNumber()]
 endif
 
@@ -216,3 +218,5 @@ if has("persistent_undo")
 endif
 
 nnoremap <F6> :UndotreeToggle<cr>
+
+" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
