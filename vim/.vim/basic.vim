@@ -108,7 +108,7 @@ if has("nvim")
 endif
 
 " Kill buffer without killing a window with ctrl w
-map <C-w> :BD<cr>
+map <C-w>w :BD<cr>
 
 " Save file on ctrl s
 :nmap <c-s> :w<CR>
