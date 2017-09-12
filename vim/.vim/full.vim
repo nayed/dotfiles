@@ -121,22 +121,24 @@ let g:tmuxline_preset = {
       \'x'    : '#(date)',
       \'z'    : '#H'}
 
-if has("nvim")
-  function! RandomNumber()
-python << EOF
-import vim
-from random import randint
-r = randint(0, 6)
-vim.command("let rInVim = %r"% r)
-EOF
-return rInVim
-  endfunction
+"if has("nvim")
+"  function! RandomNumber()
+"python << EOF
+"import vim
+"from random import randint
+"r = randint(0, 6)
+"vim.command("let rInVim = %r"% r)
+"EOF
+"return rInVim
+""  endfunction
 
-  let air_theme = ['base16_bright', 'base16_chalk',
-  \ 'base16_tomorrow', 'cobalt2', 'luna',
-  \ 'powerlineish', 'wombat']
-  let g:airline_theme=air_theme[RandomNumber()]
-endif
+""  let air_theme = ['base16_bright', 'base16_chalk',
+""  \ 'base16_tomorrow', 'cobalt2', 'luna',
+""  \ 'powerlineish', 'wombat']
+""  let g:airline_theme=air_theme[RandomNumber()]
+"endif
+let g:airline_theme='base16_tomorrow'
+
 
 " nerd commenter
 " Add spaces after comment delimiters by default

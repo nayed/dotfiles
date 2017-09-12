@@ -47,4 +47,3 @@ colorscheme ayu
 " colorscheme crayon
 
 " colorscheme solarized8_light_flat
-

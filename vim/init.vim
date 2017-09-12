@@ -16,14 +16,14 @@ filetype off                  " required
 call plug#begin('~/.local/share/nvim/plugged')
 
 source $HOME/.vim/basic.vim
-" source $HOME/.vim/full.vim
+source $HOME/.vim/full.vim
 
 " Languages stuff
 Plug 'sheerun/vim-polyglot'
-" source $HOME/.vim/languages/elixir.vim
-" source $HOME/.vim/languages/html-css.vim
-" source $HOME/.vim/languages/javascript.vim
-" source $HOME/.vim/languages/ruby.vim
+source $HOME/.vim/languages/elixir.vim
+source $HOME/.vim/languages/html-css.vim
+source $HOME/.vim/languages/javascript.vim
+source $HOME/.vim/languages/ruby.vim
 " source $HOME/.vim/languages/rust.vim
 
 " Color Scheme
@@ -55,3 +55,4 @@ colorscheme hybrid
 
 set t_Co=256
 set background=dark
+

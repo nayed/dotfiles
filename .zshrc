@@ -1,8 +1,14 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/nayed/.oh-my-zsh
+if [ "$(uname 2> /dev/null)" != "Linux" ]; then
+    export ZSH=/Users/nayed/.oh-my-zsh
+else
+    export ZSH=/home/nayed/.oh-my-zsh
+fi
+  
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -111,3 +117,23 @@ if [ -d "$HOME/.fzf" ] ; then
     export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
     export FZF_DEFAULT_OPTS='--height 70% --reverse'
 fi
+
+if [ -d "$HOME/.fzf" ] ; then
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+if [ -d "$HOME/.elixir" ] ; then
+    export PATH="$HOME/.elixir/bin:$PATH"
+fi
+
+# jump
+eval "$(jump shell)"
+
+alias n="nvim"
+alias v="vim"
+
+# hub
+eval "$(hub alias -s)"
+
