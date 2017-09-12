@@ -106,6 +106,15 @@ man() {
             man "$@"
 }
 
+# mkdir and cd
+mkc() {
+    mkdir -p "$1" && cd "$1" || return 1
+}
+_mkc() {
+    #compdef mkc
+    _files -W "$1" -/
+}
+
 if [ -d "$HOME/.fzf" ] ; then
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
     # use ag
