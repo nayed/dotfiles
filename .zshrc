@@ -115,6 +115,11 @@ _mkc() {
     _files -W "$1" -/
 }
 
+# recursive touch
+touchp() {
+    mkdir -p "$(dirname "$1")/" && touch "$1"
+}
+
 if [ -d "$HOME/.fzf" ] ; then
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
     # use ag
