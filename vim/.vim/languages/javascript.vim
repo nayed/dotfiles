@@ -8,6 +8,7 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm i'}
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
 let g:prettier#config#semi = 'false'
+let g:prettier#config#trailing_comma = 'none'
 
 " vim-jsx
 let g:jsx_ext_required = 0

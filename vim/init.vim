@@ -28,6 +28,7 @@ source $HOME/.vim/languages/ruby.vim
 
 " Color Scheme
 Plug 'ayu-theme/ayu-vim'
+Plug 'dracula/vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'nyomaszto/crayon'
 Plug 'w0ng/vim-hybrid'
@@ -49,10 +50,12 @@ set termguicolors "Term colors
 
 " colorscheme solarized8_light_flat
 
+" colorscheme dracula
+
 " colorscheme gotham
 
 colorscheme hybrid
 
-set t_Co=256
+" set t_Co=256
 set background=dark
 
