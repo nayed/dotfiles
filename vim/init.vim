@@ -15,6 +15,8 @@ filetype off                  " required
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
+set clipboard+=unnamedplus
+
 source $HOME/.vim/basic.vim
 source $HOME/.vim/full.vim
 
@@ -28,11 +30,11 @@ source $HOME/.vim/languages/ruby.vim
 
 " Color Scheme
 Plug 'ayu-theme/ayu-vim'
-Plug 'dracula/vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'nyomaszto/crayon'
 Plug 'w0ng/vim-hybrid'
-Plug 'whatyouhide/vim-gotham'
+Plug 'zanglg/nova.vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -46,16 +48,9 @@ set termguicolors "Term colors
 " let ayucolor="mirage"
 " colorscheme ayu
 
-" colorscheme crayon
-
 " colorscheme solarized8_light_flat
 
-" colorscheme dracula
-
-" colorscheme gotham
-
-colorscheme hybrid
+colorscheme nord
 
 " set t_Co=256
 set background=dark
-
