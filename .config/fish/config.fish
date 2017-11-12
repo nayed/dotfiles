@@ -11,3 +11,8 @@ complete -c hub -w git
 # jump
 status --is-interactive; and . (jump shell | psub)
 
+# cd and ls
+function chpwd --on-variable PWD
+  status --is-command-substitution; and return
+  ll
+end
