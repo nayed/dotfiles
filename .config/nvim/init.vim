@@ -48,9 +48,7 @@ set termguicolors "Term colors
 " let ayucolor="mirage"
 " colorscheme ayu
 
-" colorscheme solarized8_light_flat
-
-colorscheme nord
+colorscheme solarized8_flat
 
 " set t_Co=256
-set background=dark
+set background=light
