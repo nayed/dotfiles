@@ -16,3 +16,6 @@ function chpwd --on-variable PWD
   status --is-command-substitution; and return
   ll
 end
+
+# add elixir to path
+set -gx PATH $PATH ~/.elixir/bin
