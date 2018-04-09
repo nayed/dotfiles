@@ -18,7 +18,7 @@ function chpwd --on-variable PWD
 end
 
 # add elixir to path
-set -gx PATH $PATH ~/.elixir/bin
+# set -gx PATH $PATH ~/.elixir/bin
 
  # use ag
 set -g FZF_DEFAULT_COMMAND 'ag --hidden -U --ignore .git -g ""'
