@@ -25,6 +25,9 @@ set -g FZF_DEFAULT_COMMAND 'ag --hidden -U --ignore .git -g ""'
 # To apply the command to CTRL-T as well
 set -g FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 # preview
-set -g FZF_CTRL_T_OPTS "--preview 'rougify {} 2> /dev/null | head -200'"
+set -g FZF_CTRL_T_OPTS "--preview 'coderay {} 2> /dev/null | head -200'"
 set -g FZF_ALT_C_OPTS "--preview 'tree -C {} | head -200'"
 set -g FZF_DEFAULT_OPTS '--height 70% --reverse'
+
+# enable rbenv
+status --is-interactive; and source (rbenv init -|psub)
