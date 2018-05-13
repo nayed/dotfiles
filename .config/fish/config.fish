@@ -31,3 +31,7 @@ set -g FZF_DEFAULT_OPTS '--height 70% --reverse'
 
 # enable rbenv
 status --is-interactive; and source (rbenv init -|psub)
+
+set -x -U GOPATH $HOME/Codes/go
+set -x -U GOBIN $GOPATH/bin
+set -gx PATH $PATH $GOBIN
