@@ -14,11 +14,11 @@ Plug 'Raimondi/delimitMate'
 " Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot'
-if has("nvim")
-  Plug 'Shougo/deoplete.nvim'
-  let g:deoplete#enable_at_startup = 1
-endif
+" Plug 'sheerun/vim-polyglot'
+" if has("nvim")
+"   Plug 'Shougo/deoplete.nvim'
+"   let g:deoplete#enable_at_startup = 1
+" endif
 Plug 'Shougo/denite.nvim'
 Plug 'skwp/greplace.vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -27,7 +27,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer'}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --go-completer'}
 Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'

@@ -21,7 +21,7 @@ source $HOME/.vim/basic.vim
 source $HOME/.vim/full.vim
 
 " Languages stuff
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 source $HOME/.vim/languages/elixir.vim
 source $HOME/.vim/languages/go.vim
 source $HOME/.vim/languages/html-css.vim
@@ -37,6 +37,7 @@ Plug 'dracula/vim'
 Plug 'hzchirs/vim-material'
 Plug 'lifepillar/vim-solarized8'
 Plug 'nyomaszto/crayon'
+Plug 'arcticicestudio/nord-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'zanglg/nova.vim'
 
@@ -54,14 +55,16 @@ set termguicolors "Term colors
 " let ayucolor="mirage"
 " colorscheme ayu
 
-colorscheme solarized8_flat
+" colorscheme solarized8_flat
 
 " colorscheme smyck
+
+colorscheme nord
 
 " colorscheme vim-material
 
 " let g:sierra_Sunset = 1
-" colorscheme sierra 
+" colorscheme sierra
 
 " set t_Co=256
 " set background=dark
