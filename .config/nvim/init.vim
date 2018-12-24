@@ -55,11 +55,11 @@ set termguicolors "Term colors
 " let ayucolor="mirage"
 " colorscheme ayu
 
-" colorscheme solarized8_flat
+colorscheme solarized8_flat
 
 " colorscheme smyck
 
-colorscheme nord
+" colorscheme nord
 
 " colorscheme vim-material
 
