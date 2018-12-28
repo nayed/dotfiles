@@ -40,7 +40,6 @@ Plug 'Yggdroot/indentLine'
 set updatetime=250 "Related to vim-gitgutter package
 
 " Display tabs and trailing spaces visually
-
 " set list listchars=tab:\ \ ,trail:·
 " let g:indentLine_char = '┆'
 " let g:indentLine_first_char = '┆'
@@ -49,12 +48,13 @@ set updatetime=250 "Related to vim-gitgutter package
 
 "set listchars=eol:$,tab:>-,trail:·,extends:>,precedes:<
 
-set list!
-if has('gui_running')
-    set list listchars=tab:▶\ ,trail:·,extends:\#,nbsp:.
-else
-    set list listchars=tab:>.,trail:.,extends:\#,nbsp:.
-endif
+" set list!
+"set list listchars=tab:\│\.,trail:.,extends:\#,nbsp:.
+"let g:indentLine_setColors = 1
+"let g:indentLine_showFirstIndentLevel = 1
+
+set list listchars=tab:\┆\ ,trail:-,extends:>,precedes:<,nbsp:+
+
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points

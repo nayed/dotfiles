@@ -5,6 +5,8 @@ alias pyg "pygmentize"
 alias n "nvim"
 alias v "vim"
 
+alias ls "exa"
+
 alias ea "n ~/.config/fish/aliases.fish"
 alias ec "n ~/.config/fish/config.fish"
 alias en "n ~/.config/nvim/init.vim"

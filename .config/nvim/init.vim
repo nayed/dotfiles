@@ -31,13 +31,14 @@ source $HOME/.vim/languages/ruby.vim
 
 " Color Scheme
 Plug 'AlessandroYorba/Sierra'
+Plug 'arcticicestudio/nord-vim'
 Plug 'ayu-theme/ayu-vim'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'dim13/smyck.vim'
 Plug 'dracula/vim'
 Plug 'hzchirs/vim-material'
 Plug 'lifepillar/vim-solarized8'
 Plug 'nyomaszto/crayon'
-Plug 'arcticicestudio/nord-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'zanglg/nova.vim'
 
@@ -55,7 +56,9 @@ set termguicolors "Term colors
 " let ayucolor="mirage"
 " colorscheme ayu
 
-colorscheme solarized8_flat
+" colorscheme solarized8_flat
+
+colorscheme challenger_deep
 
 " colorscheme smyck
 
