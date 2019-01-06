@@ -35,6 +35,7 @@ Plug 'vim-scripts/renamer.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'wakatime/vim-wakatime'
 Plug 'wesQ3/vim-windowswap'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 
 set updatetime=250 "Related to vim-gitgutter package
