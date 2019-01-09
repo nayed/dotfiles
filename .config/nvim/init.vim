@@ -30,17 +30,12 @@ source $HOME/.vim/languages/ruby.vim
 " source $HOME/.vim/languages/rust.vim
 
 " Color Scheme
-Plug 'AlessandroYorba/Sierra'
 Plug 'arcticicestudio/nord-vim'
-Plug 'ayu-theme/ayu-vim'
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'dim13/smyck.vim'
-Plug 'dracula/vim'
 Plug 'hzchirs/vim-material'
 Plug 'lifepillar/vim-solarized8'
-Plug 'nyomaszto/crayon'
+Plug 'mhartington/oceanic-next'
 Plug 'w0ng/vim-hybrid'
-Plug 'zanglg/nova.vim'
 
 
 " Initialize plugin system
@@ -51,23 +46,16 @@ syntax on
 
 set termguicolors "Term colors
 
-" Color scheme
-" let ayucolor="dark"
-" let ayucolor="mirage"
-" colorscheme ayu
-
 " colorscheme solarized8_flat
 
 colorscheme challenger_deep
 
-" colorscheme smyck
+" colorscheme OceanicNext
 
 " colorscheme nord
 
 " colorscheme vim-material
 
-" let g:sierra_Sunset = 1
-" colorscheme sierra
 
 " set t_Co=256
-" set background=dark
+set background=dark
