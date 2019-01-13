@@ -13,7 +13,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 " if has("nvim")
 "   Plug 'Shougo/deoplete.nvim'
 "   let g:deoplete#enable_at_startup = 1
