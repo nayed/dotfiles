@@ -5,12 +5,14 @@ Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'johngrib/vim-game-code-break'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'lfv89/vim-interestingwords'
 Plug 'mbbill/undotree'
 Plug 'majutsushi/tagbar'
 Plug 'neomake/neomake'
 Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'qpkorr/vim-bufkill'
 Plug 'Raimondi/delimitMate'
+Plug 'RRethy/vim-illuminate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
@@ -83,6 +85,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+let g:syntastic_tex_checkers = []
 
 " Markdown Preview by running ctrl + m
 let vim_markdown_preview_hotkey='<C-m>'
