@@ -144,3 +144,6 @@ function! s:zoom()
   endif
 endfunction
 nnoremap <silent> <leader>z :call <sid>zoom()<cr>
+
+" sudo save with :w!!
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
