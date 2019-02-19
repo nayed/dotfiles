@@ -58,7 +58,7 @@ set updatetime=250 "Related to vim-gitgutter package
 set list listchars=tab:\┆\ ,trail:-,extends:>,precedes:<,nbsp:+
 
 
-set nowrap       "Don't wrap lines
+set wrap       "Wrap lines
 set linebreak    "Wrap lines at convenient points
 
 " ================ Custom Settings ========================

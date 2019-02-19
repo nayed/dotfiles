@@ -1,14 +1,16 @@
 Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier', { 
   \ 'do': 'npm install', 
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] } 
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] } 
 Plug 'ternjs/tern_for_vim', { 'do': 'npm i'}
 
 " prettier js
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+let g:prettier#config#prose_wrap = 'always'
 let g:prettier#config#semi = 'false'
 let g:prettier#config#trailing_comma = 'none'
+let g:prettier#config#bracket_spacing = 'true'
 
 " vim-jsx
 let g:jsx_ext_required = 0
