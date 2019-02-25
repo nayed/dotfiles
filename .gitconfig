@@ -10,3 +10,8 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+# Use https instead of git and git+ssh
+[url "https://github.com/"]
+  insteadOf = git://github.com/
+[url "https://github.com/"]
+  insteadOf = git@github.com:
