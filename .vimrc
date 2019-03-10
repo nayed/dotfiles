@@ -25,6 +25,7 @@ Plug 'sheerun/vim-polyglot'
 " source $HOME/.vim/languages/javascript.vim
 " source $HOME/.vim/languages/ruby.vim
 " source $HOME/.vim/languages/rust.vim
+" source $HOME/.vim/languages/typescript.vim
 
 " Color Scheme
 Plug 'ayu-theme/ayu-vim'

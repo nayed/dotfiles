@@ -28,6 +28,7 @@ source $HOME/.vim/languages/html-css.vim
 source $HOME/.vim/languages/javascript.vim
 source $HOME/.vim/languages/ruby.vim
 " source $HOME/.vim/languages/rust.vim
+source $HOME/.vim/languages/typescript.vim
 
 " Color Scheme
 Plug 'arcticicestudio/nord-vim'
