@@ -22,7 +22,7 @@ source $HOME/.vim/full.vim
 
 " Languages stuff
 " Plug 'sheerun/vim-polyglot'
-source $HOME/.vim/languages/elixir.vim
+" source $HOME/.vim/languages/elixir.vim
 source $HOME/.vim/languages/go.vim
 source $HOME/.vim/languages/html-css.vim
 source $HOME/.vim/languages/javascript.vim
