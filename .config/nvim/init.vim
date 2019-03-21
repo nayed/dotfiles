@@ -49,7 +49,7 @@ syntax on
 
 set termguicolors "Term colors
 
-" colorscheme solarized8_flat
+colorscheme solarized8_flat
 
 " colorscheme challenger_deep
 
@@ -61,8 +61,7 @@ set termguicolors "Term colors
 
 " colorscheme gruvbox
 
-colorscheme palenight
-
+" colorscheme palenight
 
 " set t_Co=256
-set background=dark
+set background=light

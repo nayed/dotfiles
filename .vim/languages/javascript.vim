@@ -1,7 +1,5 @@
 Plug 'mxw/vim-jsx'
-Plug 'prettier/vim-prettier', { 
-  \ 'do': 'npm install', 
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] } 
+Plug 'prettier/vim-prettier', { 'do': 'npm install', 'branch': 'release/1.x' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm i'}
 
 " prettier js
@@ -11,6 +9,8 @@ let g:prettier#config#prose_wrap = 'always'
 let g:prettier#config#semi = 'false'
 let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#single_quote = 'true'
+" let g:prettier#config#config_precedence = 'file-override'
 
 " vim-jsx
 let g:jsx_ext_required = 0

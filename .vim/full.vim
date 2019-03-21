@@ -29,7 +29,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --go-completer'}
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer --ts-completer --go-completer'}
 Plug 'Valloric/MatchTagAlways'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -220,3 +220,5 @@ endif
 nnoremap <F6> :UndotreeToggle<cr>
 
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 11
+
+let g:vim_markdown_conceal_code_blocks = 0

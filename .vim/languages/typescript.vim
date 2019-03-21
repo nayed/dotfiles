@@ -1,1 +1,2 @@
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'

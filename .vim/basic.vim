@@ -72,6 +72,7 @@ set tabstop=2
 set expandtab
 
 filetype plugin on
+set omnifunc=syntaxcomplete#Complete
 filetype indent on
 
 " ================ Custom Settings ========================
