@@ -1,3 +1,4 @@
 fishd.*
 conf.d
 .vim/autoload
+.netrwhist
