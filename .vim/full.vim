@@ -1,7 +1,7 @@
 Plug 'airblade/vim-gitgutter'
 Plug 'edkolev/tmuxline.vim'
 Plug 'ervandew/supertab'
-Plug 'JamshedVesuna/vim-markdown-preview'
+" Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'johngrib/vim-game-code-break'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -90,8 +90,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_tex_checkers = []
 
 " Markdown Preview by running ctrl + m
-let vim_markdown_preview_hotkey='<C-m>'
-let vim_markdown_preview_github=1
+" let vim_markdown_preview_hotkey='<C-m>'
+" let vim_markdown_preview_github=1
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
