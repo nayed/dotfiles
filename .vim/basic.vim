@@ -32,6 +32,7 @@ set timeout timeoutlen=1500
 set noswapfile
 set nobackup
 set nowb
+set nowritebackup
 
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.

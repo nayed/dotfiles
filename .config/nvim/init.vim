@@ -23,22 +23,15 @@ source $HOME/.vim/full.vim
 " Languages stuff
 " Plug 'sheerun/vim-polyglot'
 " source $HOME/.vim/languages/elixir.vim
-source $HOME/.vim/languages/go.vim
-source $HOME/.vim/languages/html-css.vim
-source $HOME/.vim/languages/javascript.vim
+" source $HOME/.vim/languages/go.vim
+" source $HOME/.vim/languages/html-css.vim
+" source $HOME/.vim/languages/javascript.vim
 " source $HOME/.vim/languages/ruby.vim
 " source $HOME/.vim/languages/rust.vim
-source $HOME/.vim/languages/typescript.vim
+" source $HOME/.vim/languages/typescript.vim
 
 " Color Scheme
-Plug 'arcticicestudio/nord-vim'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'hzchirs/vim-material'
 Plug 'lifepillar/vim-solarized8'
-Plug 'mhartington/oceanic-next'
-Plug 'morhetz/gruvbox'
-Plug 'w0ng/vim-hybrid'
 
 
 " Initialize plugin system
@@ -51,17 +44,6 @@ set termguicolors "Term colors
 
 colorscheme solarized8_flat
 
-" colorscheme challenger_deep
-
-" colorscheme OceanicNext
-
-" colorscheme nord
-
-" colorscheme vim-material
-
-" colorscheme gruvbox
-
-" colorscheme palenight
 
 " set t_Co=256
 set background=light
