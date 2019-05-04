@@ -1,2 +1,2 @@
 Plug 'ap/vim-css-color'
-Plug 'mattn/emmet-vim'
+Plug 'neoclide/coc-emmet', {'do': 'npm install --frozen-lockfile'}

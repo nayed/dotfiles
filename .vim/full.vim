@@ -7,6 +7,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " ================ Custom Settings ========================
 
+" ======================= NERDTREE ========================"
 " open NERDTee if no file is specified when neovim is called
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -20,7 +21,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Display hidden files in NERDTree
 let NERDTreeShowHidden=1
 
-" ================ COC ====================================
+" ======================= COC ===========================
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 
@@ -111,25 +112,6 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
-
-
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
 " ===================== Vim airline =====================

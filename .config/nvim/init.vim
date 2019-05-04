@@ -21,17 +21,17 @@ source $HOME/.vim/basic.vim
 source $HOME/.vim/full.vim
 
 " Languages stuff
-" Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 " source $HOME/.vim/languages/elixir.vim
 source $HOME/.vim/languages/go.vim
-" source $HOME/.vim/languages/html-css.vim
-" source $HOME/.vim/languages/javascript.vim
+source $HOME/.vim/languages/html-css.vim
+source $HOME/.vim/languages/javascript.vim
 " source $HOME/.vim/languages/ruby.vim
 " source $HOME/.vim/languages/rust.vim
-" source $HOME/.vim/languages/typescript.vim
 
 " Color Scheme
 Plug 'lifepillar/vim-solarized8'
+Plug 'mhartington/oceanic-next'
 
 
 " Initialize plugin system
@@ -42,8 +42,8 @@ syntax on
 
 set termguicolors "Term colors
 
-colorscheme solarized8_flat
+" colorscheme solarized8_flat
+colorscheme OceanicNext
 
-
-" set t_Co=256
-set background=light
+set t_Co=256
+" set background=light
