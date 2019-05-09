@@ -110,7 +110,7 @@ if has("nvim")
 endif
 
 " Kill buffer without killing a window with ctrl w
-map <C-w>w :bd<cr>
+map <C-w>w :BD<cr>
 
 " Save file on ctrl s
 :nmap <c-s> :w<CR>
@@ -149,3 +149,10 @@ nnoremap <silent> <leader>z :call <sid>zoom()<cr>
 
 " sudo save with :w!!
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+
+" Show indent line info for tabs
+set list listchars=tab:\¦\ ,trail:-,extends:>,precedes:<,nbsp:+
+
+set wrap       "Wrap lines
+set linebreak    "Wrap lines at convenient points

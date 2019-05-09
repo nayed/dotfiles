@@ -42,8 +42,9 @@ syntax on
 
 set termguicolors "Term colors
 
-" colorscheme solarized8_flat
-colorscheme OceanicNext
+colorscheme solarized8_flat
+
+" colorscheme OceanicNext
 
 set t_Co=256
-" set background=light
+set background=light

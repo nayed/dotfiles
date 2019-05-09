@@ -1,29 +1,29 @@
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'Raimondi/delimitMate'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'Yggdroot/indentLine'
+Plug 'Valloric/MatchTagAlways'
+Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'majutsushi/tagbar'
+Plug 'mbbill/undotree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'qpkorr/vim-bufkill'
+Plug 'rbong/vim-flog'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'tpope/vim-surround'
+Plug 'wesQ3/vim-windowswap'
 
 
-" ================ Custom Settings ========================
+" =========================== Custom Settings ===========================
 
-" ======================= NERDTREE ========================"
-" open NERDTee if no file is specified when neovim is called
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Now we can:
-" - hit tab to :find by partial match
-" - use * to make it fuzzy
-" Things to consider:
-" - :b lets you autocomplete any open buffer
-
-" Display hidden files in NERDTree
-let NERDTreeShowHidden=1
-
-" ======================= COC ===========================
+" =============================== COC ==================================
 " Smaller updatetime for CursorHold & CursorHoldI
 set updatetime=300
 
@@ -116,36 +116,7 @@ let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_er
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 
-" ===================== Vim airline =====================
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-let g:tmuxline_preset = {
-      \'a'    : '#S',
-      \'c'    : ['#(whoami)'],
-      \'win'  : ['#I', '#W'],
-      \'cwin' : ['#I', '#W', '#F'],
-      \'x'    : '#(date)',
-      \'z'    : '#H'}
-
-let g:airline_theme='wombat'
-
-" ================================== FZF ============================
-
+" =============================== FZF ============================
 let $FZF_DEFAULT_OPTS = '--reverse'
 
 " ,s to start global search
@@ -194,3 +165,82 @@ command! -bang -nargs=* Rg
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+
+" ========================== MATCH TAG ALWAYS ==========================
+let g:mta_filetypes = {
+    \'javascript.jsx': 1,
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \}
+
+
+" =========================== NERDCOMMENTER =============================
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+
+" ============================ NERDTREE =================================
+" open NERDTee if no file is specified when neovim is called
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Now we can:
+" - hit tab to :find by partial match
+" - use * to make it fuzzy
+" Things to consider:
+" - :b lets you autocomplete any open buffer
+
+" Display hidden files in NERDTree
+let NERDTreeShowHidden=1
+
+
+" ============================ TAGBAR ===============================
+nmap <F8> :TagbarToggle<CR>
+
+
+" ============================= UNDOTREE ============================
+nnoremap <F6> :UndotreeToggle<cr>
+
+
+" =========================== VIM AIRLINE ============================
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'c'    : ['#(whoami)'],
+      \'win'  : ['#I', '#W'],
+      \'cwin' : ['#I', '#W', '#F'],
+      \'x'    : '#(date)',
+      \'z'    : '#H'}
+
+let g:airline_theme='wombat'
