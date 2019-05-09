@@ -1,7 +1,7 @@
-Plug 'neoclide/coc-eslint', {'do': 'npm install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'npm install --frozen-lockfile'}
-Plug 'neoclide/coc-prettier', {'do': 'npm install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 
 " :Prettier command 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile

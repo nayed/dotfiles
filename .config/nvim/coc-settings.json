@@ -1,6 +1,7 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "css", "Markdown"],
   "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
+  "emmet.showExpandedAbbreviation": true,
   "languageserver": {
     "golang": {
       "command": "gopls",
