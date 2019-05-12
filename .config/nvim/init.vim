@@ -30,6 +30,7 @@ source $HOME/.vim/languages/javascript.vim
 " source $HOME/.vim/languages/rust.vim
 
 " Color Scheme
+Plug 'chriskempson/base16-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'mhartington/oceanic-next'
 
@@ -47,9 +48,12 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme solarized8_flat
+" colorscheme solarized8_flat
 
 " colorscheme OceanicNext
 
+" colorscheme base16-ashes
+colorscheme base16-nord
+
 set t_Co=256
-set background=light
+" set background=light
