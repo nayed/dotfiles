@@ -167,6 +167,9 @@ command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 
+" ============================= INDENTLINE =============================
+let g:vim_markdown_conceal_code_blocks = 0
+
 " ========================== MATCH TAG ALWAYS ==========================
 let g:mta_filetypes = {
     \'javascript.jsx': 1,
