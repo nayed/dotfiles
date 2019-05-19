@@ -35,3 +35,6 @@ status --is-interactive; and source (rbenv init -|psub)
 
 # jump
 status --is-interactive; and source (jump shell | psub)
+
+# asdf
+set -gx PATH $PATH ~/.asdf/shims
