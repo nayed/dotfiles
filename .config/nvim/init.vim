@@ -30,9 +30,10 @@ source $HOME/.vim/languages/javascript.vim
 " source $HOME/.vim/languages/rust.vim
 
 " Color Scheme
-Plug 'chriskempson/base16-vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'kamwitsta/nordisk'
+Plug 'ajh17/spacegray.vim'
 Plug 'lifepillar/vim-solarized8'
-Plug 'mhartington/oceanic-next'
 
 
 " Initialize plugin system
@@ -48,12 +49,10 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme solarized8_flat
-
-" colorscheme OceanicNext
-
-" colorscheme base16-ashes
-" colorscheme base16-nord
+" colorscheme iceberg
+colorscheme nordisk
+" colorscheme solarized8_flat
+" colorscheme spacegray
 
 set t_Co=256
-set background=light
+" set background=light
