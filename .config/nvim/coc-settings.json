@@ -1,5 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "css", "Markdown"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "css", "markdown"],
   "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
   "emmet.showExpandedAbbreviation": true,
   "languageserver": {
