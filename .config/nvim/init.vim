@@ -30,9 +30,9 @@ source $HOME/.vim/languages/javascript.vim
 " source $HOME/.vim/languages/rust.vim
 
 " Color Scheme
-Plug 'chriskempson/base16-vim'
-Plug 'lifepillar/vim-solarized8'
+Plug 'nanotech/jellybeans.vim'
 Plug 'mhartington/oceanic-next'
+Plug 'lifepillar/vim-solarized8'
 
 
 " Initialize plugin system
@@ -52,8 +52,7 @@ endif
 
 " colorscheme OceanicNext
 
-" colorscheme base16-ashes
-colorscheme base16-nord
+colorscheme jellybeans
 
 set t_Co=256
 " set background=light
