@@ -48,11 +48,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-" colorscheme solarized8_flat
+colorscheme solarized8_flat
 
 " colorscheme OceanicNext
 
-colorscheme jellybeans
-
 set t_Co=256
-" set background=light
+set background=light
