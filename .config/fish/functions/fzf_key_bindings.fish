@@ -1,1 +1,1 @@
-source ~/.fzf/shell/key-bindings.fish
+/home/nayed/.fzf/shell/key-bindings.fish
