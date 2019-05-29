@@ -4,3 +4,4 @@ conf.d
 .netrwhist
 .config/fish/fish_variables
 .config/fish/omf.fish
+.config/fish/functions/fish_prompt.fish
