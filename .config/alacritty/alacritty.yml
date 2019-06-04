@@ -191,6 +191,11 @@ colors:
     cyan:    '0x95c4ce'
     white:   '0xd2d4de'
 
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x1E1E3F'
+    cursor: '0xFAD000'
+
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once

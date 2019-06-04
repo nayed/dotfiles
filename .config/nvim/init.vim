@@ -50,9 +50,9 @@ if exists('+termguicolors')
 endif
 
 " colorscheme iceberg
-colorscheme nordisk
+" colorscheme nordisk
 " colorscheme solarized8_flat
-" colorscheme spacegray
+colorscheme spacegray
 
 set t_Co=256
 " set background=light
