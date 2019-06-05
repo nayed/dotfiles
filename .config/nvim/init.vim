@@ -31,6 +31,7 @@ source $HOME/.vim/languages/javascript.vim
 
 " Color Scheme
 Plug 'cocopon/iceberg.vim'
+Plug 'morhetz/gruvbox'
 Plug 'kamwitsta/nordisk'
 Plug 'ajh17/spacegray.vim'
 Plug 'lifepillar/vim-solarized8'
@@ -50,9 +51,10 @@ if exists('+termguicolors')
 endif
 
 " colorscheme iceberg
+colorscheme gruvbox
 " colorscheme nordisk
 " colorscheme solarized8_flat
-colorscheme spacegray
+" colorscheme spacegray
 
 set t_Co=256
-" set background=light
+set background=dark

@@ -15,22 +15,27 @@ filetype off                  " required
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+set clipboard+=unnamedplus
+
 source $HOME/.vim/basic.vim
-" source $HOME/.vim/full.vim
+source $HOME/.vim/full.vim
 
 " Languages stuff
 Plug 'sheerun/vim-polyglot'
 " source $HOME/.vim/languages/elixir.vim
-" source $HOME/.vim/languages/html-css.vim
-" source $HOME/.vim/languages/javascript.vim
+source $HOME/.vim/languages/go.vim
+source $HOME/.vim/languages/html-css.vim
+source $HOME/.vim/languages/javascript.vim
 " source $HOME/.vim/languages/ruby.vim
 " source $HOME/.vim/languages/rust.vim
-" source $HOME/.vim/languages/typescript.vim
 
 " Color Scheme
-Plug 'ayu-theme/ayu-vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'morhetz/gruvbox'
+Plug 'kamwitsta/nordisk'
+Plug 'ajh17/spacegray.vim'
 Plug 'lifepillar/vim-solarized8'
-Plug 'nyomaszto/crayon'
+
 
 " Initialize plugin system
 call plug#end()
@@ -38,13 +43,18 @@ call plug#end()
 "turn on syntax highlighting
 syntax on
 
-set termguicolors "Term colors
+" Enable true color
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
-" Color scheme
-let ayucolor="dark"
-" let ayucolor="mirage"
-colorscheme ayu
+" colorscheme iceberg
+colorscheme gruvbox
+" colorscheme nordisk
+" colorscheme solarized8_flat
+" colorscheme spacegray
 
-" colorscheme crayon
-
-" colorscheme solarized8_light_flat
+set t_Co=256
+set background=dark
