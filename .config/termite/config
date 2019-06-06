@@ -22,28 +22,28 @@ urgent_on_bell = true
 highlight = #30343e
 
 [colors]
-cursor = #d8dee9
-cursor_foreground = #2e3440
+cursor = #eee3c4
+cursor_foreground = #eee8d5
 
-foreground = #d8dee9
+foreground = #eee3c4
 foreground_bold = #d8dee9
-background = #041a2f
+background = #0a0d1b
 
-highlight = #4c566a
+highlight = #eee8d5
 
-color0  = #3b4252
-color1  = #bf616a
-color2  = #a3be8c
-color3  = #ebcb8b
-color4  = #81a1c1
-color5  = #b48ead
-color6  = #88c0d0
-color7  = #e5e9f0
-color8  = #4c566a
-color9  = #bf616a
-color10 = #a3be8c
-color11 = #ebcb8b
-color12 = #81a1c1
-color13 = #b48ead
-color14 = #8fbcbb
-color15 = #eceff4
+color0  = #0a0d1b
+color1  = #6fab81
+color2  = #ffc87a
+color3  = #738b88
+color4  = #96a99e
+color5  = #afcab7
+color6  = #c9c1a3
+color7  = #eee3c4
+color8  = #a69f8b
+color9  = #6fab81
+color10 = #ffc87a
+color11 = #738b88
+color12 = #96a99e
+color13 = #afcab7
+color14 = #c9c1a3
+color15 = #eee3c4

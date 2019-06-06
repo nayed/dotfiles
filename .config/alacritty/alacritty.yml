@@ -162,39 +162,39 @@ persistent_logging: false
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Iceberg)
+# Colors (Lyon)
 colors:
   # Default colors
   primary:
-    background: '0x161821'
-    foreground: '0xd2d4de'
+    background: '0x0a0d1b'
+    foreground: '0xeee3c4'
 
   # Normal colors
   normal:
-    black:   '0x161821'
-    red:     '0xe27878'
-    green:   '0xb4be82'
-    yellow:  '0xe2a478'
-    blue:    '0x84a0c6'
-    magenta: '0xa093c7'
-    cyan:    '0x89b8c2'
-    white:   '0xc6c8d1'
+    black:   '0x0a0d1b'
+    red:     '0x6fab81'
+    green:   '0xffc87a'
+    yellow:  '0x738b88'
+    blue:    '0x96a99e'
+    magenta: '0xafcab7'
+    cyan:    '0xc9c1a3'
+    white:   '0xeee3c4'
 
   # Bright colors
   bright:
-    black:   '0x6b7089'
-    red:     '0xe98989'
-    green:   '0xc0ca8e'
-    yellow:  '0xe9b189'
-    blue:    '0x91acd1'
-    magenta: '0xada0d3'
-    cyan:    '0x95c4ce'
-    white:   '0xd2d4de'
+    black:   '0x0a0d1b'
+    red:     '0x6fab81'
+    green:   '0xffc87a'
+    yellow:  '0x738b88'
+    blue:    '0x96a99e'
+    magenta: '0xafcab7'
+    cyan:    '0xc9c1a3'
+    white:   '0xeee3c4'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x1E1E3F'
-    cursor: '0xFAD000'
+    text: '0xeee3c4'
+    cursor: '0xeee8d5'
 
 # Visual Bell
 #
