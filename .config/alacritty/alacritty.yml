@@ -162,39 +162,49 @@ persistent_logging: false
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Lyon)
 colors:
   # Default colors
   primary:
-    background: '0x0a0d1b'
-    foreground: '0xeee3c4'
+    background: "0x292d3e"
+    foreground: "0xeaeaea"
+
+    # Bright and dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically if it is not present.
+    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+    # is `false`, the normal foreground color will be used.
+    #dim_foreground: '0x9a9a9a'
+    #bright_foreground: '0xffffff'
+
+  # Cursor colors
+  #
+  # Colors which should be used to draw the terminal cursor. If these are unset,
+  # the cursor color will be the inverse of the cell color.
+  cursor:
+    text: '0x000000'
+    cursor: '0xa3f7ff'
 
   # Normal colors
   normal:
-    black:   '0x0a0d1b'
-    red:     '0x6fab81'
-    green:   '0xffc87a'
-    yellow:  '0x738b88'
-    blue:    '0x96a99e'
-    magenta: '0xafcab7'
-    cyan:    '0xc9c1a3'
-    white:   '0xeee3c4'
+    black: "0x292d3e"
+    red: "0xf07178"
+    green: "0xc3e88d"
+    yellow: "0xffcb6b"
+    blue: "0x82aaff"
+    magenta: "0xc792ea"
+    cyan: "0x89ddff"
+    white: "0xd0d0d0"
 
   # Bright colors
   bright:
-    black:   '0x0a0d1b'
-    red:     '0x6fab81'
-    green:   '0xffc87a'
-    yellow:  '0x738b88'
-    blue:    '0x96a99e'
-    magenta: '0xafcab7'
-    cyan:    '0xc9c1a3'
-    white:   '0xeee3c4'
-
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0xeee3c4'
-    cursor: '0xeee8d5'
+    black: "0x434758"
+    red: "0xff8b92"
+    green: "0xddffa7"
+    yellow: "0xffe585"
+    blue: "0x9cc4ff"
+    magenta: "0xe1acff"
+    cyan: "0xa3f7ff"
+    white: "0xfefefe"
 
 # Visual Bell
 #
