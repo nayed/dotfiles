@@ -9,6 +9,8 @@ endif
 
 filetype off                  " required
 
+set rtp+=~/.vim
+
 " Specify a directory for plugins
 " - For Vim: ~/.vim/plugged
 " - For Neovim: ~/.local/share/nvim/plugged
@@ -57,4 +59,4 @@ colorscheme gruvbox
 " colorscheme spacegray
 
 set t_Co=256
-set background=dark
+" set background=light
