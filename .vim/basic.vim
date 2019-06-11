@@ -1,6 +1,7 @@
 " ================ General Config ====================
 
 set laststatus=2
+set showtabline=2
 
 set number relativenumber       "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode

@@ -32,6 +32,7 @@ source $HOME/.vim/languages/javascript.vim
 " source $HOME/.vim/languages/rust.vim
 
 " Color Scheme
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'cocopon/iceberg.vim'
 Plug 'morhetz/gruvbox'
 Plug 'kamwitsta/nordisk'
@@ -52,8 +53,9 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
+colorscheme challenger_deep
 " colorscheme iceberg
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme nordisk
 " colorscheme solarized8_flat
 " colorscheme spacegray
