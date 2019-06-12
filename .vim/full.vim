@@ -213,7 +213,7 @@ function! Line_num() abort
 endfunction
 
 function! Active_tab_num(n) abort
-    return " " . a:n . " \ue0bb"
+  return " " . a:n . " \ue0bb"
 endfunction
 
 function! Inactive_tab_num(n) abort
@@ -225,7 +225,7 @@ function! Line_percent() abort
 endfunction
 
 function! Col_num() abort
-    return string(getcurpos()[2])
+  return string(getcurpos()[2])
 endfunction
 
 function! Git_branch() abort
@@ -250,73 +250,79 @@ function! StatusDiagnostic() abort
   return "\uf42e"
 endfunction
 
+function! Devicons_Filetype()
+  " return winwidth(0) > 70 ? (strlen(&filetype) ? WebDevIconsGetFileTypeSymbol() . ' ' . &filetype : 'no ft') : ''
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+
 let g:lightline = {}
 let g:lightline.colorscheme = 'challenger_deep'
+" let g:lightline.active = {
+"       \ 'left': [ ['mode', 'readonly'], ['filename_with_icon', 'modified' ] ],
+"       \ 'right': [ ['lineinfo'], ['testing_status', 'status_diagnostic'] ]
+"       \ }
 let g:lightline.active = {
-      \ 'left': [ ['mode', 'readonly'], ['filename_with_icon', 'modified' ] ],
-      \ 'right': [ ['lineinfo'], ['testing_status', 'status_diagnostic'] ]
-      \ }
-let g:lightline.separator = { 'left': "\ue0b8", 'right': "\ue0be " }
-let g:lightline.subseparator = { 'left': "\ue0b9", 'right': "\ue0b9" }
-let g:lightline.tabline_separator = { 'left': "\ue0bc", 'right': "\ue0ba " }
-let g:lightline.tabline_subseparator = { 'left': "\ue0bb", 'right': "\ue0bb" }
+        \ 'left': [ [ 'mode', 'paste' ],
+        \           [ 'readonly', 'filename', 'modified', 'fileformat', 'devicons_filetype' ] ],
+        \ 'right': [ ['lineinfo'], ['testing_status', 'status_diagnostic'] ]
+        \ }
+let g:lightline.separator = { 'left': "\ue0b8 ", 'right': "\ue0be " }
+let g:lightline.subseparator = { 'left': "\ue0b9 ", 'right': "\ue0b9" }
+let g:lightline.tabline_separator = { 'left': "\ue0bc ", 'right': "\ue0ba " }
+let g:lightline.tabline_subseparator = { 'left': "\ue0bb ", 'right': "\ue0bb" }
 let g:lightline#gitdiff#indicator_added = "\uf055 "
 let g:lightline#gitdiff#indicator_deleted = "\uf057 "
 let g:lightline#gitdiff#indicator_modified = "\uf056 "
 
-" let g:lightline.tabline = {
-"             \ 'left': [ [ 'vim_logo', 'tabs' ] ],
-"             \ 'right': [ [ 'git_branch' ], [ 'gitdiff' ]]
-"             \ }
-" let g:lightline.tab = {
-"         \ 'active': ['artify_activetabnum', 'filename_with_parent'],
-"         \ 'inactive': ['artify_inactivetabnum', 'filename']
-"         \ }
-
 let g:lightline.tabline = {
-          \ 'left': [ [ 'bufferinfo' ],
-          \             [ 'separator' ],
-          \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-          \ 'right': [ [ 'git_branch' ], [ 'gitdiff' ]]
-          \ }
+        \ 'left': [ [ 'vim_logo' ], [ 'bufferinfo' ], [ 'separator' ],
+        \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+        \ 'right': [ [ 'git_branch' ], [ 'gitdiff' ]]
+        \ }
+let g:lightline.tab = {
+        \ 'active': ['activetabnum', 'filename_with_parent'],
+        \ 'inactive': ['inactivetabnum', 'filename']
+        \ }
 
 let g:lightline.tab_component = {}
 let g:lightline.tab_component_function = {
-            \ 'artify_activetabnum': 'Active_tab_num',
-            \ 'artify_inactivetabnum': 'Inactive_tab_num',
-            \ 'artify_filename': 'lightline_tab_filename',
-            \ 'filename': 'lightline#tab#filename',
-            \ 'modified': 'lightline#tab#modified',
-            \ 'readonly': 'lightline#tab#readonly',
-            \ 'tabnum': 'lightline#tab#tabnum',
-            \ 'filename_with_parent': 'FileNameWithParent'
-            \ }
+        \ 'activetabnum': 'Active_tab_num',
+        \ 'filename': 'lightline#tab#filename',
+        \ 'filename_with_parent': 'FileNameWithParent'
+        \ 'inactivetabnum': 'Inactive_tab_num',
+        \ 'modified': 'lightline#tab#modified',
+        \ 'readonly': 'lightline#tab#readonly',
+        \ 'tabnum': 'lightline#tab#tabnum',
+        \ }
 
 let g:lightline.component = {
+        \ 'fileformat': '%{&fenc!=#""?&fenc:&enc}[%{&ff}]',
         \ 'filename_with_icon': '%{FileNameWithIcon()}',
-        \ 'lineinfo': "%2{Line_percent()}\uf295 %3{Line_num()}:%-2{Col_num()}",
-        \ 'vim_logo': "\ue7c5",
-        \ 'git_branch': '%{Git_branch()}',
         \ 'filename_with_parent': '%t',
+        \ 'git_branch': '%{Git_branch()}',
+        \ 'lineinfo': "%2{Line_percent()}\uf295 %3{Line_num()}:%-2{Col_num()}",
+        \ 'paste': '%{&paste?"PASTE":""}',
+        \ 'separator': '',
         \ 'status_diagnostic': '%{StatusDiagnostic()}',
-        \   'separator': '',
+        \ 'vim_logo': "\ue7c5",
         \ }
 
 let g:lightline.component_expand = {
-        \ 'gitdiff': 'lightline#gitdiff#get',
-        \ 'buffercurrent': 'lightline#buffer#buffercurrent',
-        \ 'bufferbefore': 'lightline#buffer#bufferbefore',
         \ 'bufferafter': 'lightline#buffer#bufferafter',
+        \ 'bufferbefore': 'lightline#buffer#bufferbefore',
+        \ 'buffercurrent': 'lightline#buffer#buffercurrent',
+        \ 'gitdiff': 'lightline#gitdiff#get',
         \ }
 
 let g:lightline.component_type = {
-        \ 'buffercurrent': 'tabsel',
-        \ 'bufferbefore': 'raw',
         \ 'bufferafter': 'raw',
+        \ 'bufferbefore': 'raw',
+        \ 'buffercurrent': 'tabsel',
         \ }
 
 let g:lightline.component_function = {
         \ 'bufferinfo': 'lightline#buffer#bufferinfo',
+        \ 'devicons_filetype': 'Devicons_Filetype',
         \ }
 
 " hide buffer number
