@@ -288,7 +288,7 @@ let g:lightline.tab_component = {}
 let g:lightline.tab_component_function = {
         \ 'activetabnum': 'Active_tab_num',
         \ 'filename': 'lightline#tab#filename',
-        \ 'filename_with_parent': 'FileNameWithParent'
+        \ 'filename_with_parent': 'FileNameWithParent',
         \ 'inactivetabnum': 'Inactive_tab_num',
         \ 'modified': 'lightline#tab#modified',
         \ 'readonly': 'lightline#tab#readonly',
