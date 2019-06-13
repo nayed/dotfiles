@@ -263,12 +263,12 @@ let g:lightline.colorscheme = 'challenger_deep'
 "       \ }
 let g:lightline.active = {
         \ 'left': [ [ 'mode', 'paste' ],
-        \           [ 'readonly', 'filename', 'modified', 'fileformat', 'devicons_filetype' ] ],
+        \           [ 'readonly', 'relativepath', 'modified', 'fileformat', 'devicons_filetype' ] ],
         \ 'right': [ ['lineinfo'], ['testing_status', 'status_diagnostic'] ]
         \ }
-let g:lightline.separator = { 'left': "\ue0b8 ", 'right': "\ue0be " }
+let g:lightline.separator = { 'left': "\ue0b8 ", 'right': "\ue0ba " }
 let g:lightline.subseparator = { 'left': "\ue0b9 ", 'right': "\ue0b9" }
-let g:lightline.tabline_separator = { 'left': "\ue0bc ", 'right': "\ue0ba " }
+let g:lightline.tabline_separator = { 'left': "\ue0b8 ", 'right': "\ue0ba " }
 let g:lightline.tabline_subseparator = { 'left': "\ue0bb ", 'right': "\ue0bb" }
 let g:lightline#gitdiff#indicator_added = "\uf055 "
 let g:lightline#gitdiff#indicator_deleted = "\uf057 "
@@ -292,6 +292,7 @@ let g:lightline.tab_component_function = {
         \ 'inactivetabnum': 'Inactive_tab_num',
         \ 'modified': 'lightline#tab#modified',
         \ 'readonly': 'lightline#tab#readonly',
+        \ 'relativepath': '%f',
         \ 'tabnum': 'lightline#tab#tabnum',
         \ }
 
