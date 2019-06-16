@@ -59,9 +59,9 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" Use Ctrl+c n and Ctrl+c p to navigate diagnostics
+map <C-c>n <Plug>(coc-diagnostic-next)
+map <C-c>p <Plug>(coc-diagnostic-prev)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -267,7 +267,7 @@ let g:lightline.active = {
         \ 'right': [ ['lineinfo'], ['testing_status', 'status_diagnostic'] ]
         \ }
 let g:lightline.separator = { 'left': "\ue0b8 ", 'right': "\ue0ba " }
-let g:lightline.subseparator = { 'left': "\ue0b9 ", 'right': "\ue0b9" }
+let g:lightline.subseparator = { 'left': "\ue0b9 ", 'right': "\ue0bb " }
 let g:lightline.tabline_separator = { 'left': "\ue0b8 ", 'right': "\ue0ba " }
 let g:lightline.tabline_subseparator = { 'left': "\ue0bb ", 'right': "\ue0bb" }
 let g:lightline#gitdiff#indicator_added = "\uf055 "
