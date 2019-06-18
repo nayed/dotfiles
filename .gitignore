@@ -2,6 +2,7 @@ fishd.*
 conf.d
 .vim/autoload
 .vim/plugged
+.vim/sessions
 .netrwhist
 .config/fish/fish_variables
 .config/fish/omf.fish

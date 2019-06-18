@@ -145,8 +145,8 @@ map <Leader>k <Plug>(easymotion-k)
 let $FZF_DEFAULT_OPTS = '--reverse'
 
 " ,s to start global search
-nnoremap <Leader>s :Ag<CR>
-nnoremap <Leader>S :Ag!
+nnoremap <Leader>se :Ag<CR>
+nnoremap <Leader>SE :Ag!
 
 " ,f to start files search
 nnoremap <Leader>f :Files<CR>
@@ -370,6 +370,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Display hidden files in NERDTree
 let NERDTreeShowHidden=1
+
+nnoremap <F7> :NERDTreeToggle<cr>
 
 
 " ============================ TAGBAR ===============================
