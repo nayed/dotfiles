@@ -1,5 +1,7 @@
 # load aliases
-. ~/.config/fish/aliases.fish
+source ~/.config/fish/aliases.fish
+
+source ~/.config/fish/api_env.fish
 
 # Hide greeting
 function fish_greeting
