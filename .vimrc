@@ -7,36 +7,10 @@ if filereadable(expand("~/.vimrc.before"))
 source ~/.vimrc.before
 endif
 
-filetype off                  " required
-
-" Specify a directory for plugins
-" - For Vim: ~/.vim/plugged
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-
 set clipboard+=unnamedplus
+set noesckeys
 
 source $HOME/.vim/basic.vim
-source $HOME/.vim/full.vim
-
-" Languages stuff
-Plug 'sheerun/vim-polyglot'
-" source $HOME/.vim/languages/elixir.vim
-source $HOME/.vim/languages/go.vim
-source $HOME/.vim/languages/html-css.vim
-source $HOME/.vim/languages/javascript.vim
-" source $HOME/.vim/languages/ruby.vim
-" source $HOME/.vim/languages/rust.vim
-
-" Color Scheme
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'morhetz/gruvbox'
-Plug 'lifepillar/vim-solarized8'
-
-
-" Initialize plugin system
-call plug#end()
 
 "turn on syntax highlighting
 syntax on
@@ -48,9 +22,29 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-" colorscheme challenger_deep
-colorscheme gruvbox
-" colorscheme solarized8_flat
+colorscheme peachpuff
+hi Normal guibg=#fffad4 guifg=Black
+hi Constant term=underline ctermfg=1 guifg=#087354
+hi SpecialKey term=bold ctermfg=4 guifg=Grey
+hi Type term=underline ctermfg=2 gui=bold guifg=#f28f3b
+hi LineNr term=underline ctermfg=3 guifg=#0a2463
+hi Special term=bold ctermfg=5 guifg=#0a2463
+hi Directory term=bold ctermfg=4 guifg=SeaGreen
+hi StatusLine term=bold,reverse cterm=bold,reverse gui=bold guifg=SeaGreen guibg=White
+hi StatusLineNC term=reverse cterm=reverse gui=bold guifg=#fffad4 guibg=Gray45
+hi VertSplit term=reverse cterm=reverse gui=bold guifg=#fffad4 guibg=Gray45
+hi NonText term=bold cterm=bold ctermfg=4 gui=bold guifg=Grey
 
 set t_Co=256
-set background=dark
+
+set statusline=\ %f%m%r%h%w\ %=%({%{&ff}\|%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%k\|%Y}%)\ %([%l,%v][%p%%]\ %)
+
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 15
+let g:netrw_banner = 0
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END

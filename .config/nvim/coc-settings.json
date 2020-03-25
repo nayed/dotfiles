@@ -1,5 +1,9 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "css", "markdown"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "css", "markdown", "vue", "html"],
+  "diagnostic.errorSign": "❌",
+  "diagnostic.infoSign": "🔍",
+  "diagnostic.warningSign": "⚠️",
+  "diagnostic.hintSign": "ⓘ ",
   "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
   "emmet.showExpandedAbbreviation": "always",
   "languageserver": {

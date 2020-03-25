@@ -1,6 +1,7 @@
 fishd.*
 conf.d
-.vim/autoload
+.DS_Store
+.vim/autoload/plug.vim
 .vim/plugged
 .vim/sessions
 .netrwhist
@@ -8,3 +9,5 @@ conf.d
 .config/fish/omf.fish
 .config/fish/functions/fish_prompt.fish
 .config/fish/api_env.fish
+.vim/view
+.local/share/nvim/view

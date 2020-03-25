@@ -19,14 +19,15 @@ end
 # add elixir to path
 # set -gx PATH $PATH ~/.elixir/bin
 
- # use ag
-set -g FZF_DEFAULT_COMMAND 'ag --hidden -U --ignore .git -g ""'
-# To apply the command to CTRL-T as well
-set -g FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
-# preview
-set -g FZF_CTRL_T_OPTS "--preview 'coderay {} 2> /dev/null | head -200'"
-set -g FZF_ALT_C_OPTS "--preview 'tree -C {} | head -200'"
-set -g FZF_DEFAULT_OPTS '--height 70% --reverse'
+# FZF
+set -gx BAT_THEME "GitHub"
+set -gx FZF_COMPLETION_OPTS "--preview 'bat --color=always {} || cat {} || tree -C {} 2> /dev/null | head -200'"
+set -gx FZF_CTRL_T_OPTS "$FZF_COMPLETION_OPTS"
+# set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
+set -gx FZF_DEFAULT_COMMAND  'rg --files --no-ignore-vcs --hidden'
+set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set -gx FZF_ALT_C_OPTS "--preview 'tree -C {} | head -200'"
+set -gx FZF_DEFAULT_OPTS '--height 70% --reverse'
 
 set -x -U GOPATH $HOME/Codes/go
 set -x -U GOBIN $GOPATH/bin
@@ -40,3 +41,5 @@ status --is-interactive; and source (jump shell | psub)
 
 # asdf
 set -gx PATH $PATH ~/.asdf/shims
+
+set -gx PATH $PATH ~/.local/bin

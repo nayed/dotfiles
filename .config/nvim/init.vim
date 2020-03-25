@@ -7,8 +7,6 @@ if filereadable(expand("~/.vimrc.before"))
 source ~/.vimrc.before
 endif
 
-filetype off                  " required
-
 set rtp+=~/.vim
 
 " Specify a directory for plugins
@@ -50,9 +48,10 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme challenger_deep
-" colorscheme gruvbox
+" colorscheme challenger_deep
+colorscheme gruvbox
+let g:gruvbox_contrast_light = "hard"
 " colorscheme solarized8_flat
 
 set t_Co=256
-" set background=light
+set background=light

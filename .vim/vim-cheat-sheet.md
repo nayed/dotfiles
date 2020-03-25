@@ -9,7 +9,7 @@
 - Skip back a word: b
 - Skip to next section: W
 - Skip back to previous section: B
-- Go to end of the line: $
+- Go to end of the line: \$
 - Go to beginning of the line: 0
 - Go to top of the screen: shift + h
 - Go to top of the middle: shift + m
@@ -22,10 +22,12 @@
 - Scroll the window up: ctrl + y
 - Scroll down one page: ctrl + f
 - Scroll the window up: ctrl + b
-- Switch window
-  * Navigate to the window you'd like to move
-  * Press `<leader>ww`
-  * Navigate to the window you'd like to swap with
+- Swap window
+  - Navigate to the window you'd like to move
+  - Press `<leader>ww`
+  - Navigate to the window you'd like to swap with
+- Go to next fold: zj
+- Go to previous fold: zk
 
 ### Editing
 
@@ -40,12 +42,16 @@
 - Insert at the end of the line: A
 - Delete full word and replace: c + a + w
 - Changes 'surroundings': for examples from "hello" to 'hello': c s " '
-
+- Open and close fold: za
+  - close fold: zc
+  - close all fold: zC
+  - open fold: zo
+  - open all fold: zO
 
 ### Deleting
 
 - `d<leftArrow>` will delete current and left character
-- d$ will delete from current position to end of line
+- d\$ will delete from current position to end of line
 - d^ will delete from current backward to first non-white-space character
 - d0 will delete from current backward to beginning of line
 - dw deletes current to end of current word (including trailing space)
@@ -56,13 +62,16 @@
 - Delete to the end of the line: shift + C
 - Delete multiple lines: d + number of lines + enter
 - Delete from current position to a specific line number: `d<line number>G`
-- Deleting all items in a file that start with a pattern:` :g/< search term>/d`
-- Deleting all lines that are empty or that contain only whitespace: :g/^\s*$/d
+- Deleting all items in a file that start with a pattern:`:g/< search term>/d`
+- Deleting all lines that are empty or that contain only whitespace:
+  :g/^\s\*\$/d
 - Deletes all text inside parenthesis/brackets: d + i + item / or { or [
-- Deletes all text inside parenthesis/brackets INCLUDES: d + a + item / or { or [
-- Deletes all text inside parenthesis/brackets AND INSERT: c + i + item / or { or [
-- Deletes all text inside parenthesis/brackets INCLUDES AND INSERT: c + a + item / or { or [
-
+- Deletes all text inside parenthesis/brackets INCLUDES: d + a + item / or { or
+  [
+- Deletes all text inside parenthesis/brackets AND INSERT: c + i + item / or {
+  or [
+- Deletes all text inside parenthesis/brackets INCLUDES AND INSERT: c + a + item
+  / or { or [
 
 ### Selecting
 
@@ -75,13 +84,11 @@
 - Select all inside element like { ( " ' WITH the element: v + a + item
 - Select block of code: v i p
 
-
 ### Find and Replace
 
 - %s/pattern/text to replace
 - %s/pattern/text/g to replace all occurence
 - 6,10s/pattern/text/g to replace all occurence from line 6 to 10
-
 
 ### Saving
 
@@ -89,17 +96,15 @@
 - Save the file and quit: :wq
 - Quit without saving: :q!
 
-
 ### Views
 
 - Use horizontal split: :sp filename
 - Use vertical split: :vsp filename
-- Switch from top to bottom: ctrl + w + j
-- Switch from left to right: ctrl + w + l
-- Switch from bottom to top: ctrl + w + j
-- Switch from right to left: ctrl + w + h
+- Switch from top to bottom: ctrl w + j
+- Switch from left to right: ctrl w + l
+- Switch from bottom to top: ctrl w + j
+- Switch from right to left: ctrl w + h
 - Resize window: ctrl w > AND ctrl w <
-
 
 ### Search
 
@@ -109,8 +114,7 @@
 - Search backwards: N
 - Go to first result: ggn
 - Go to last result: GN
-- To remove search highlighting: :noh
-
+- To remove search highlighting: ctrl l
 
 ### Modes
 
@@ -120,7 +124,6 @@
 - Replace
 - Command Line
 
-
 ### Multiple Files
 
 - :e filename - Edit a file in a new buffer
@@ -128,11 +131,10 @@
 - :bprev (of :bp) - go to previous buffer
 - :bd - delete a buffer (close a file)
 - :sp filename - Open a file in a new buffer and split window
-- ctrl + ws - Split windows
-- ctrl + ww - switch between windows
-- ctrl + wq - Quit a window
-- ctrl + wv - Split windows vertically
-
+- ctrl w + s - Split windows
+- ctrl w + w - switch between windows
+- ctrl w + q - Quit a window
+- ctrl w + v - Split windows vertically
 
 ### Indenting
 
@@ -140,11 +142,11 @@
 - Indenting: visual mode + > or <
 - Repeat indenting: .
 
-
 ## Commenting/Uncommenting
 
 - Comment: visual block select with CTRL-V then I# (insert # in the begining)
-- Uncomment: visual block select with CTRL-V then X (delete the first symbol on the line)
+- Uncomment: visual block select with CTRL-V then X (delete the first symbol on
+  the line)
 
 - Comment: `<leader> c c`
 - Uncomment: `<leader> c u`
@@ -154,12 +156,10 @@
 - Changing multiple lines of text: control + v + shift + i + action + esc
 - Select elements in paragraph: v + / + content
 
-
 ### Display settings
 
 - Turning on line numbers: :set nu
 - Turning on syntax highlighting: :syntax on
-
 
 ### Reseting Vim Settings
 
@@ -175,17 +175,17 @@ touch .vimrc; mkdir .vim
 - To get help: :h <topic>
 - To exit help: :bd
 
-
 ### Removing blocks of text in code files
 
-- `c + i + t` will remove the code between HTML tags, such as: `<div>Some content</div>`
+- `c + i + t` will remove the code between HTML tags, such as:
+  `<div>Some content</div>`
 - `c + i + }` will remove the code inside of a JavaScript function
 
-
 ### Basic autocomplete
+
 - ctrl + n - autocomplete
 - ctrl + x + ctrl + n - autocomplete only from this file
 
-
 ### Preview Markdown
+
 - ctrl + m

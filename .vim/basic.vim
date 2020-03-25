@@ -46,13 +46,19 @@ endif
 
 " ================ Folds ============================
 
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
+set foldmethod=indent   " Fold based on indent
+set foldlevel=99
+set nofoldenable        " Don't fold by default
+
+" Save folds on file save
+" Neovim: ~/.local/share/nvim/view
+" Vim: ~/.vim/view
+autocmd BufWrite * mkview
+autocmd BufRead * silent! loadview
 
 " ================ Scrolling ========================
 
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set scrolloff=8         " Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
@@ -79,10 +85,6 @@ filetype indent on
 
 " ================ Custom Settings ========================
 
-" Window pane resizing
-nnoremap <silent> <Leader>[ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>] :exe "resize " . (winheight(0) * 2/3)<CR>
-
 " Finding files
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
@@ -91,27 +93,8 @@ set path+=**
 " Display all matching files when we tab complete
 set wildmenu
 
-if has("nvim")
-  " terminal emulator to map <Esc> to exit terminal-mode
-  tnoremap <Esc> <C-\><C-n>
-
-  " To use `ALT+{h,j,k,l}` to navigate windows from any mode
-  :tnoremap <A-h> <C-\><C-N><C-w>h
-  :tnoremap <A-j> <C-\><C-N><C-w>j
-  :tnoremap <A-k> <C-\><C-N><C-w>k
-  :tnoremap <A-l> <C-\><C-N><C-w>l
-  :inoremap <A-h> <C-\><C-N><C-w>h
-  :inoremap <A-j> <C-\><C-N><C-w>j
-  :inoremap <A-k> <C-\><C-N><C-w>k
-  :inoremap <A-l> <C-\><C-N><C-w>l
-  :nnoremap <A-h> <C-w>h
-  :nnoremap <A-j> <C-w>j
-  :nnoremap <A-k> <C-w>k
-  :nnoremap <A-l> <C-w>l
-endif
-
 " Kill buffer without killing a window with ctrl w
-map <C-w>w :BD<cr>
+map <C-w>w :bp\|bd #<CR>
 
 " Save file on ctrl s
 :nmap <c-s> :w<CR>
@@ -175,3 +158,37 @@ exec 'nnoremap <Leader>sr :so ' . g:sessions_dir. '/*.vim<C-D><BS><BS><BS><BS><B
 " deactivate modeline
 set modelines=0
 set nomodeline
+
+" Highlight line in insert mode
+autocmd InsertEnter,InsertLeave * set cul!
+
+" On insert mode: change cursor block to bar and blink
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+		  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+		  \,sm:block-blinkwait175-blinkoff150-blinkon175
+
+" Clear search highlight
+nmap <c-l> :noh<CR>
+
+" Create file's directory before saving, if it doesn't exist.
+augroup BWCCreateDir
+  autocmd!
+  autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
+fun! s:MkNonExDir(file, buf)
+  if empty(getbufvar(a:buf, '&buftype')) && a:file !~# '\v^\w+\:\/'
+    call mkdir(fnamemodify(a:file, ':h'), 'p')
+  endif
+endfun
+
+" Remove all trailing whitespace in the current file with ,x
+nnoremap <silent> <Leader>x :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" Echo relative file path
+nnoremap <F10> :echo expand('%:f')<CR>
+
+" Move 
+nnoremap <M-k> :<C-u>move-2<CR>==
+xnoremap <M-k> :move-2<CR>gv=gv
+nnoremap <M-j> :<C-u>move+<CR>==
+xnoremap <M-j> :move'>+<CR>gv=gv

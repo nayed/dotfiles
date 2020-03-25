@@ -1,3 +1,4 @@
+alias .. "cd .."
 alias g "hub"
 alias git "hub"
 
@@ -6,6 +7,20 @@ alias n "nvim"
 alias v "vim"
 
 alias ls "exa"
+alias la "exa -a"
+alias ll "exa -l"
+alias l "exa -al"
+
+alias cleanplug "rm -rf ~/.local/share/nvim/plugged && rm -rf ~/.vim/plugged"
+
+alias brewup "brew update && brew upgrade"
+
+alias cleanview "rm -rf ~/.local/share/nvim/view ~/.vim/view"
+alias cleann "rm -rf ~/.local/share/nvim/view"
+alias cleanv "rm -rf ~/.vim/view"
+
+alias npmlist "npm list --depth 0"
+alias npmlistg "npm list -g --depth 0"
 
 alias ea "n ~/.config/fish/aliases.fish"
 alias ec "n ~/.config/fish/config.fish"
@@ -13,6 +28,7 @@ alias en "n ~/.config/nvim/init.vim"
 alias ev "v ~/.vimrc"
 
 # git aliases
+alias gcl "git clone"
 alias ga "git add"
 alias gaa "git add -A"
 alias gb "git branch"
