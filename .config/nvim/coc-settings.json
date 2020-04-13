@@ -1,20 +1,27 @@
 {
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "css", "markdown", "vue", "html"],
   "diagnostic.errorSign": "❌",
-  "diagnostic.infoSign": "🔍",
+  "diagnostic.infoSign": "ⓘ",
   "diagnostic.warningSign": "⚠️",
-  "diagnostic.hintSign": "ⓘ ",
+  "diagnostic.hintSign": "🔍 ",
   "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
   "emmet.showExpandedAbbreviation": "always",
+  "elixir.pathToElixirLS": "~/.elixir-ls/language_server.sh",
   "languageserver": {
     "golang": {
       "command": "gopls",
       "args": [],
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
     }
   },
+  "prettier.arrowParens": "avoid",
   "prettier.proseWrap": "always",
   "prettier.semi": false,
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "suggest.noselect": false
 }

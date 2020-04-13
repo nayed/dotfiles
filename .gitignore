@@ -11,3 +11,4 @@ conf.d
 .config/fish/api_env.fish
 .vim/view
 .local/share/nvim/view
+.elixir_ls

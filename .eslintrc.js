@@ -30,6 +30,6 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'import/imports-first': [2, 'absolute-first'],
-    'import/newline-after-import': ['error', { count: 1 }]
+    'import/newline-after-import': ['warn', { count: 1 }]
   }
 }

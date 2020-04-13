@@ -1,3 +1,4 @@
+Plug 'pechorin/any-jump.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'Raimondi/delimitMate'
 Plug '/usr/local/opt/fzf'
@@ -11,19 +12,34 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
+Plug 'Ron89/thesaurus_query.vim'
 Plug 'mbbill/undotree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'easymotion/vim-easymotion'
 Plug 'rbong/vim-flog'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'dstein64/vim-win'
 
 
 " =========================== Custom Settings ===========================
+
+" ============================ ANY JUMP ================================
+" Auto group results by filename
+let g:any_jump_grouping_enabled = 1
+
+hi AnyJumpResultText guifg=#1d2021
+
+let g:any_jump_colors = {
+      \"group_name":         "Structure",
+      \"preview":            "Comment",
+      \"preview_keyword":    "Statement",
+      \"result_text":        "AnyJumpResultText",
+      \}
+
 
 " =============================== COC ==================================
 " Smaller updatetime for CursorHold & CursorHoldI
@@ -55,9 +71,9 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use Ctrl+c n and Ctrl+c p to navigate diagnostics
-map <C-c>n <Plug>(coc-diagnostic-next)
-map <C-c>p <Plug>(coc-diagnostic-prev)
+" Use ,n and ,p to navigate diagnostics
+map <leader>n <Plug>(coc-diagnostic-next)
+map <leader>p <Plug>(coc-diagnostic-prev)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -90,8 +106,22 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
+" Display signature
+nnoremap <M-K> <Esc> :call CocAction("showSignatureHelp")<cr>
+inoremap <M-K> <Esc> :call CocAction("showSignatureHelp")<cr>i
+
+" Echo current function
+nnoremap <leader>cf :echo 'Current function: ' . b:coc_current_function<cr>
+inoremap <leader>cf <Esc> :echo b:coc_current_function<cr>i
+nnoremap <leader>ko :call CocAction("getCurrentFunctionSymbol")<cr>
+
+" Remap for do codeAction of selected region
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
+xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
@@ -101,19 +131,24 @@ command! -nargs=0 Format :call CocAction('format')
 " Show all diagnostics.
 nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 
-
-" ========================= EASY MOTION ==========================
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" Jump to anywhere you want with minimal keystrokes, with two key binding.
-map <Leader><Leader>s <Plug>(easymotion-overwin-f2)
-
-" Turn on case-insensitive feature
-let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
+let g:coc_global_extensions = [
+  \ 'coc-actions',
+  \ 'coc-css',
+  \ 'coc-emmet',
+  \ 'coc-elixir',
+  \ 'coc-eslint',
+  \ 'coc-highlight',
+  \ 'coc-json',
+  \ 'coc-marketplace',
+  \ 'coc-prettier',
+  \ 'coc-sh',
+  \ 'coc-snippets',
+  \ 'coc-solargraph',
+  \ 'coc-sql',
+  \ 'coc-tsserver',
+  \ 'coc-vimlsp',
+  \ 'coc-yaml'
+  \ ]
 
 
 " =============================== FZF ============================
@@ -143,8 +178,42 @@ function! RipgrepFzf(query, fullscreen)
 endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-nnoremap <Leader>rg :RG<CR>
-nnoremap <Leader>RG :RG!<CR>
+nnoremap <M-s> :RG<CR>
+nnoremap <M-S> :RG!<CR>
+
+" Adding preview window to some fzf command
+function! s:p(bang, ...)
+  let preview_window = get(g:, 'fzf_preview_window')
+  if len(preview_window)
+    return call('fzf#vim#with_preview', a:000 + [preview_window, '?'])
+  endif
+  return {}
+endfunction
+
+" locate unix command
+command! -bang -nargs=+ -complete=dir FZFLocate
+            \ call fzf#vim#locate(<q-args>,
+            \     s:p(<bang>0),
+            \     <bang>0)
+nnoremap <Leader>fl :FZFLocate
+
+" display and search a line in current buffer
+command! -bang -nargs=* FZFBLines
+            \ call fzf#vim#buffer_lines(<q-args>,
+            \     s:p(<bang>0, {'placeholder': expand('%') . ':{1}'}),
+            \     <bang>0)
+nnoremap <Leader>fb :FZFBLines<CR>
+
+" display markers
+command! -bar -bang FZFMarks
+            \ call fzf#vim#marks({
+            \     'options': '--preview-window=' . (<bang>0 ? 'up:60%' : '50%:hidden') .
+            \                ' --preview "
+            \                     tail -n +{2} $([ -r {4} ] && echo {4} || echo ' . expand('%') . ') |
+            \                     head -n $(tput lines)"' .
+            \                 (<bang>0 ? '' : ' --bind "?:toggle-preview"') . ' -m'
+            \ }, <bang>0)
+nnoremap <Leader>fm :FZFMarks<CR>
 
 " Pop up window
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
@@ -168,22 +237,22 @@ let g:fzf_colors =
 " some FZF mapping
 
 " display opened buffers
-nnoremap <Leader>bu :Buffers<CR>
+nnoremap <M-b> :Buffers<CR>
 
 " display all vim :commands
-nnoremap <Leader>c :Commands<CR>
+nnoremap <M-c> :Commands<CR>
 
 " display and search documentations
 nnoremap <M-h> :Helptags<CR>
 
 " ,f to start files search
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>F :Files!<CR>
+nnoremap <M-f> :Files<CR>
+nnoremap <M-F> :Files!<CR>
 
 " git commit history
 nnoremap <Leader>co :Commits<CR>
 " git status
-nnoremap <Leader>gst :GFiles?<CR>
+nnoremap <Leader>gs :GFiles?<CR>
 
 " history previous open file
 nnoremap <Leader>h :History<CR>
@@ -193,11 +262,9 @@ nnoremap <Leader>m :Maps<CR>
 
 " display and search a line from opened buffers
 nnoremap <Leader>l :Lines<CR>
-" display and search a line in current buffer
-nnoremap <Leader>bl :BLines<CR>
 
 " display tags in current file
-nnoremap <Leader>t :BTags<CR>
+nnoremap <M-t> :BTags<CR>
 
 
 " ============================= INDENTLINE =============================
@@ -236,8 +303,8 @@ function! StatusDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
   let s:error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
   let s:warning_sign = get(g:, 'coc_status_warning_sign', has('mac') ? '⚠️  ' : 'W')
-  let s:info_sign = has('mac') ? '🔍 ' : 'I'
-  let s:hint_sign = 'ⓘ '
+  let s:info_sign = 'ⓘ '
+  let s:hint_sign = has('mac') ? '🔍 ' : 'H'
   let s:ok_sign = '✓'
 
   if empty(info) | return s:ok_sign | endif
@@ -270,11 +337,19 @@ function! FilePath()
   return pathshorten(expand('%:f'))
 endfunction
 
+function! CocCurrentFunction()
+  let funcName = get(b:, 'coc_current_function', '')
+  if funcName != ''
+    let funcName = ' ' . funcName
+  endif
+  return funcName
+endfunction
+
 let g:lightline = {}
 let g:lightline.colorscheme = 'mlc'
 let g:lightline.active = {
         \ 'left': [ [ 'mode', 'paste' ],
-        \           [ 'readonly', 'filepath', 'modified', 'fileformat', 'devicons_filetype' ] ],
+        \           [ 'readonly', 'filepath', 'modified', 'fileformat', 'devicons_filetype' ], ['currentfunction', 'spell'] ],
         \ 'right': [ ['lineinfo'], ['testing_status', 'status_diagnostic'] ]
         \ }
 let g:lightline.separator = { 'left': "\ue0b8 ", 'right': "\ue0ba " }
@@ -301,11 +376,12 @@ let g:lightline.tab_component_function = {
 
 let g:lightline.component = {
         \ 'fileformat': '%{&fenc!=#""?&fenc:&enc}[%{&ff}]',
+        \ 'filepath': "%{FilePath()}",
         \ 'git_branch': '%{Git_branch()}',
         \ 'lineinfo': "%2{Line_percent()}\uf295 %3{Line_num()}:%-2{Col_num()} %2{Total_Line()}",
         \ 'paste': '%{&paste?"PASTE":""}',
         \ 'status_diagnostic': '%{StatusDiagnostic()}',
-        \ 'filepath': "%{FilePath()}",
+        \ 'spell': '%{&spell?&spelllang:""}',
         \ }
 
 let g:lightline.component_expand = {
@@ -324,6 +400,7 @@ let g:lightline.component_type = {
 let g:lightline.component_function = {
         \ 'bufferinfo': 'lightline#buffer#bufferinfo',
         \ 'devicons_filetype': 'Devicons_Filetype',
+        \ 'currentfunction': 'CocCurrentFunction',
         \ }
 
 " hide buffer number
@@ -386,8 +463,12 @@ let g:DevIconsDefaultFolderOpenSymbol = ' '
 
 
 " ============================ TAGBAR ===============================
-nmap <F8> :TagbarToggle<CR>
+nnoremap <silent> <space>t :TagbarToggle<cr>
 
+
+" =========================== THESAURUS =============================
+let g:tq_map_keys = 0 " disable default thesaurus keymap
+nnoremap <Leader>th :ThesaurusQueryReplaceCurrentWord<CR>
 
 " ============================= UNDOTREE ============================
-nnoremap <F6> :UndotreeToggle<cr>
+nnoremap <silent> <space>u :UndotreeToggle<cr>

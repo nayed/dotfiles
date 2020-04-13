@@ -11,7 +11,7 @@ alias la "exa -a"
 alias ll "exa -l"
 alias l "exa -al"
 
-alias cleanplug "rm -rf ~/.local/share/nvim/plugged && rm -rf ~/.vim/plugged"
+alias cleanplug "rm -rf ~/.local/share/nvim/plugged ~/.config/coc"
 
 alias brewup "brew update && brew upgrade"
 
@@ -26,6 +26,8 @@ alias ea "n ~/.config/fish/aliases.fish"
 alias ec "n ~/.config/fish/config.fish"
 alias en "n ~/.config/nvim/init.vim"
 alias ev "v ~/.vimrc"
+alias eb "n ~/.vim/basic.vim"
+alias ef "n ~/.vim/full.vim"
 
 # git aliases
 alias gcl "git clone"

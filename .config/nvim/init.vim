@@ -24,14 +24,13 @@ source $HOME/.vim/full.vim
 Plug 'sheerun/vim-polyglot'
 " source $HOME/.vim/languages/elixir.vim
 source $HOME/.vim/languages/go.vim
-source $HOME/.vim/languages/html-css.vim
 source $HOME/.vim/languages/javascript.vim
 " source $HOME/.vim/languages/ruby.vim
 " source $HOME/.vim/languages/rust.vim
 
 " Color Scheme
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-gruvbox8'
 Plug 'lifepillar/vim-solarized8'
 
 
@@ -49,9 +48,15 @@ if exists('+termguicolors')
 endif
 
 " colorscheme challenger_deep
-colorscheme gruvbox
-let g:gruvbox_contrast_light = "hard"
 " colorscheme solarized8_flat
+
+colorscheme gruvbox8_hard
 
 set t_Co=256
 set background=light
+
+hi NormalFloat guibg=#f2e5bc
+hi CocWarningSign guifg=#d65d0e
+hi CocInfoSign guifg=#076678
+
+nmap <F5> :source ~/.config/nvim/init.vim<cr>

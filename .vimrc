@@ -48,3 +48,5 @@ augroup ProjectDrawer
   autocmd!
   autocmd VimEnter * :Vexplore
 augroup END
+
+nmap <F5> :source ~/.vimrc<cr>

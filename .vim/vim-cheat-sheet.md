@@ -28,6 +28,8 @@
   - Navigate to the window you'd like to swap with
 - Go to next fold: zj
 - Go to previous fold: zk
+- Go to previous position edits: g;
+- Go to recent position edits, opposite of `g;`: g,
 
 ### Editing
 
@@ -47,6 +49,13 @@
   - close all fold: zC
   - open fold: zo
   - open all fold: zO
+- Add word to vim dictionary as good word: zg
+- Remove word from vim dictionary good word: zug
+- Add word to vim dictionary as wrong word: zw
+- Remove word from vim dictionary wrong word: zuw
+- Get suggestions on edit: ctrl+n and ctrl+p
+- Get suggestions on fix wrong word: ctrl+x ctrl+s on edit
+- Pick 1st suggestion on fix wrong word: space+f
 
 ### Deleting
 

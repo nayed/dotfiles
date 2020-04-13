@@ -8,7 +8,7 @@ set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode  showcmd  cmdheight=2                     "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
+" set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 au CursorHold * checktime
@@ -26,7 +26,7 @@ set hidden
 " Change leader to a comma because the backslash is too far away
 " That means all \x commands turn into ,x
 let mapleader=","
-set timeout timeoutlen=1500
+set timeout timeoutlen=300
 
 " ================ Turn Off Swap Files ==============
 
@@ -83,6 +83,44 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 filetype indent on
 
+" ================ Spell Cheking ========================
+
+augroup SpellConfig
+  autocmd!
+  autocmd FileType markdown,tex,latex,plaintex,text setlocal spell
+      \ spelllang=en_us
+      \ spellfile=$HOME/.vim/spell/en.utf-8.add
+      \ complete+=kspell " Auto complete word from vim dictionary with ctrl+n and ctrl+p
+
+  function! LanguageToggle() abort
+    if &l:spelllang == "en_us"
+      " Switch to French
+      setlocal spelllang=fr
+      setlocal spellfile=$HOME/.vim/spell/fr.utf-8.add
+      echom "Vim utilise le dico Français"
+    else
+      " Switch to English
+      setlocal spelllang=en_us
+      setlocal spellfile=$HOME/.vim/spell/en.utf-8.add
+      echom "Vim's using English dictionary"
+    endif
+  endfunction
+
+  " Switch Languages
+  command! LanguageToggle call LanguageToggle()
+
+  " Go to next and previous wrong word
+  nnoremap <leader>sn ]s
+  nnoremap <leader>sp [s
+
+  " Show list of suggestion
+  nnoremap Z= a<C-X><C-S>
+
+  " Pick the 1st suggestion
+  " (by default it's ctrl-x ctrl-s on insert mode)
+  nmap <silent> <space>f 1z=
+augroup END
+
 " ================ Custom Settings ========================
 
 " Finding files
@@ -93,12 +131,26 @@ set path+=**
 " Display all matching files when we tab complete
 set wildmenu
 
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX bullshit
+set wildignore+=*.luac                           " Lua byte code
+set wildignore+=go/pkg                           " Go static files
+set wildignore+=go/bin                           " Go bin files
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.orig                           " Merge resolution files
+
 " Kill buffer without killing a window with ctrl w
 map <C-w>w :bp\|bd #<CR>
 
 " Save file on ctrl s
-:nmap <c-s> :w<CR>
-:imap <c-s> <Esc>:w<CR>
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>
+vmap <c-s> <Esc>:w<CR>gv
 
 "during insert, kj escapes, `^ is so that the cursor doesn't move
 inoremap kj <Esc>`^
@@ -187,8 +239,30 @@ nnoremap <silent> <Leader>x :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " Echo relative file path
 nnoremap <F10> :echo expand('%:f')<CR>
 
-" Move 
+" Move a line or block of line
 nnoremap <M-k> :<C-u>move-2<CR>==
 xnoremap <M-k> :move-2<CR>gv=gv
 nnoremap <M-j> :<C-u>move+<CR>==
 xnoremap <M-j> :move'>+<CR>gv=gv
+
+" Open or switch to previous file with space space
+nnoremap <silent> <space><space> <c-^>
+
+" change vim default weird keymap
+nnoremap <C-c>n :cnext<CR>
+nnoremap <C-c>p :cprev<CR>
+
+" Vim grep:
+" Display search results with a window at the bottom
+cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
+cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
+
+augroup init_quickfix
+  autocmd!
+  autocmd QuickFixCmdPost [^l]* cwindow
+  autocmd QuickFixCmdPost l* lwindow
+augroup END
+
+" Open new line below and above current line
+nnoremap <leader>o o<esc>
+nnoremap <leader>O O<esc>
