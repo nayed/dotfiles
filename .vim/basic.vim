@@ -266,3 +266,18 @@ augroup END
 " Open new line below and above current line
 nnoremap <leader>o o<esc>
 nnoremap <leader>O O<esc>
+
+" Quit all
+nnoremap <M-q>a :qa<cr>
+
+" Vimdiff: jump to next and previous diff
+nnoremap <leader>dn ]c
+nnoremap <leader>dp [c
+
+" Vimdiff: diffget LOCAL, BASE or REMOTE
+nnoremap <leader>dl :diffg LO<cr>
+nnoremap <leader>db :diffg BA<cr>
+nnoremap <leader>dr :diffg RE<cr>
+
+nnoremap <leader>dj :diffg //2<cr>
+nnoremap <leader>dk :diffg //3<cr>

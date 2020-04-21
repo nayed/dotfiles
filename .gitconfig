@@ -1,15 +1,102 @@
 [color]
   ui = true
 [user]
-	name = Nayed Saïd Ali
-	email = nayed.saidali@gmail.com
+  name = Nayed Saïd Ali
+  email = nayed.saidali@gmail.com
 [credential]
   helper = cache --timeout=2678400
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [core]
-	editor = nvim
-	excludesfile = ~/.gitignore
+  editor = nvim
+  excludesfile = ~/.gitignore
+[merge]
+  tool = vimdiff
+  # conflictstyle = diff3
+[mergetool]
+  prompt = true
+  keepBackup = false
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool]
+  prompt = false
+[diff]
+  tool = vimdiff
+[difftool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE -c '$wincmd w' -c 'wincmd L'
+[commit]
+  gpgsign = true # No need to add -S to sign commits
+
+[alias]
+
+  a = add
+  aa = add -A
+  br = branch
+  cm = commit
+  co = checkout
+  fa = fetch --all --prune
+  d = diff
+  ds = diff --staged
+  dt = difftool
+  dts = difftool --staged
+  ps = push
+  psom = push origin master
+  s = status
+  sb = status -sb
+
+  # Show all git aliases
+  aliases=!git config -l | grep ^alias | cut -c 7- | sort
+
+  # Amend the currently staged files to the latest commit
+  amend = commit --amend --reuse-message=HEAD
+
+  # Commit all changes
+  ca = !git add -A && git commit -av
+
+  # Clone a repository including all submodules
+  cl = clone --recursive
+
+  # List contributors with number of commits
+  contributors = shortlog --summary --numbered
+
+  # Remove branches that have already been merged with master
+  # a.k.a. ‘delete merged’
+  dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d; git remote -v update -p"
+
+  # Find branches containing commit
+  fb = "!f() { git branch -a --contains $1; }; f"
+
+  # Find commits by source code
+  fc = "!f() { git log --pretty=format:'%C(yellow)%h	%Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+
+  # Find commits by commit message
+  fm = "!f() { git log --pretty=format:'%C(yellow)%h	%Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
+  # Find tags containing commit
+  ft = "!f() { git describe --always --contains $1; }; f"
+
+  # Switch to a branch, creating it if necessary
+  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+  # Color graph log view
+  graph = log --graph --color --pretty=format:"%C(yellow)%H%C(green)%d%C(reset)%n%x20%cd%n%x20%cn%x20(%ce)%n%x20%s%n"
+
+  # Show last commit
+  last = log -1 HEAD
+
+  l = log --color --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an (%G?)>%Creset' --abbrev-commit
+  lg = log --color --all --date-order --decorate --dirstat=lines,cumulative --stat
+
+  # Pull in remote changes for the current repository and all its submodules
+  pl = !"git pull; git submodule foreach git pull origin master"
+
+  # Unstage file added
+  unstage = reset HEAD --
+
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v

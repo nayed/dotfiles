@@ -1,6 +1,10 @@
 alias .. "cd .."
-alias g "hub"
-alias git "hub"
+alias ... "cd ../.."
+alias .... "cd ../../.."
+alias ..... "cd ../../../.."
+
+# There's a function at functions/git.fish that already map git to hub
+alias g "git"
 
 alias pyg "pygmentize"
 alias n "nvim"
@@ -29,26 +33,10 @@ alias ev "v ~/.vimrc"
 alias eb "n ~/.vim/basic.vim"
 alias ef "n ~/.vim/full.vim"
 
-# git aliases
-alias gcl "git clone"
-alias ga "git add"
-alias gaa "git add -A"
-alias gb "git branch"
-alias gcam "git commit -a -m"
-alias gcams "git commit -a -S -m"
-alias gco "git checkout"
-alias gcb "git checkout -b"
-alias gcm "git checkout master"
-alias gcd "git checkout develop"
-alias gd "git diff"
-alias gf "git fetch"
-alias gfa "git fetch --all --prune"
-alias gfos "git fetch origin"
-alias gpl "git pull"
-alias glog "git log --oneline --decorate --graph"
-alias glogo "git log --color --all --date-order --decorate --dirstat=lines,cumulative --stat"
-alias gm "git merge"
-alias gps "git push"
-alias gpsom "git push origin master"
-alias gsb "git status -sb"
-alias gst "git status"
+# Get local IP
+alias localip "ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'"
+# Get IPs. (public ipv6 is the 3rd last)
+alias ips "ifconfig -a | grep -o 'inet6\\? \\(addr:\\)\\?\\s\\?\\(\\(\\([0-9]\\+\\.\\)\\{3\\}[0-9]\\+\\)\\|[a-fA-F0-9:]\\+\\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# untar
+alias untar "tar xvf"
