@@ -22,11 +22,8 @@ source $HOME/.vim/full.vim
 
 " Languages stuff
 Plug 'sheerun/vim-polyglot'
-" source $HOME/.vim/languages/elixir.vim
 source $HOME/.vim/languages/go.vim
 source $HOME/.vim/languages/javascript.vim
-" source $HOME/.vim/languages/ruby.vim
-" source $HOME/.vim/languages/rust.vim
 
 " Color Scheme
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }

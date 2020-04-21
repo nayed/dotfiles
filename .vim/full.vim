@@ -137,6 +137,7 @@ let g:coc_global_extensions = [
   \ 'coc-emmet',
   \ 'coc-elixir',
   \ 'coc-eslint',
+  \ 'coc-fish',
   \ 'coc-highlight',
   \ 'coc-json',
   \ 'coc-marketplace',
@@ -149,6 +150,10 @@ let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-yaml'
   \ ]
+
+
+" ======================== FUGITIVE =============================
+nnoremap <silent> <space>g :Gstatus<cr>
 
 
 " =============================== FZF ============================
@@ -436,8 +441,8 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " ============================ NERDTREE =================================
 " open NERDTee if no file is specified when neovim is called
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " close neovim if nerdtree is the only window left open (1/1)
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

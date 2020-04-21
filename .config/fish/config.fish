@@ -16,16 +16,12 @@ function chpwd --on-variable PWD
   ll
 end
 
-# add elixir to path
-# set -gx PATH $PATH ~/.elixir/bin
-
 # FZF
 set -gx BAT_THEME "GitHub"
 set -gx FZF_COMPLETION_OPTS "--preview 'bat --color=always {} || cat {} || tree -C {} 2> /dev/null | head -200'"
 set -gx FZF_CTRL_T_OPTS "$FZF_COMPLETION_OPTS"
-# set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*" --glob "!node_modules/*"'
 set -gx FZF_DEFAULT_COMMAND  'rg --files --no-ignore-vcs --hidden'
-set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set -gx FZF_CTRL_T_COMMAND "command find -L \$dir -type f 2> /dev/null | sed '1d; s#^\./##'"
 set -gx FZF_ALT_C_OPTS "--preview 'tree -C {} | head -200'"
 set -gx FZF_DEFAULT_OPTS '--height 70% --reverse'
 
@@ -43,3 +39,5 @@ status --is-interactive; and source (jump shell | psub)
 set -gx PATH $PATH ~/.asdf/shims
 
 set -gx PATH $PATH ~/.local/bin
+
+set -gx EDITOR nvim
