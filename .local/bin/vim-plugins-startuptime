@@ -1,9 +1,18 @@
 #!/usr/bin/env ruby
 
+################################################
+# This script check vim plugins starting time  #
+# by calling                                   #
+# $ vim-plugins-startuptime (nvim)             #
+# and it displays the result by sorting        #
+# from the slowest to the quickest             #
+################################################
+
 class String
   def red;            "\e[31m#{self}\e[0m" end
   def green;          "\e[32m#{self}\e[0m" end
   def brown;          "\e[33m#{self}\e[0m" end
+  def cyan;           "\e[36m#{self}\e[0m" end
 end
 
 # First argument can be nvim for Neovim
@@ -13,10 +22,23 @@ puts "Testing #{vim} performance..."
 PLOT_WIDTH = 120
 LOG = "vim-plugins-profile.#{$$}.log"
 
-VIMFILES_DIR = vim == "nvim" ? File.join(ENV['HOME'], '.local/share/nvim/plugged') : File.join(ENV['HOME'], '.vim')
+VIMFILES_DIR = vim == "nvim" ? File.join(ENV['HOME'], '.local/share/nvim/plugged') : File.join(ENV['HOME'], '.vim', 'plugged')
 puts "Assuming your vimfiles folder is #{VIMFILES_DIR}."
+puts
 
-puts "Generating #{vim} startup profile..."
+unless Dir.exist?(VIMFILES_DIR)
+  puts "Cannot find #{VIMFILES_DIR}".red
+  puts "Exit".red
+  exit(1) # Exits with "failure" code
+end
+
+if Dir.empty?(VIMFILES_DIR)
+  puts "#{VIMFILES_DIR} is empty".red
+  puts "Exit".red
+  exit(1) # Exits with "failure" code
+end
+
+puts "Generating #{vim} startup profiling...".cyan
 system(vim, '--startuptime', LOG, '-c', 'q')
 
 # parse
