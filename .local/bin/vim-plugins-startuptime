@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby
+
+class String
+  def red;            "\e[31m#{self}\e[0m" end
+  def green;          "\e[32m#{self}\e[0m" end
+  def brown;          "\e[33m#{self}\e[0m" end
+end
+
+# First argument can be nvim for Neovim
+vim = ARGV.first || 'vim'
+puts "Testing #{vim} performance..."
+
+PLOT_WIDTH = 120
+LOG = "vim-plugins-profile.#{$$}.log"
+
+VIMFILES_DIR = vim == "nvim" ? File.join(ENV['HOME'], '.local/share/nvim/plugged') : File.join(ENV['HOME'], '.vim')
+puts "Assuming your vimfiles folder is #{VIMFILES_DIR}."
+
+puts "Generating #{vim} startup profile..."
+system(vim, '--startuptime', LOG, '-c', 'q')
+
+# parse
+exec_times_by_name = Hash.new(0)
+lines = File.readlines(LOG).select { |line| line =~ /sourcing.*#{Regexp.escape("plugged")}/ }
+lines.each do |line|
+  trace_time, source_time, exec_time, _, path = line.split(' ')
+  relative_path = path.gsub(VIMFILES_DIR + '/', '')
+  name = File.basename(relative_path.split('/')[0], '.vim')
+  time = exec_time.to_f
+  exec_times_by_name[name] += time
+end
+
+# plot
+max = exec_times_by_name.values.max
+relatives = exec_times_by_name.reduce({}) do |hash, (name, time)|
+  hash.merge!(name => time/max.to_f)
+end
+max_name_length = relatives.keys.map(&:length).max
+puts
+Hash[ relatives.sort_by { |k, v| -v } ].each do |name, rel_time|
+  time = exec_times_by_name[name]
+  plugins_time = "#{name.rjust(max_name_length)}: (#{time.round(3).to_s.ljust(5)}ms) #{'*' * (rel_time*PLOT_WIDTH)}"
+
+  case
+  when time < 20
+    puts plugins_time.green
+  when time < 50
+    puts plugins_time.brown
+  else
+    puts plugins_time.red
+  end
+end
+
+File.delete(LOG)
