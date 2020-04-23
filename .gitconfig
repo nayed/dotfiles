@@ -56,6 +56,9 @@
   # Commit all changes
   ca = !git add -A && git commit -av
 
+  # Interactive git-checkout with fzf
+  chi = "!git checkout-interactive"
+
   # Clone a repository including all submodules
   cl = clone --recursive
 
