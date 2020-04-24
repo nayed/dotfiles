@@ -23,6 +23,7 @@ Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'dstein64/vim-win'
+Plug 'vimwiki/vimwiki'
 
 
 " =========================== Custom Settings ===========================
@@ -477,3 +478,8 @@ nnoremap <Leader>th :ThesaurusQueryReplaceCurrentWord<CR>
 
 " ============================= UNDOTREE ============================
 nnoremap <silent> <space>u :UndotreeToggle<cr>
+
+" ============================= VIMWIKI =============================
+let g:vimwiki_list = [{'path': '~/Codes/Misc/til'}]
+let g:vimwiki_url_maxsave = 0
+autocmd FileType vimwiki setlocal shiftwidth=4 softtabstop=4 tabstop=4
