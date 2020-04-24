@@ -47,7 +47,7 @@ endif
 " colorscheme challenger_deep
 " colorscheme solarized8_flat
 
-colorscheme gruvbox8_hard
+colorscheme gruvbox8
 
 set t_Co=256
 set background=light
