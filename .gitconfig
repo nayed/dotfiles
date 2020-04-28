@@ -13,6 +13,9 @@
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
+  pager = delta --plus-color="#8be28b" --minus-color="#ff817b"
+[interactive]
+  diffFilter = delta --color-only
 [merge]
   tool = vimdiff
   # conflictstyle = diff3
