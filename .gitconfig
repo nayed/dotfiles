@@ -13,7 +13,7 @@
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
-  pager = delta --plus-color="#8be28b" --minus-color="#ff817b"
+  pager = delta --plus-color="#8be28b" --minus-color="#ff817b" --hunk-style plain
 [interactive]
   diffFilter = delta --color-only
 [merge]
