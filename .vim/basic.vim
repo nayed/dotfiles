@@ -281,3 +281,6 @@ nnoremap <leader>dr :diffg RE<cr>
 
 nnoremap <leader>dj :diffg //2<cr>
 nnoremap <leader>dk :diffg //3<cr>
+
+" Close all buffers but this one
+command! -nargs=0 Bonly :%bd|e#|bd#
