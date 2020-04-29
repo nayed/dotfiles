@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+
+require 'crypt/blowfish'
+
+unless ARGV[0]
+  doc = %(
+  File decryption utility.
+
+  Usage:
+    decr <filename.ext>
+
+  Example:
+    decr ENCR_secret.stuff
+  )
+  puts doc
+  exit
+end
+
+# Take in the file name to decrypt as an argument
+filename = ARGV[0].chomp
+puts "Decrypting #{filename}"
+
+# Remove 'ENCR_' from filename
+p = filename[5...filename.size]
+
+if File.exists? p
+  puts "#{p} already exists."
+  exit
+end
+
+ARGV.clear
+
+# User specifies the original key from 1-56 bytes
+print "Enter your encryption key (1-56 bytes): "
+kee = gets.chomp
+
+begin
+  # Initialize the decryption method using the user input key  
+  blowfish = Crypt::Blowfish.new kee
+  blowfish.decrypt_file filename.to_str, p
+  puts "Decryption SUCCESS!"
+
+  # Delete or not the ENCR_<filename>?
+  # If we decrypt ENCR_<filename> with a wrong password
+  # THE FILE DATA ARE LOST. L. O . S. T.
+  # So better keep it(?)
+  # File.delete filename
+rescue Exception => e
+  puts "An error occured during decryption: \n #{e}"
+end
