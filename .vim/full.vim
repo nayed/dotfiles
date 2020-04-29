@@ -482,3 +482,6 @@ nnoremap <silent> <space>u :UndotreeToggle<cr>
 " ============================= VIMWIKI =============================
 let g:vimwiki_list = [{'path': '~/Codes/Misc/til'}]
 autocmd FileType vimwiki setlocal shiftwidth=4 softtabstop=4 tabstop=4
+
+" Hide =
+autocmd FileType vimwiki call matchadd('Conceal','=',10,-1,{'conceal': ''})
