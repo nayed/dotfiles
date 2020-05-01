@@ -21,7 +21,7 @@ filename = ARGV[0].chomp
 puts "Encrypting #{filename}"
 c = "ENCR_#{filename}"
 
-if File.exists? c
+if File.exist? c
   puts "File already exists."
   exit
 end
