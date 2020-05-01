@@ -285,18 +285,20 @@ nnoremap <leader>dk :diffg //3<cr>
 " Close all buffers but this one
 command! -nargs=0 Bonly :%bd|e#|bd#
 
-" Wipe register
-function! WipeReg()
-  redir => l:register_out
-   silent register
-   redir end
-   let l:register_list = split(l:register_out, '\n')
-   call remove(l:register_list, 0) " remove header (-- Registers --)
-   call map(l:register_list, "substitute(v:val, '^.\\(.\\).*', '\\1', '')")
-   call filter(l:register_list, 'v:val !~ "[%#=.:]"') " skip readonly registers
-   for elem in l:register_list
+if has('nvim')
+  " Wipe register
+  function! WipeReg()
+    redir => l:register_out
+    silent register
+    redir end
+    let l:register_list = split(l:register_out, '\n')
+    call remove(l:register_list, 0) " remove header (-- Registers --)
+    call map(l:register_list, "substitute(v:val, '^.\\(.\\).*', '\\1', '')")
+    call filter(l:register_list, 'v:val !~ "[%#=.:]"') " skip readonly registers
+    for elem in l:register_list
       execute 'let @'.elem.'= ""'
-   endfor
-endfunction
-command! WipeReg call WipeReg()
-autocmd VimEnter * WipeReg " Wipe register on vim start
+    endfor
+  endfunction
+  command! WipeReg call WipeReg()
+  autocmd VimEnter * WipeReg " Wipe register on vim start
+endif
