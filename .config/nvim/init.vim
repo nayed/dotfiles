@@ -91,6 +91,7 @@ endif
 hi NormalFloat guibg=#f2e5bc
 hi CocWarningSign guifg=#d65d0e
 hi CocInfoSign guifg=#076678
+hi SignColumn guibg=#fbf1c7
 
 execute "hi VimwikiHeader1" . " guifg=" . term0 . " guibg=" . term9
 execute "hi VimwikiHeader2" . " guifg=" . term0 . " guibg=" . term3
