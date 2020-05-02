@@ -1,6 +1,7 @@
 {
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "json", "javascriptreact", "css", "markdown", "vue", "html"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact",
+    "json", "javascriptreact", "css", "markdown", "vue", "html", "ruby"],
   "diagnostic.errorSign": "❌",
   "diagnostic.infoSign": "ⓘ",
   "diagnostic.warningSign": "⚠️",
@@ -23,5 +24,7 @@
   "prettier.proseWrap": "always",
   "prettier.semi": false,
   "prettier.singleQuote": true,
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
   "suggest.noselect": false
 }
