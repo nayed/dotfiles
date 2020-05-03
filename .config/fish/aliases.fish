@@ -40,3 +40,5 @@ alias ips "ifconfig -a | grep -o 'inet6\\? \\(addr:\\)\\?\\s\\?\\(\\(\\([0-9]\\+
 
 # untar
 alias untar "tar xvf"
+
+alias ri "ri --format markdown"
