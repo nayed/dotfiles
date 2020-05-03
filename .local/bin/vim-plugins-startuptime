@@ -9,10 +9,21 @@
 ################################################
 
 class String
-  def red;            "\e[31m#{self}\e[0m" end
-  def green;          "\e[32m#{self}\e[0m" end
-  def brown;          "\e[33m#{self}\e[0m" end
-  def cyan;           "\e[36m#{self}\e[0m" end
+  def red
+    "\e[31m#{self}\e[0m"
+  end
+
+  def green
+    "\e[32m#{self}\e[0m"
+  end
+
+  def brown
+    "\e[33m#{self}\e[0m"
+  end
+
+  def cyan
+    "\e[36m#{self}\e[0m"
+  end
 end
 
 # First argument can be nvim for Neovim
@@ -20,7 +31,7 @@ vim = ARGV.first || 'vim'
 puts "Testing #{vim} performance..."
 
 PLOT_WIDTH = 120
-LOG = "vim-plugins-profile.#{$$}.log"
+LOG = "vim-plugins-profile.#{$PROCESS_ID}.log"
 
 VIMFILES_DIR = vim == "nvim" ? File.join(ENV['HOME'], '.local/share/nvim/plugged') : File.join(ENV['HOME'], '.vim', 'plugged')
 puts "Assuming your vimfiles folder is #{VIMFILES_DIR}."
@@ -55,18 +66,17 @@ end
 # plot
 max = exec_times_by_name.values.max
 relatives = exec_times_by_name.reduce({}) do |hash, (name, time)|
-  hash.merge!(name => time/max.to_f)
+  hash.merge!(name => time / max.to_f)
 end
 max_name_length = relatives.keys.map(&:length).max
 puts
-Hash[ relatives.sort_by { |k, v| -v } ].each do |name, rel_time|
+Hash[relatives.sort_by { |_k, v| -v }].each do |name, rel_time|
   time = exec_times_by_name[name]
-  plugins_time = "#{name.rjust(max_name_length)}: (#{time.round(3).to_s.ljust(5)}ms) #{'*' * (rel_time*PLOT_WIDTH)}"
+  plugins_time = "#{name.rjust(max_name_length)}: (#{time.round(3).to_s.ljust(5)}ms) #{'*' * (rel_time * PLOT_WIDTH)}"
 
-  case
-  when time < 20
+  if time < 20
     puts plugins_time.green
-  when time < 50
+  elsif time < 50
     puts plugins_time.brown
   else
     puts plugins_time.red

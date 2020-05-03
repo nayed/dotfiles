@@ -21,7 +21,7 @@ filename = ARGV[0].chomp
 puts "Encrypting #{filename}"
 c = "ENCR_#{filename}"
 
-if File.exist? c
+if File.exist?(c)
   puts "File already exists."
   exit
 end
@@ -35,10 +35,10 @@ kee = gets.chomp
 
 begin
   # Initialize the encryption method using the user input key
-  blowfish = Crypt::Blowfish.new kee
-  blowfish.encrypt_file filename.to_str, c
+  blowfish = Crypt::Blowfish.new(kee)
+  blowfish.encrypt_file(filename.to_str, c)
   puts "Encryption SUCCESS!"
-  File.delete filename
-rescue Exception => e
+  File.delete(filename)
+rescue => e
   puts "An error occurred during encryption: \n #{e}."
 end

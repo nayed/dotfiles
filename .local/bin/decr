@@ -23,7 +23,7 @@ puts "Decrypting #{filename}"
 # Remove 'ENCR_' from filename
 p = filename[5...filename.size]
 
-if File.exist? p
+if File.exist?(p)
   puts "#{p} already exists."
   exit
 end
@@ -36,8 +36,8 @@ kee = gets.chomp
 
 begin
   # Initialize the decryption method using the user input key
-  blowfish = Crypt::Blowfish.new kee
-  blowfish.decrypt_file filename.to_str, p
+  blowfish = Crypt::Blowfish.new(kee)
+  blowfish.decrypt_file(filename.to_str, p)
   puts "Decryption SUCCESS!"
 
   # Delete or not the ENCR_<filename>?
@@ -45,6 +45,6 @@ begin
   # THE FILE DATA ARE LOST. L. O . S. T.
   # So better keep it(?)
   # File.delete filename
-rescue Exception => e
+rescue => e
   puts "An error occured during decryption: \n #{e}"
 end
