@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+
+if ARGV.size != 2
+  doc = %(
+  Usage:
+    $ filesplit <filename.ext> <number of part>
+
+  Example:
+    You want to split a file in 4 parts.
+
+    $ filesplit myfile.txt 4
+
+    The script will create 4 seperate file labeled
+    myfile.txt.rsplit1 to myfile.txt.rsplit4
+  )
+  puts doc
+  exit
+end
+
+filename = ARGV[0]
+number_of_parts = ARGV[1].to_i
+
+# Make sure the file exists that we want to split
+if File.exist?(filename)
+  file = File.open(filename, "r")
+
+  puts "The file is #{File.size(filename)} bytes."
+
+  # Calculate the right number of parts to split the file
+  temp = File.size(filename).divmod(number_of_parts)
+  weight = temp[0]
+  extra = temp[1]
+
+  puts "\nSplitting the file into #{number_of_parts} parts (#{weight} byte) and 1 extra (#{extra} byte) part"
+
+  # Start breaking the file down
+  1.upto(number_of_parts) do |n|
+    f = File.open("#{filename}.rsplit#{n}", "w")
+    f.print file.read(weight)
+  end
+
+  e = File.open("#{filename}.rsplit#{number_of_parts}", "a")
+  e.print file.read(extra)
+else
+  puts "\n\nFile does NOT exist, please check filename."
+end
