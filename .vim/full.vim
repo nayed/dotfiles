@@ -1,5 +1,5 @@
 Plug 'pechorin/any-jump.vim'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Raimondi/delimitMate'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
