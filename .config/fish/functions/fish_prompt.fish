@@ -64,7 +64,7 @@ function fish_prompt --description 'Write out the prompt'
       set suffix '#'
     case '*'
       set color_user blue
-      set suffix '$'
+      set suffix \uf811
   end
 
   # Username
@@ -84,5 +84,6 @@ function fish_prompt --description 'Write out the prompt'
 
   printf "\n"
 
+  set_color brwhite
   echo -n "$suffix "
 end
