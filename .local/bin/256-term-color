@@ -5,10 +5,30 @@
 # on some terminals and terminals emulators        #
 ####################################################
 
+fgbg = ARGV[0] == "-b" ? 48 : 38
+
+if ARGV[0] == "-h"
+  doc = %(
+  This script display the 256 colors available
+  on some terminals and terminals emulators.
+
+  Usage:
+    256-term-color
+      display color from color 1 to color 256
+
+  Option:
+    -b
+      display color from color 1 to color 256
+      as background
+  )
+  puts doc
+  exit
+end
+
 0.upto(15) do |i|
   0.upto(15) do |j|
     code = (i * 16 + j).to_s
-    printf " \u001b[38;5;#{code}m#{code.ljust(4)}"
+    printf " \u001b[#{fgbg};5;#{code}m#{code.ljust(4)}"
   end
   puts "\u001b[0m"
 end
