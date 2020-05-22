@@ -65,6 +65,9 @@
   # Clone a repository including all submodules
   cl = clone --recursive
 
+  # Clone a repository with only the last git history
+  cld = clone --recursive --depth 1
+
   # List contributors with number of commits
   contributors = shortlog --summary --numbered
 
