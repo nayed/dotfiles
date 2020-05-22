@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+sub_code = (0..9).to_a + ("a".."f").to_a
+
+column = 1
+ARGV.each do |code|
+  sub_code.each do |i|
+    print "  \\u#{code}#{i}: " + ["#{code}#{i}".to_i(16)].pack("U*")
+    if column == 4
+      column = 0
+      puts
+    end
+    column += 1
+    print "  |" if column > 1 && column <= 4
+  end
+end
+
