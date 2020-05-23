@@ -301,4 +301,10 @@ if has('nvim')
   endfunction
   command! WipeReg call WipeReg()
   autocmd VimEnter * WipeReg " Wipe register on vim start
+
+  " Highlight yanked text
+  augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+  augroup END
 endif
