@@ -2,6 +2,7 @@ alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
 alias ..... "cd ../../../.."
+alias ...... "cd ../../../../.."
 
 # There's a function at functions/git.fish that already map git to hub
 alias g "git"
@@ -23,8 +24,10 @@ alias cleanview "rm -rf ~/.local/share/nvim/view ~/.vim/view"
 alias cleann "rm -rf ~/.local/share/nvim/view"
 alias cleanv "rm -rf ~/.vim/view"
 
-alias npmlist "npm list --depth 0"
-alias npmlistg "npm list -g --depth 0"
+alias npm-list "npm list --depth 0"
+alias npm-list-g "npm list -g --depth 0"
+alias npm-outdated "npm outdated --depth 0"
+alias npm-outdated-g "npm outdated -g --depth 0"
 
 alias ea "n ~/.config/fish/aliases.fish"
 alias ec "n ~/.config/fish/config.fish"
