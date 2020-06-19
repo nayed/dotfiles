@@ -1,12 +1,25 @@
 {
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact",
-    "json", "javascriptreact", "css", "markdown", "vue", "html", "ruby"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "css",
+    "markdown",
+    "vue",
+    "html",
+    "ruby"
+  ],
   "diagnostic.errorSign": "❌",
   "diagnostic.infoSign": "ⓘ",
   "diagnostic.warningSign": "⚠️",
   "diagnostic.hintSign": "🔍 ",
-  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
+  "emmet.includeLanguages": {
+    "vue-html": "html",
+    "javascript": "javascriptreact"
+  },
   "emmet.showExpandedAbbreviation": "always",
   "elixir.pathToElixirLS": "~/.elixir-ls/language_server.sh",
   "languageserver": {
@@ -24,6 +37,7 @@
   "prettier.proseWrap": "always",
   "prettier.semi": false,
   "prettier.singleQuote": true,
+  "prettier.trailingComma": "none",
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
   "suggest.noselect": false
