@@ -45,3 +45,7 @@ alias ips "ifconfig -a | grep -o 'inet6\\? \\(addr:\\)\\?\\s\\?\\(\\(\\([0-9]\\+
 alias untar "tar xvf"
 
 alias ri "ri -Tf ansi"
+
+alias tnew "tmux new -s"
+alias tkill "tmux kill-session -t"
+alias tat "tmux a -t"
