@@ -278,6 +278,7 @@ nnoremap <M-t> :BTags<CR>
 let g:vim_markdown_conceal_code_blocks = 0
 let g:indentLine_char = '┊'
 let g:indentLine_color_term = 243
+let g:indentLine_setColors = 0
 
 
 " ============================= LIGHTLINE ==============================
