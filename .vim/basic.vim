@@ -307,4 +307,7 @@ if has('nvim')
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
   augroup END
+
+  " See a live preview of substitution
+  set inccommand=nosplit
 endif
