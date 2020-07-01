@@ -61,7 +61,7 @@ execute "hi ErrorMsg gui=NONE guifg=NONE guibg=" . g:terminal_color_5
 execute "hi FoldColumn gui=NONE guifg=" . g:terminal_color_8 . " guibg=NONE"
 execute "hi Folded gui=NONE guifg=" . g:terminal_color_2 . " guibg=NONE"
 hi Ignore gui=NONE guifg=NONE guibg=NONE
-execute "hi IncSearch gui=NONE guifg=NONE guibg=" . g:terminal_color_6
+execute "hi IncSearch gui=NONE guifg=" . g:terminal_color_1 . " guibg=" . g:terminal_color_14
 execute "hi LineNr gui=NONE guifg=" . g:terminal_color_8 . " guibg=NONE"
 execute "hi MatchParen gui=NONE guifg=NONE guibg=" . g:terminal_color_6
 hi ModeMsg gui=NONE guifg=NONE guibg=NONE
@@ -74,7 +74,7 @@ execute "hi PmenuSbar gui=NONE guifg=NONE guibg=" . g:terminal_color_11
 execute "hi PmenuSel gui=NONE guifg=NONE guibg=" . g:terminal_color_6
 execute "hi PmenuThumb gui=NONE guifg=NONE guibg=" . g:terminal_color_12
 hi Question gui=NONE guifg=NONE guibg=NONE
-execute "hi Search gui=NONE guifg=NONE guibg=" . g:terminal_color_11
+execute "hi Search gui=NONE guifg=" . g:terminal_color_0 . " guibg=" . g:terminal_color_4
 execute "hi SignColumn gui=NONE guifg=" . g:terminal_color_8 . " guibg=NONE"
 execute "hi Special gui=NONE guifg=" . g:terminal_color_0 . " guibg=NONE"
 execute "hi SpecialKey gui=NONE guifg=" . g:terminal_color_8 . " guibg=NONE"
@@ -102,3 +102,5 @@ execute "hi WildMenu gui=NONE guifg=NONE guibg=" . g:terminal_color_15
 hi lCursor gui=NONE guifg=NONE guibg=NONE
 hi Identifier gui=NONE guifg=NONE guibg=NONE
 hi PreProc gui=NONE guifg=NONE guibg=NONE
+
+execute "hi CocHighlightText gui=NONE guifg=NONE guibg=" . g:terminal_color_15
