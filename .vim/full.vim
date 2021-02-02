@@ -133,6 +133,8 @@ command! -nargs=0 Format :call CocAction('format')
 " Show all diagnostics.
 nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 
+nnoremap <leader>prn :CocSearch <C-R>=expand("<cword>")<CR><CR>
+
 let g:coc_global_extensions = [
   \ 'coc-actions',
   \ 'coc-css',
