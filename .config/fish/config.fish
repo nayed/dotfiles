@@ -17,7 +17,7 @@ function chpwd --on-variable PWD
 end
 
 # FZF
-set -gx BAT_THEME "GitHub"
+set -gx BAT_THEME "gruvbox-light"
 set -gx FZF_COMPLETION_OPTS "--preview 'bat --color=always {} || cat {} || tree -C {} 2> /dev/null | head -200'"
 set -gx FZF_CTRL_T_OPTS "$FZF_COMPLETION_OPTS"
 set -gx FZF_DEFAULT_COMMAND  'rg --files --no-ignore-vcs --hidden'
@@ -41,3 +41,6 @@ set -gx PATH $PATH ~/.asdf/shims
 set -gx PATH $PATH ~/.local/bin
 
 set -gx EDITOR nvim
+
+# needed to exist for fd and other cli to use real term color
+set -gx LS_COLORS ""
