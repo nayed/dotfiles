@@ -13,9 +13,9 @@
     "ruby"
   ],
   "diagnostic.errorSign": "❌",
-  "diagnostic.infoSign": "ⓘ",
+  "diagnostic.infoSign": "🔎",
   "diagnostic.warningSign": "⚠️",
-  "diagnostic.hintSign": "🔍 ",
+  "diagnostic.hintSign": "💬",
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact"

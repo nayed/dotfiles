@@ -312,8 +312,8 @@ function! StatusDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
   let s:error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
   let s:warning_sign = get(g:, 'coc_status_warning_sign', has('mac') ? '⚠️  ' : 'W')
-  let s:info_sign = 'ⓘ '
-  let s:hint_sign = has('mac') ? '🔍 ' : 'H'
+  let s:info_sign = has('mac') ? '🔎 ' : 'ⓘ '
+  let s:hint_sign = has('mac') ? '💬 ' : 'H'
   let s:ok_sign = '✓'
 
   if empty(info) | return s:ok_sign | endif
