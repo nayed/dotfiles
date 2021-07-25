@@ -52,3 +52,6 @@ alias tat "tmux a -t"
 alias tls "tmux ls"
 
 alias cleanregisternvim "rm -rf ~/.local/share/nvim/shada"
+
+alias diff "delta"
+alias ndiff "nvim -d"
