@@ -50,3 +50,5 @@ alias tnew "tmux new -s"
 alias tkill "tmux kill-session -t"
 alias tat "tmux a -t"
 alias tls "tmux ls"
+
+alias cleanregisternvim "rm -rf ~/.local/share/nvim/shada"
