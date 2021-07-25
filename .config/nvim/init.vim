@@ -26,9 +26,7 @@ source $HOME/.vim/languages/go.vim
 source $HOME/.vim/languages/javascript.vim
 
 " Color Scheme
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'lifepillar/vim-gruvbox8'
-Plug 'lifepillar/vim-solarized8'
 
 
 " Initialize plugin system
@@ -43,9 +41,6 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-
-" colorscheme challenger_deep
-" colorscheme solarized8_flat
 
 colorscheme gruvbox8
 " colorscheme yoru
@@ -90,10 +85,12 @@ if exists("g:terminal_color_0")
 endif
 
 hi NormalFloat guibg=#f2e5bc
-hi CocWarningSign guifg=#d65d0e
-hi CocInfoSign guifg=#076678
-hi SignColumn guibg=#fbf1c7
-hi Search guifg=#689d6a
+execute "hi CocWarningSign " . " guifg=" . term11
+execute "hi CocInfoSign " . " guifg=" . term13
+hi SignColumn guibg=NONE
+execute "hi Search" . " guifg=" . term6
+execute "hi IncSearch" . " guifg=" . term14
+hi Normal guibg=NONE
 
 execute "hi VimwikiHeader1" . " guifg=" . term0 . " guibg=" . term9
 execute "hi VimwikiHeader2" . " guifg=" . term0 . " guibg=" . term3
