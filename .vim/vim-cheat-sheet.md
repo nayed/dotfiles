@@ -28,8 +28,16 @@
   - Navigate to the window you'd like to swap with
 - Go to next fold: zj
 - Go to previous fold: zk
+
+- Go to previous position: ctrl + o
+- Go to forward position: ctrl + i
 - Go to previous position edits: g;
 - Go to recent position edits, opposite of `g;`: g,
+
+- Switch current window to right: ctrl w + L
+- Switch current window to left: ctrl w + H
+- Switch current window to top: ctrl w + K
+- Switch current window to bottom: ctrl w + J
 
 ### Editing
 
