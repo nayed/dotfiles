@@ -53,5 +53,9 @@ alias tls "tmux ls"
 
 alias cleanregisternvim "rm -rf ~/.local/share/nvim/shada"
 
+# I should probably maybe make a function that takes a bool
+alias macosfindershowdotfiles "defaults write com.apple.finder AppleShowAllFiles -boolean true; killall Finder"
+alias macosfinderhidedotfiles "defaults write com.apple.finder AppleShowAllFiles -boolean false; killall Finder"
+
 alias diff "delta"
 alias ndiff "nvim -d"
