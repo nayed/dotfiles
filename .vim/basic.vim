@@ -252,16 +252,27 @@ nnoremap <silent> <space><space> <c-^>
 nnoremap <leader>n :cnext<CR>
 nnoremap <leader>p :cprevious<CR>
 
+function! ToggleQuickFix()
+  if getqflist({'winid':0}).winid
+    cclose
+  else
+    botright copen
+  endif
+endfunction
+
+command! -nargs=0 -bar ToggleQuickFix call ToggleQuickFix()
+nnoremap <leader>t :ToggleQuickFix<CR>
 
 " Vim grep:
 " Display search results with a window at the bottom
 cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? 'silent grep'  : 'grep'
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
+" Display quickfix list at the bottom
 augroup init_quickfix
   autocmd!
-  autocmd QuickFixCmdPost [^l]* cwindow
-  autocmd QuickFixCmdPost l* lwindow
+  autocmd QuickFixCmdPost [^l]* botright cwindow
+  autocmd QuickFixCmdPost l* botright lwindow
 augroup END
 
 " Open new line below and above current line
@@ -299,6 +310,23 @@ endif
 
 " Escape buffer after :te(rminal)
 tnoremap <Esc> <C-\><C-n>
+
+
+" Auto set quickfix window if result less than 10 rows
+function! AdjustWindowHeight(minheight, maxheight)
+  let l = 1
+  let n_lines = 0
+  let w_width = winwidth(0)
+  while l <= line('$')
+    " number to float for division
+    let l_len = strlen(getline(l)) + 0.0
+    let line_width = l_len/w_width
+    let n_lines += float2nr(ceil(line_width))
+    let l += 1
+  endw
+  exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
+au FileType qf call AdjustWindowHeight(3, 10)
 
 
 nnoremap <silent> tc :tabclose<cr>
