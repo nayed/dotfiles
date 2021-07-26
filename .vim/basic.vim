@@ -249,8 +249,9 @@ xnoremap <M-j> :move'>+<CR>gv=gv
 nnoremap <silent> <space><space> <c-^>
 
 " change vim default weird keymap
-nnoremap <C-c>n :cnext<CR>
-nnoremap <C-c>p :cprev<CR>
+nnoremap <leader>n :cnext<CR>
+nnoremap <leader>p :cprevious<CR>
+
 
 " Vim grep:
 " Display search results with a window at the bottom
@@ -268,7 +269,7 @@ nnoremap <leader>o o<esc>
 nnoremap <leader>O O<esc>
 
 " Quit all
-nnoremap <M-q>a :qa<cr>
+nnoremap <leader>qa :qa<cr>
 
 " Vimdiff: jump to next and previous diff
 nnoremap <leader>dn ]c
@@ -286,28 +287,18 @@ nnoremap <leader>dk :diffg //3<cr>
 command! -nargs=0 Bonly :%bd|e#|bd#
 
 if has('nvim')
-  " Wipe register
-  function! WipeReg()
-    redir => l:register_out
-    silent register
-    redir end
-    let l:register_list = split(l:register_out, '\n')
-    call remove(l:register_list, 0) " remove header (-- Registers --)
-    call map(l:register_list, "substitute(v:val, '^.\\(.\\).*', '\\1', '')")
-    call filter(l:register_list, 'v:val !~ "[%#=.:]"') " skip readonly registers
-    for elem in l:register_list
-      execute 'let @'.elem.'= ""'
-    endfor
-  endfunction
-  command! WipeReg call WipeReg()
-  autocmd VimEnter * WipeReg " Wipe register on vim start
-
   " Highlight yanked text
   augroup highlight_yank
     autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+    au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=200, on_visual=true}
   augroup END
 
   " See a live preview of substitution
   set inccommand=nosplit
 endif
+
+" Escape buffer after :te(rminal)
+tnoremap <Esc> <C-\><C-n>
+
+
+nnoremap <silent> tc :tabclose<cr>

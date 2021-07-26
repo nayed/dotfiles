@@ -39,6 +39,9 @@
 - Switch current window to top: ctrl w + K
 - Switch current window to bottom: ctrl w + J
 
+<!-- prettier-ignore -->
+- In insert mode: jump out of parenthesis/brackets/quotes/etc: ctrl g + g (need Raimondi/delimitMate)
+
 ### Editing
 
 - Undo: u
