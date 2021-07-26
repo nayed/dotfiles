@@ -118,7 +118,7 @@ augroup SpellConfig
 
   " Pick the 1st suggestion
   " (by default it's ctrl-x ctrl-s on insert mode)
-  nmap <silent> <space>f 1z=
+  nmap <silent> <space>z 1z=
 augroup END
 
 " ================ Custom Settings ========================

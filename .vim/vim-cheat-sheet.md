@@ -63,7 +63,7 @@
 - Remove word from vim dictionary wrong word: zuw
 - Get suggestions on edit: ctrl+n and ctrl+p
 - Get suggestions on fix wrong word: ctrl+x ctrl+s on edit
-- Pick 1st suggestion on fix wrong word: space+f
+- Pick 1st suggestion on fix wrong word: space+z
 
 ### Deleting
 
