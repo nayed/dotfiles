@@ -13,22 +13,45 @@
 [core]
   editor = nvim
   excludesfile = ~/.gitignore
-  pager = delta --plus-color="#8be28b" --minus-color="#ff817b" --hunk-style plain
+[pager]
+  diff = delta
+  log = delta
+  show = delta
+  ; reflog = delta
 [interactive]
   diffFilter = delta --color-only
+[delta]
+  features = side-by-side line-numbers decorations
+  whitespace-error-style = 22 reverse
+  syntax-theme = gruvbox-light
+  plus-style = syntax "#8be28b"
+  minus-style = syntax "#ff817b"
+[delta "decorations"]
+  commit-decoration-style = bold blue box ol
+  commit-style = magenta
+  file-style = bold blue ul
+  file-decoration-style = none
+  hunk-header-style = omit
+  ; hunk-header-decoration-style = yellow box
+[delta "line-numbers"]
+  line-numbers-left-style = cyan
+  line-numbers-right-style = cyan
+  line-numbers-minus-style = 124
+  line-numbers-plus-style = 28
+  line-numbers-zero-style = brightblack
 [merge]
-  tool = vimdiff
+  tool = ndiff
   # conflictstyle = diff3
 [mergetool]
   prompt = true
   keepBackup = false
-[mergetool "vimdiff"]
+[mergetool "ndiff"]
   cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [difftool]
   prompt = false
 [diff]
-  tool = vimdiff
-[difftool "vimdiff"]
+  tool = ndiff
+[difftool "ndiff"]
   cmd = nvim -d $LOCAL $REMOTE -c '$wincmd w' -c 'wincmd L'
 [commit]
   gpgsign = true # No need to add -S to sign commits
