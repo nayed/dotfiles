@@ -329,4 +329,6 @@ endfunction
 au FileType qf call AdjustWindowHeight(3, 10)
 
 
+autocmd FileType gitcommit DiffGitCached | wincmd p | wincmd H
+
 nnoremap <silent> tc :tabclose<cr>

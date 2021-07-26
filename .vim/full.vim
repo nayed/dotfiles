@@ -157,7 +157,17 @@ let g:coc_global_extensions = [
 
 
 " ======================== FUGITIVE =============================
-nnoremap <silent> <space>g :Gstatus<cr>
+nnoremap <silent> <space>g :0G<cr>
+nnoremap <silent> <space>gd :tab G d<cr>
+nnoremap <silent> <space>gs :tab G ds<cr>
+nnoremap <silent> <space>gl :tab G lg<cr>
+nnoremap <silent> <space>gp :tab G log -p<cr>
+nnoremap <silent> gdv :tab Gvdiffsplit<cr>
+nnoremap <silent> gds :tab Gdiffsplit<cr>
+
+autocmd FileType fugitive nnoremap <buffer> <space>g :bd<cr>
+autocmd FileType fugitive nnoremap <buffer> cc :tab Git commit<cr>
+nnoremap <silent> <space>gc :tab Git commit<cr>
 
 
 " =============================== FZF ============================
@@ -274,6 +284,18 @@ nnoremap <Leader>l :Lines<CR>
 
 " display tags in current file
 nnoremap <M-t> :BTags<CR>
+
+
+" ============================= GIT GUTTER =============================
+nmap <leader>hn <Plug>(GitGutterNextHunk)
+nmap <leader>hb <Plug>(GitGutterPrevHunk)
+command! Gqcf GitGutterQuickFixCurrentFile | copen
+command! Gqf GitGutterQuickFix | copen
+
+" display a quickfix of all modifs of the current file
+nmap <leader>hf :Gqcf<CR>
+" display a quickfix of all modifs of all tracked files in the project
+nmap <leader>ha :Gqf<CR>
 
 
 " ============================= INDENTLINE =============================
