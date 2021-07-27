@@ -328,6 +328,19 @@ function! AdjustWindowHeight(minheight, maxheight)
 endfunction
 au FileType qf call AdjustWindowHeight(3, 10)
 
+" Open help page in a new tab
+" Quit help page with 'q'
+function! s:helptab()
+  if &buftype == 'help'
+    wincmd T
+    nnoremap <buffer> q :q<cr>
+  endif
+endfunction
+
+augroup HelpInNewTab
+  autocmd!
+  autocmd BufEnter *.txt call s:helptab()
+augroup END
 
 autocmd FileType gitcommit DiffGitCached | wincmd p | wincmd H
 
