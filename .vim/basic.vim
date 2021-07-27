@@ -311,6 +311,22 @@ endif
 " Escape buffer after :te(rminal)
 tnoremap <Esc> <C-\><C-n>
 
+" Return Visual Mode's content as a string
+func! GetSelectedText()
+  normal gv"xy
+  let result = getreg("x")
+  return result
+endfunc
+
+" :VG <string>
+" Search a string in the project and add results in a quickfix list
+command -nargs=1 VG noautocmd vimgrep /<args>/gj
+      \ `=systemlist("git ls-files")`
+      \ `=systemlist("git ls-files --others --exclude-standard")`
+      \ | botright copen | cw
+
+nmap <F4>     :VG <C-R>=expand("<cword>")<CR><CR>
+vnoremap <F4> :<C-U>execute 'VG ' . GetSelectedText()<CR>
 
 " Auto set quickfix window if result less than 10 rows
 function! AdjustWindowHeight(minheight, maxheight)

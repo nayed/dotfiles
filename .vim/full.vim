@@ -203,6 +203,9 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 nnoremap <M-s> :RG<CR>
 nnoremap <M-S> :RG!<CR>
 
+nmap <F6>     :RG <C-R>=expand("<cword>")<CR><CR>
+vnoremap <F6> :<C-U>execute 'RG ' . GetSelectedText()<CR>
+
 " Adding preview window to some fzf command
 function! s:p(bang, ...)
   let preview_window = get(g:, 'fzf_preview_window')
