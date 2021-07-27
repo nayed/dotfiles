@@ -24,7 +24,7 @@ Plug 'powerman/vim-plugin-AnsiEsc'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'dstein64/vim-win'
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 
 
 " =========================== Custom Settings ===========================
@@ -73,9 +73,9 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use ,n and ,p to navigate diagnostics
-map <leader>n <Plug>(coc-diagnostic-next)
-map <leader>p <Plug>(coc-diagnostic-prev)
+" Use cn and cp to navigate diagnostics
+nmap <silent> cn <Plug>(coc-diagnostic-next)
+nmap <silent> cp <Plug>(coc-diagnostic-prev)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -133,6 +133,9 @@ command! -nargs=0 Format :call CocAction('format')
 " Show all diagnostics.
 nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 
+" Search all instances of word under cursor
+" Allow to rename that word in all the projec with
+" :%s/<word>/<newWord>/g
 nnoremap <leader>prn :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 let g:coc_global_extensions = [
@@ -300,9 +303,9 @@ nmap <leader>ha :Gqf<CR>
 
 " ============================= INDENTLINE =============================
 let g:vim_markdown_conceal_code_blocks = 0
-let g:indentLine_char = '┊'
-let g:indentLine_color_term = 243
-let g:indentLine_setColors = 0
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+" let g:indentLine_setColors = 0
 
 
 " ============================= LIGHTLINE ==============================
@@ -499,13 +502,14 @@ nnoremap <silent> <space>t :TagbarToggle<cr>
 
 " =========================== THESAURUS =============================
 let g:tq_map_keys = 0 " disable default thesaurus keymap
-nnoremap <Leader>th :ThesaurusQueryReplaceCurrentWord<CR>
+nnoremap <silent>th :ThesaurusQueryReplaceCurrentWord<CR>
 
 " ============================= UNDOTREE ============================
 nnoremap <silent> <space>u :UndotreeToggle<cr>
 
 " ============================= VIMWIKI =============================
 let g:vimwiki_list = [{'path': '~/Codes/Misc/til'}]
+let g:vimwiki_global_ext = 0
 autocmd FileType vimwiki setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
 " Hide =
