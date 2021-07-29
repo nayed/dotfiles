@@ -11,6 +11,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'majutsushi/tagbar'
 Plug 'Ron89/thesaurus_query.vim'
 Plug 'mbbill/undotree'
