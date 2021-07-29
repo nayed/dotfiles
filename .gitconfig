@@ -43,16 +43,16 @@
   tool = ndiff
   # conflictstyle = diff3
 [mergetool]
-  prompt = true
+  prompt = false
   keepBackup = false
 [mergetool "ndiff"]
-  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c 'windo set wrap' -c '$wincmd w' -c 'wincmd J'
 [difftool]
   prompt = false
 [diff]
   tool = ndiff
 [difftool "ndiff"]
-  cmd = nvim -d $LOCAL $REMOTE -c '$wincmd w' -c 'wincmd L'
+  cmd = nvim -d $LOCAL $REMOTE -c 'windo set wrap' -c '$wincmd w' -c 'wincmd L'
 [commit]
   gpgsign = true # No need to add -S to sign commits
 

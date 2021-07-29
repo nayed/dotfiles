@@ -165,8 +165,22 @@ nnoremap <silent> <space>gd :tab G d<cr>
 nnoremap <silent> <space>gs :tab G ds<cr>
 nnoremap <silent> <space>gl :tab G lg<cr>
 nnoremap <silent> <space>gp :tab G log -p<cr>
-nnoremap <silent> gdv :tab Gvdiffsplit<cr>
-nnoremap <silent> gds :tab Gdiffsplit<cr>
+
+" git diff vertical
+command! Gv tabnew % | exe "normal \<C-O>" | Gvdiffsplit | windo set wrap | wincmd l
+nnoremap <silent> gv :Gv<cr>
+
+" git diff horizontal
+command! Gs tabnew % | exe "normal \<C-O>" | Gdiffsplit | windo set wrap | wincmd j
+nnoremap <silent> gs :Gs<cr>
+
+" 3-way git diff vertical for merge conflict
+command! GV tabnew % | Gvdiffsplit! | exe "normal \<C-O>" | windo set wrap | wincmd h
+nnoremap <silent> gV :GV<cr>
+
+" 3-way git diff horizontal for merge conflict
+command! GS tabnew % | Gdiffsplit! | exe "normal \<C-O>" | windo set wrap | wincmd k
+nnoremap <silent> gS :GS<cr>
 
 autocmd FileType fugitive nnoremap <buffer> <space>g :bd<cr>
 autocmd FileType fugitive nnoremap <buffer> cc :tab Git commit<cr>

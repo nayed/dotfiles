@@ -58,4 +58,4 @@ alias macosfindershowdotfiles "defaults write com.apple.finder AppleShowAllFiles
 alias macosfinderhidedotfiles "defaults write com.apple.finder AppleShowAllFiles -boolean false; killall Finder"
 
 alias diff "delta"
-alias ndiff "nvim -d"
+alias ndiff "nvim -d -c 'windo set wrap' -c 'wincmd h' -c 'execute \"normal gg\"' -c 'execute \"normal 0\"'"
