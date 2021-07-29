@@ -219,3 +219,7 @@ To stage part of any hunk:
 - move to the preview window, e.g. :wincmd P or move inside with the mouse cursor
 - delete the lines you do not want to stage
 - stage the remaining lines: either write (:w) the window or stage via <Leader>hs or :GitGutterStageHunk.
+
+### Prettier
+
+- Save without formatting :noa w
