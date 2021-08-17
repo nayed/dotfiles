@@ -22,6 +22,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react-hooks'],
+  root: true,
   rules: {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
@@ -31,5 +32,10 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'import/imports-first': [2, 'absolute-first'],
     'import/newline-after-import': ['warn', { count: 1 }]
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    }
   }
 }

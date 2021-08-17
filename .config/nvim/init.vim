@@ -84,12 +84,13 @@ if exists("g:terminal_color_0")
 endif
 
 hi NormalFloat guibg=#f2e5bc
-execute "hi CocWarningSign " . " guifg=" . term11
-execute "hi CocInfoSign " . " guifg=" . term13
-hi SignColumn guibg=NONE
 execute "hi Search" . " guifg=" . term6
 execute "hi IncSearch" . " guifg=" . term14
 hi Normal guibg=NONE
+execute "hi CocFloatingBorder guifg=" . term13
+execute "hi CocInfoSign guifg=" . term13
+execute "hi CocWarningSign guifg=" . term11
+
 
 execute "hi VimwikiHeader1" . " guifg=" . term0 . " guibg=" . term9
 execute "hi VimwikiHeader2" . " guifg=" . term0 . " guibg=" . term3

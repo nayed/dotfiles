@@ -10,12 +10,14 @@
     "markdown",
     "vue",
     "html",
-    "ruby"
+    "ruby",
+    "go"
   ],
   "diagnostic.errorSign": "❌",
   "diagnostic.infoSign": "🔎",
   "diagnostic.warningSign": "⚠️",
   "diagnostic.hintSign": "💬",
+  "dialog.floatBorderHighlight": "CocFloatingBorder",
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact"
@@ -23,15 +25,6 @@
   "emmet.showExpandedAbbreviation": "always",
   "elixir.pathToElixirLS": "~/.elixir-ls/language_server.sh",
   "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "args": [],
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "usePlaceholders": true
-      }
-    }
   },
   "prettier.arrowParens": "avoid",
   "prettier.proseWrap": "always",

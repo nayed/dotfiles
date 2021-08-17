@@ -16,7 +16,8 @@ alias la "exa -a"
 alias ll "exa -l"
 alias l "exa -al"
 
-alias cleanplug "rm -rf ~/.local/share/nvim/plugged ~/.config/coc"
+# sudo needed because some coc packages are not installed with my username(?!)
+alias cleanplug "sudo rm -rf ~/.local/share/nvim/plugged ~/.config/coc"
 
 alias brewup "brew update && brew upgrade"
 
