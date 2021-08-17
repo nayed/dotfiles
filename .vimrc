@@ -35,6 +35,18 @@ hi StatusLineNC term=reverse cterm=reverse gui=bold guifg=#fffad4 guibg=Gray45
 hi VertSplit term=reverse cterm=reverse gui=bold guifg=#fffad4 guibg=Gray45
 hi NonText term=bold cterm=bold ctermfg=4 gui=bold guifg=Grey
 
+" This is needed because vim loses color when reloading a session
+autocmd ColorScheme * hi Normal guibg=#fffad4
+
+" Some colorscheme have weird background color at the bottom of the buffer
+" where there is no text. This should fixes it
+autocmd colorscheme * highlight EndOfBuffer          ctermbg=NONE guibg=NONE
+
+" colorscheme desert
+" hi Normal guibg=#301B3F
+" " This is needed because vim loses color when reloading a session
+" autocmd ColorScheme * hi Normal guibg=#301B3F
+
 set t_Co=256
 
 set statusline=\ %f%m%r%h%w\ %=%({%{&ff}\|%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%k\|%Y}%)\ %([%l,%v][%p%%]\ %)

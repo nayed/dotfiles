@@ -83,18 +83,26 @@ if exists("g:terminal_color_0")
   let term15 = g:terminal_color_15
 endif
 
-hi NormalFloat guibg=#f2e5bc
-execute "hi Search" . " guifg=" . term6
-execute "hi IncSearch" . " guifg=" . term14
+execute "hi IncSearch guifg=" . term14
 hi Normal guibg=NONE
+execute "hi NormalFloat guibg=#f2e5bc guifg=" . term0
+execute "hi Search guifg=" . term6
+hi SignColumn guibg=NONE
+
 execute "hi CocFloatingBorder guifg=" . term13
 execute "hi CocInfoSign guifg=" . term13
 execute "hi CocWarningSign guifg=" . term11
 
+execute "hi FzfNormalFloat guibg=#fbf1c7 guifg=" . term0
 
-execute "hi VimwikiHeader1" . " guifg=" . term0 . " guibg=" . term9
-execute "hi VimwikiHeader2" . " guifg=" . term0 . " guibg=" . term3
-execute "hi VimwikiHeader3" . " guifg=" . term0 . " guibg=" . term15
+exe "hi markbarSectionBrackets guifg=" . term9
+hi link markbarSectionLowercaseMark markbarSectionBrackets
+hi link markbarSectionSpecialLocalMark markbarSectionBrackets
+execute "hi markbarContextMarkHighlight guibg=" . term1 . " guifg=" . term15
+
+execute "hi VimwikiHeader1 guifg=" . term15 . " guibg=" . term9
+execute "hi VimwikiHeader2 guifg=" . term15 . " guibg=" . term3
+execute "hi VimwikiHeader3 guifg=" . term15 . " guibg=" . term12
 
 nmap <F5> :source ~/.config/nvim/init.vim<cr>
 

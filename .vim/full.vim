@@ -313,8 +313,8 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " match fzf color with vim colorscheme instead of terminal colorscheme
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
+\ { 'fg':      ['fg', 'FzfNormalFloat'],
+  \ 'bg':      ['bg', 'FzfNormalFloat'],
   \ 'hl':      ['fg', 'Comment'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
