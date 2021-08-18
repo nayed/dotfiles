@@ -159,9 +159,6 @@ inoremap lkj <Esc>`^:w<CR>
 "during insert, lkj escapes and saves and QUITS
 inoremap ;lkj <Esc>:wq<CR>
 
-" Disable conceal in markdown =>
-" conceal : '[link text](link url)' will look 'link text'
-let g:vim_markdown_conceal = 0
 
 " copy and paste
 vmap <C-c> "+yi

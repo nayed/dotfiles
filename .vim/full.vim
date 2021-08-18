@@ -373,7 +373,6 @@ nmap <leader>ha :Gqf<CR>
 
 
 " ============================= INDENTLINE =============================
-let g:vim_markdown_conceal_code_blocks = 0
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 
 " let g:indentLine_setColors = 0

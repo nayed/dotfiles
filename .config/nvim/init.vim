@@ -106,6 +106,14 @@ execute "hi VimwikiHeader3 guifg=" . term15 . " guibg=" . term12
 
 nmap <F5> :source ~/.config/nvim/init.vim<cr>
 
+" ============================ POLYGLOT ============================
+" plasticboy/vim-markdown:
+" Disable conceal in markdown =>
+" conceal : '[link text](link url)' will look 'link text'
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+
+
 " ============================ TREE SITTER ============================
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
