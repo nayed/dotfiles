@@ -157,8 +157,7 @@ inoremap kj <Esc>`^
 "during insert, lkj escapes and saves
 inoremap lkj <Esc>`^:w<CR>
 "during insert, lkj escapes and saves and QUITS
-inoremap ;lkj <Esc>:wq<CR>
-
+inoremap <leader>lkj <Esc>:wq<CR>
 
 " copy and paste
 vmap <C-c> "+yi
@@ -355,6 +354,9 @@ augroup HelpInNewTab
   autocmd BufEnter *.txt call s:helptab()
 augroup END
 
+" Split window for git commit message:
+" Left window is the git commit area
+" Right window is a description of the changes we are commiting
 autocmd FileType gitcommit DiffGitCached | wincmd p | wincmd H
 
 nnoremap <silent> tc :tabclose<cr>

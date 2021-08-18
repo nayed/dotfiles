@@ -16,6 +16,8 @@ if exists('syntax_on')
   syntax reset
 endif
 
+set background=dark
+
 let g:colors_name = "yoru"
 
 let g:terminal_ansi_colors = ['#ebebeb', '#1a1a1a', '#707070', '#808080',
