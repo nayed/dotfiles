@@ -360,3 +360,12 @@ augroup END
 autocmd FileType gitcommit DiffGitCached | wincmd p | wincmd H
 
 nnoremap <silent> tc :tabclose<cr>
+
+" Diff between the current UNSAVED buffer and the file it was loaded from,
+" thus the changes you made.
+" Only define it when not defined already.
+" Revert with: ":delcommand DiffOrig".
+if !exists(":DiffOrig")
+  command DiffOrig tabnew % | vert new | set bt=nofile | r ++edit #
+        \ | 0d_ | diffthis | wincmd p | diffthis
+endif
