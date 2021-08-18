@@ -51,14 +51,17 @@ set t_Co=256
 
 set statusline=\ %f%m%r%h%w\ %=%({%{&ff}\|%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}%k\|%Y}%)\ %([%l,%v][%p%%]\ %)
 
+" Highlight netrw marked files and directories
+hi link netrwMarkFile Search
+
 let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
+let g:netrw_browse_split = 0
 let g:netrw_altv = 1
-let g:netrw_winsize = 15
+let g:netrw_winsize = 20
 let g:netrw_banner = 0
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-augroup END
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Lexplore
+" augroup END
 
 nmap <F5> :source ~/.vimrc<cr>
