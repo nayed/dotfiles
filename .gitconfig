@@ -120,7 +120,9 @@
   last = log -1 HEAD
 
   l = log --color --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an (%G?)>%Creset' --abbrev-commit
-  ln = "!git l -n"
+
+  # Log n last commits, if n empty it will log the last 10 commits
+  ln = "!f() { [ ! -z \"$1\" ] && git l -n \"$1\" || git l -n 10; }; f"
 
   lg = log --color --all --date-order --decorate --dirstat=lines,cumulative --stat
 

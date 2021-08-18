@@ -36,6 +36,7 @@ alias en "n ~/.config/nvim/init.vim"
 alias ev "v ~/.vimrc"
 alias eb "n ~/.vim/basic.vim"
 alias ef "n ~/.vim/full.vim"
+alias eg "n ~/.gitconfig"
 
 # Get local IP
 alias localip "ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'"
