@@ -290,7 +290,8 @@ command! -bang -nargs=+ -complete=dir FZFLocate
             \ call fzf#vim#locate(<q-args>,
             \     s:p(<bang>0),
             \     <bang>0)
-nnoremap <Leader>fl :FZFLocate
+" the empty space at the end of :FZFLocate is needed
+nnoremap <Leader>fl :FZFLocate 
 
 " display and search a line in current buffer
 command! -bang -nargs=* FZFBLines
