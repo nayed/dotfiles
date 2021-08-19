@@ -47,23 +47,6 @@ colorscheme gruvbox8
 set t_Co=256
 set background=light
 
-let term0 = ""
-let term1 = ""
-let term2 = ""
-let term3 = ""
-let term4 = ""
-let term5 = ""
-let term6 = ""
-let term7 = ""
-let term8 = ""
-let term9 = ""
-let term10 = ""
-let term11 = ""
-let term12 = ""
-let term13 = ""
-let term14 = ""
-let term15 = ""
-
 if exists("g:terminal_color_0")
   let term0 = g:terminal_color_0
   let term1 = g:terminal_color_1
@@ -81,33 +64,34 @@ if exists("g:terminal_color_0")
   let term13 = g:terminal_color_13
   let term14 = g:terminal_color_14
   let term15 = g:terminal_color_15
+
+  execute "hi IncSearch guifg=" . term14
+  hi Normal guibg=NONE
+  execute "hi NormalFloat guibg=#f2e5bc guifg=" . term0
+  execute "hi Search guifg=" . term6
+  hi SignColumn guibg=NONE
+
+  execute "hi CocFloatingBorder guifg=" . term13
+  execute "hi CocInfoSign guifg=" . term13
+  execute "hi CocWarningSign guifg=" . term11
+
+  execute "hi FzfNormalFloat guibg=#fbf1c7 guifg=" . term0
+
+  execute "hi HopNextKey gui=bold guifg=" . term1
+  execute "hi HopNextKey1 gui=bold guifg=" . term1
+  execute "hi HopNextKey2 gui=bold guifg=" . term9
+  execute "hi HopUnmatched guifg=" . term7
+
+  exe "hi markbarSectionBrackets guifg=" . term9
+  hi link markbarSectionLowercaseMark markbarSectionBrackets
+  hi link markbarSectionSpecialLocalMark markbarSectionBrackets
+  execute "hi markbarContextMarkHighlight guibg=" . term1 . " guifg=" . term15
+
+  execute "hi VimwikiHeader1 guifg=" . term15 . " guibg=" . term9
+  execute "hi VimwikiHeader2 guifg=" . term15 . " guibg=" . term3
+  execute "hi VimwikiHeader3 guifg=" . term15 . " guibg=" . term12
+
 endif
-
-execute "hi IncSearch guifg=" . term14
-hi Normal guibg=NONE
-execute "hi NormalFloat guibg=#f2e5bc guifg=" . term0
-execute "hi Search guifg=" . term6
-hi SignColumn guibg=NONE
-
-execute "hi CocFloatingBorder guifg=" . term13
-execute "hi CocInfoSign guifg=" . term13
-execute "hi CocWarningSign guifg=" . term11
-
-execute "hi FzfNormalFloat guibg=#fbf1c7 guifg=" . term0
-
-execute "hi HopNextKey gui=bold guifg=" . term1
-execute "hi HopNextKey1 gui=bold guifg=" . term1
-execute "hi HopNextKey2 gui=bold guifg=" . term9
-execute "hi HopUnmatched guifg=" . term7
-
-exe "hi markbarSectionBrackets guifg=" . term9
-hi link markbarSectionLowercaseMark markbarSectionBrackets
-hi link markbarSectionSpecialLocalMark markbarSectionBrackets
-execute "hi markbarContextMarkHighlight guibg=" . term1 . " guifg=" . term15
-
-execute "hi VimwikiHeader1 guifg=" . term15 . " guibg=" . term9
-execute "hi VimwikiHeader2 guifg=" . term15 . " guibg=" . term3
-execute "hi VimwikiHeader3 guifg=" . term15 . " guibg=" . term12
 
 nmap <F5> :source ~/.config/nvim/init.vim<cr>
 
