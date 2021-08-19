@@ -95,6 +95,11 @@ execute "hi CocWarningSign guifg=" . term11
 
 execute "hi FzfNormalFloat guibg=#fbf1c7 guifg=" . term0
 
+execute "hi HopNextKey gui=bold guifg=" . term1
+execute "hi HopNextKey1 gui=bold guifg=" . term1
+execute "hi HopNextKey2 gui=bold guifg=" . term9
+execute "hi HopUnmatched guifg=" . term7
+
 exe "hi markbarSectionBrackets guifg=" . term9
 hi link markbarSectionLowercaseMark markbarSectionBrackets
 hi link markbarSectionSpecialLocalMark markbarSectionBrackets

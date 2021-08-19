@@ -3,6 +3,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Raimondi/delimitMate'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'phaazon/hop.nvim'
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
 Plug 'taohexxx/lightline-buffer'
@@ -374,6 +375,10 @@ nmap <leader>hf :Gqcf<CR>
 " display a quickfix of all modifs of all tracked files in the project
 nmap <leader>ha :Gqf<CR>
 
+
+" ================================ HOP =================================
+" nmap <leader><leader> :HopWord<CR>
+nmap <leader><leader> :HopChar1<CR>
 
 " ============================= INDENTLINE =============================
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
