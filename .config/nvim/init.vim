@@ -35,16 +35,11 @@ call plug#end()
 syntax on
 
 " Enable true color
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+set termguicolors
 
 colorscheme gruvbox8
 " colorscheme yoru
 
-set t_Co=256
 set background=light
 
 if exists("g:terminal_color_0")
