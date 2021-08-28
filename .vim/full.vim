@@ -225,7 +225,7 @@ nnoremap <silent> <space>gp :tab G log -p<cr>
 
 " git diff vertical
 command! Gv tabnew % | exe "normal \<C-O>" | Gvdiffsplit | windo set wrap | wincmd l
-nnoremap <silent> gv :Gv<cr>
+nnoremap <silent> <M-g> :Gv<cr>
 
 " git diff horizontal
 command! Gs tabnew % | exe "normal \<C-O>" | Gdiffsplit | windo set wrap | wincmd j
