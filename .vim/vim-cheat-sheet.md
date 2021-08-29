@@ -84,7 +84,7 @@
 - Delete from current position to a specific line number: `d<line number>G`
 - Deleting all items in a file that start with a pattern:`:g/< search term>/d`
 - Deleting all lines that are empty or that contain only whitespace:
-  :g/^\s\*\$/d
+  `:g/^\s\*\$/d`
 - Deletes all text inside parenthesis/brackets: d + i + item / or { or [
 - Deletes all text inside parenthesis/brackets INCLUDES: d + a + item / or { or
   [
@@ -115,6 +115,8 @@
 - Save the file: :w
 - Save the file and quit: :wq
 - Quit without saving: :q!
+- Quit vim without saving with error code (default to 1). Useful when Vim is
+  called from another program (ex: `git editlastcommit`): :cq!
 
 ### Views
 

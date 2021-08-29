@@ -98,6 +98,9 @@
   # a.k.a. ‘delete merged’
   dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d; git remote -v update -p"
 
+  # Edit last commit. If you don't want to edit last commit do `:cq!` in (n)vim
+  editlastcommit = "!git commit --amend"
+
   # Find branches containing commit
   fb = "!f() { git branch -a --contains $1; }; f"
 
@@ -125,6 +128,12 @@
   ln = "!f() { [ ! -z \"$1\" ] && git l -n \"$1\" || git l -n 10; }; f"
 
   lg = log --color --all --date-order --decorate --dirstat=lines,cumulative --stat
+
+  # Detailed git log that show the differents edits made in each commit
+  lp = log -p
+
+  # Same than lp but display diffs inline instead of left-write
+  lpp = l -p
 
   # Pull in remote changes for the current repository and all its submodules
   pl = !"git pull; git submodule foreach git pull origin master"
