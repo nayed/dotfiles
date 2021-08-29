@@ -297,7 +297,7 @@ if has('nvim')
   " Highlight yanked text
   augroup highlight_yank
     autocmd!
-    au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=200, on_visual=true}
+    au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=300, on_visual=true}
   augroup END
 
   " See a live preview of substitution

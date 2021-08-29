@@ -16,6 +16,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'branch': '0.5-compat', 'do': ':TSUpdat
 Plug 'majutsushi/tagbar'
 Plug 'Ron89/thesaurus_query.vim'
 Plug 'mbbill/undotree'
+Plug 'yazgoo/yank-history'
 Plug 'ThePrimeagen/vim-be-good'
 Plug 'ryanoasis/vim-devicons'
 Plug 'rbong/vim-flog'
@@ -631,3 +632,7 @@ autocmd FileType vimwiki setlocal shiftwidth=4 softtabstop=4 tabstop=4
 " Hide =
 autocmd FileType vimwiki call matchadd('Conceal','=',9,-1,{'conceal': ''})
 autocmd FileType vimwiki call matchadd('Normal',' = ',10,-1,{'conceal': ' = '})
+
+" =========================== YANK HISTORY ===========================
+nnoremap <silent> <M-y> :YankHistoryRgPaste<cr>
+nnoremap <silent> <M-Y> :YankHistoryRgPaste!<cr>
