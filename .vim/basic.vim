@@ -28,6 +28,9 @@ set hidden
 let mapleader=","
 set timeout timeoutlen=300
 
+" always show signcolumns
+set signcolumn=yes
+
 " ================ Turn Off Swap Files ==============
 
 set noswapfile
@@ -216,7 +219,9 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 		  \,sm:block-blinkwait175-blinkoff150-blinkon175
 
 " Clear search highlight
-nmap <c-l> :noh<CR>
+if !has('nvim')
+  nmap <c-l> :noh<CR>
+end
 
 " Create file's directory before saving, if it doesn't exist.
 augroup BWCCreateDir
@@ -233,7 +238,7 @@ endfun
 nnoremap <silent> <Leader>x :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Echo relative file path
-nnoremap <F10> :echo expand('%:f')<CR>
+nnoremap <F6> :echo expand('%:f')<CR>
 
 " Move a line or block of line
 nnoremap <M-k> :<C-u>move-2<CR>==
@@ -244,20 +249,39 @@ xnoremap <M-j> :move'>+<CR>gv=gv
 " Open or switch to previous file with space space
 nnoremap <silent> <space><space> <c-^>
 
-" change vim default weird keymap
-nnoremap <leader>n :cnext<CR>
-nnoremap <leader>p :cprevious<CR>
+" change some vim default keymap that are not azerty-friendly
+nnoremap <leader>j :cnext<CR>
+nnoremap <leader>k :cprevious<CR>
+nnoremap <space>j :lnext<CR>
+nnoremap <space>k :lprevious<CR>
 
 function! ToggleQuickFix()
   if getqflist({'winid':0}).winid
     cclose
   else
-    botright copen
+    if !empty(getqflist())
+      botright copen
+    else
+      echohl WarningMsg | echo 'QuickFix List is Empty.' | echohl None
+    endif
   endif
 endfunction
-
 command! -nargs=0 -bar ToggleQuickFix call ToggleQuickFix()
 nnoremap <leader>t :ToggleQuickFix<CR>
+
+function! ToggleLocationList()
+  if getloclist(0, {'winid':0}).winid
+    lclose
+  else
+    try
+      lopen
+    catch /E776/
+      echohl WarningMsg | echo 'Location List is Empty.' | echohl None
+    endtry
+  endif
+endfunction
+command! -nargs=0 -bar ToggleLocationList call ToggleLocationList()
+nnoremap <space>t :ToggleLocationList<CR>
 
 " Vim grep:
 " Display search results with a window at the bottom
@@ -294,12 +318,6 @@ nnoremap <leader>dk :diffg //3<cr>
 command! -nargs=0 Bonly :%bd|e#|bd#
 
 if has('nvim')
-  " Highlight yanked text
-  augroup highlight_yank
-    autocmd!
-    au TextYankPost * lua vim.highlight.on_yank {higroup="IncSearch", timeout=300, on_visual=true}
-  augroup END
-
   " See a live preview of substitution
   set inccommand=nosplit
 endif
@@ -342,6 +360,17 @@ au FileType qf call AdjustWindowHeight(3, 10)
 
 " Open help page in a new tab
 " Quit help page with 'q'
+"function! s:helptab()
+"  if &buftype == 'help'
+"    wincmd T
+"    nnoremap <buffer> q :q<cr>
+"  endif
+"endfunction
+"augroup HelpInNewTab
+"  autocmd!
+"  autocmd FileType help call s:helptab()
+"augroup END
+
 function! s:helptab()
   if &buftype == 'help'
     wincmd T
@@ -352,6 +381,19 @@ endfunction
 augroup HelpInNewTab
   autocmd!
   autocmd BufEnter *.txt call s:helptab()
+augroup END
+
+" Open man pages in a new tab
+" Quit man page with 'q'
+function! s:mantab()
+  if &filetype == 'man'
+    wincmd T
+    nnoremap <buffer> q :q<cr>
+  endif
+endfunction
+augroup ManInNewTab
+  autocmd!
+  autocmd FileType man call s:mantab()
 augroup END
 
 " Split window for git commit message:
