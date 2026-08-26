@@ -11,13 +11,16 @@ alias pyg "pygmentize"
 alias n "nvim"
 alias v "vim"
 
-alias ls "exa"
-alias la "exa -a"
-alias ll "exa -l"
-alias l "exa -al"
+alias ls "eza"
+alias la "eza -a"
+alias ll "eza -l"
+alias l "eza -al"
 
-# sudo needed because some coc packages are not installed with my username(?!)
-alias cleanplug "sudo rm -rf ~/.local/share/nvim/plugged ~/.config/coc"
+alias bat "batcat"
+
+alias freshneovim "rm -rf \
+  ~/.local/share/nvim/mason \
+  ~/.local/share/nvim/site/pack/core/opt"
 
 alias brewup "brew update && brew upgrade"
 
@@ -32,16 +35,15 @@ alias npm-outdated-g "npm outdated -g --depth 0"
 
 alias ea "n ~/.config/fish/aliases.fish"
 alias ec "n ~/.config/fish/config.fish"
-alias en "n ~/.config/nvim/init.vim"
+alias en "n ~/.config/nvim/init.lua"
 alias ev "v ~/.vimrc"
 alias eb "n ~/.vim/basic.vim"
 alias ef "n ~/.vim/full.vim"
 alias eg "n ~/.gitconfig"
 
 # Get local IP
-alias localip "ifconfig | grep -Eo 'inet (addr:)?([0-9]*\\.){3}[0-9]*' | grep -Eo '([0-9]*\\.){3}[0-9]*' | grep -v '127.0.0.1'"
-# Get IPs. (public ipv6 is the 3rd last)
-alias ips "ifconfig -a | grep -o 'inet6\\? \\(addr:\\)\\?\\s\\?\\(\\(\\([0-9]\\+\\.\\)\\{3\\}[0-9]\\+\\)\\|[a-fA-F0-9:]\\+\\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+#alias localip "ip -4 -o addr show scope global | awk '{print \$4}' | cut -d/ -f1"
+alias ips "ip -o addr show scope global | awk '{print \$4}' | cut -d/ -f1"
 
 # untar
 alias untar "tar xvf"

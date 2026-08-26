@@ -1,60 +1,27 @@
-function fish_prompt --description 'Write out the prompt'
-  # Display full path instead of abreviated path
-  set -g fish_prompt_pwd_dir_length 0
+# Display full path instead of abbreviated path.
+# Set once at load time rather than on every prompt render.
+set -g fish_prompt_pwd_dir_length 0
 
+function fish_prompt --description 'Write out the prompt'
   set -l last_pipestatus $pipestatus
 
-  if not set -q __fish_git_prompt_show_informative_status
-    set -g __fish_git_prompt_show_informative_status 1
-  end
-  if not set -q __fish_git_prompt_hide_untrackedfiles
-    set -g __fish_git_prompt_hide_untrackedfiles 1
-  end
-  if not set -q __fish_git_prompt_color_branch
-    set -g __fish_git_prompt_color_branch magenta --bold
-  end
-  if not set -q __fish_git_prompt_showupstream
-    set -g __fish_git_prompt_showupstream "informative"
-  end
-  if not set -q __fish_git_prompt_char_upstream_ahead
-    set -g __fish_git_prompt_char_upstream_ahead "↑"
-  end
-  if not set -q __fish_git_prompt_char_upstream_behind
-    set -g __fish_git_prompt_char_upstream_behind "↓"
-  end
-  if not set -q __fish_git_prompt_char_upstream_prefix
-    set -g __fish_git_prompt_char_upstream_prefix ""
-  end
-  if not set -q __fish_git_prompt_char_stagedstate
-    set -g __fish_git_prompt_char_stagedstate "●"
-  end
-  if not set -q __fish_git_prompt_char_dirtystate
-    set -g __fish_git_prompt_char_dirtystate "✚"
-  end
-  if not set -q __fish_git_prompt_char_untrackedfiles
-    set -g __fish_git_prompt_char_untrackedfiles "…"
-  end
-  if not set -q __fish_git_prompt_char_invalidstate
-    set -g __fish_git_prompt_char_invalidstate "✖"
-  end
-  if not set -q __fish_git_prompt_char_cleanstate
-    set -g __fish_git_prompt_char_cleanstate "✔"
-  end
-  if not set -q __fish_git_prompt_color_dirtystate
-    set -g __fish_git_prompt_color_dirtystate blue
-  end
-  if not set -q __fish_git_prompt_color_stagedstate
-    set -g __fish_git_prompt_color_stagedstate yellow
-  end
-  if not set -q __fish_git_prompt_color_invalidstate
-    set -g __fish_git_prompt_color_invalidstate red
-  end
-  if not set -q __fish_git_prompt_color_untrackedfiles
-    set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
-  end
-  if not set -q __fish_git_prompt_color_cleanstate
-    set -g __fish_git_prompt_color_cleanstate green --bold
-  end
+  set -q __fish_git_prompt_show_informative_status; or set -g __fish_git_prompt_show_informative_status 1
+  set -q __fish_git_prompt_hide_untrackedfiles; or set -g __fish_git_prompt_hide_untrackedfiles 1
+  set -q __fish_git_prompt_color_branch; or set -g __fish_git_prompt_color_branch magenta --bold
+  set -q __fish_git_prompt_showupstream; or set -g __fish_git_prompt_showupstream "informative"
+  set -q __fish_git_prompt_char_upstream_ahead; or set -g __fish_git_prompt_char_upstream_ahead "↑ "
+  set -q __fish_git_prompt_char_upstream_behind; or set -g __fish_git_prompt_char_upstream_behind "↓ "
+  set -q __fish_git_prompt_char_upstream_prefix; or set -g __fish_git_prompt_char_upstream_prefix ""
+  set -q __fish_git_prompt_char_stagedstate; or set -g __fish_git_prompt_char_stagedstate "● "
+  set -q __fish_git_prompt_char_dirtystate; or set -g __fish_git_prompt_char_dirtystate "✚ "
+  set -q __fish_git_prompt_char_untrackedfiles; or set -g __fish_git_prompt_char_untrackedfiles "… "
+  set -q __fish_git_prompt_char_invalidstate; or set -g __fish_git_prompt_char_invalidstate "✖ "
+  set -q __fish_git_prompt_char_cleanstate; or set -g __fish_git_prompt_char_cleanstate "✔"
+  set -q __fish_git_prompt_color_dirtystate; or set -g __fish_git_prompt_color_dirtystate blue
+  set -q __fish_git_prompt_color_stagedstate; or set -g __fish_git_prompt_color_stagedstate yellow
+  set -q __fish_git_prompt_color_invalidstate; or set -g __fish_git_prompt_color_invalidstate red
+  set -q __fish_git_prompt_color_untrackedfiles; or set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
+  set -q __fish_git_prompt_color_cleanstate; or set -g __fish_git_prompt_color_cleanstate green --bold
 
   set -l color_user
   set -l suffix
@@ -64,12 +31,12 @@ function fish_prompt --description 'Write out the prompt'
       set suffix '#'
     case '*'
       set color_user blue
-      set suffix \uf811
+      set suffix \uf007
   end
 
   # Username
   set_color --bold $color_user
-  printf "\n$USER "
+  printf '\n%s ' "$USER"
 
   # PWD
   set_color cyan
