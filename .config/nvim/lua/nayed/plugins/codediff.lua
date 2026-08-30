@@ -1,0 +1,2 @@
+require('codediff').setup {
+}

@@ -13,9 +13,8 @@ local colors = {
   aqua      = '#427b58',
 }
 
-require('neogit').setup({
-  -- your existing options
-})
+require('neogit').setup {
+}
 
 local function set_neogit_hl()
   -- Diff hunk body

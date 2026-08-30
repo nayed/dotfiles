@@ -37,6 +37,7 @@ require('nayed.plugins.lsp')
 require('nayed.plugins.indentline')
 require('nayed.plugins.aerial')
 require('nayed.plugins.neogit')
+require('nayed.plugins.codediff')
 require('nayed.plugins.vimwiki')
 -- Must be lasts to be loaded
 require('nayed.plugins.ui.statusline')
