@@ -36,4 +36,6 @@ vim.pack.add({
   'https://github.com/neogitorg/neogit',
   -- Git diff viewer
   'https://github.com/esmuellert/codediff.nvim',
+  -- Personal Wiki
+  'https://github.com/vimwiki/vimwiki',
 })
