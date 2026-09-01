@@ -9,13 +9,6 @@ map('n', '<M-f>', ':FzfLua files<CR>')
 -- FZF search
 map('n', '<M-s>', function() require('fzf-lua').live_grep() end, { desc = 'Live grep' })
 
--- FZF search in hidden folders
--- map('n', '<M-S>', function()
---   require('fzf-lua').live_grep({
---     rg_opts = "--hidden --glob '!.git' --column --line-number --no-heading --color=always --smart-case",
---   })
--- end, { desc = 'Live grep (hidden files)' })
-
 -- Search in the current buffer
 map('n', '<leader>fl', ':FzfLua blines<CR>')
 -- Search in all opened buffer
@@ -46,6 +39,9 @@ local function file_sel_to_qf_and_open(selected, opts)
 end
 
 require("fzf-lua").setup({
+  grep = {
+    rg_opts = "--column --line-number --no-heading --color=always --smart-case --glob '!.git'",
+  },
   fzf_colors = {
     bg      = { "bg", "FzfLuaNormal" },
     ["bg+"] = { "bg", "FzfLuaNormal" },
