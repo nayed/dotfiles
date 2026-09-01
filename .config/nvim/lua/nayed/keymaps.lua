@@ -23,12 +23,6 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 -- Inspect treesitter
 vim.keymap.set('n', '<M-t>', ':InspectTree<CR>')
 
--- Source init.lua and reload all packages
--- vim.keymap.set('n', '<F5>', function()
---   vim.cmd('source $MYVIMRC')
---   vim.cmd('packloadall')
---   print('Neovim config reloaded!')
--- end, { noremap = true, silent = true })
 vim.keymap.set('n', '<F5>', ':restart<CR>')
 
 
