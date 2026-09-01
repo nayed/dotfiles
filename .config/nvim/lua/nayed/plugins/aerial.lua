@@ -1,8 +1,4 @@
-local colors = {
-  bg    = '#f2e5bc', -- reuse your existing lsp_bg tint, ties Aerial visually to other LSP-driven UI
-  fg    = '#282828',
-  guide = '#7c6f64',
-}
+local colors = require('nayed.plugins.ui.shared').gruv_light
 
 require('aerial').setup({
   layout = {
@@ -34,9 +30,9 @@ require('aerial').setup({
 })
 
 local function set_aerial_hl()
-  vim.api.nvim_set_hl(0, 'AerialNormal', { bg = colors.bg, fg = colors.fg })
-  vim.api.nvim_set_hl(0, 'AerialGuide', { fg = colors.guide })
-  vim.api.nvim_set_hl(0, 'AerialLine', { bg = colors.guide, fg = colors.bg }) -- cursor-position row
+  vim.api.nvim_set_hl(0, 'AerialNormal', { bg = colors.lsp_bg, fg = colors.fg })
+  vim.api.nvim_set_hl(0, 'AerialGuide', { fg = colors.grey })
+  vim.api.nvim_set_hl(0, 'AerialLine', { bg = colors.grey, fg = colors.lsp_bg }) -- cursor-position row
 end
 
 set_aerial_hl()

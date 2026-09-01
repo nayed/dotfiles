@@ -1,7 +1,7 @@
 vim.keymap.set('n', '<space>n', ':Neotree toggle<CR>')
 vim.keymap.set('n', '<space>d', ':Neotree diagnostics toggle bottom<CR>', { desc = 'Toggle diagnostics (bottom)' })
 
---local bg = "#fbf1c7" -- match your fzf-lua bg for consistency
+--local bg = "#fbf1c7" -- match fzf-lua bg for consistency
 local bg = "#f2e5bc"
 
 local function set_neotree_hl()

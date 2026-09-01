@@ -4,11 +4,12 @@ require("gruvbox").setup({
 })
 vim.cmd([[colorscheme gruvbox]])
 
--- shared palette
-local bg        = "#fbf1c7" -- gruvbox light bg0 (fzf-lua)
-local lsp_bg    = "#f2e5bc" -- gruvbox light bg1, one shade darker (LSP floats)
-local border_fg = "#7c6f64"
-local text_fg   = "#282828"
+
+local colors    = require('nayed.plugins.ui.shared').gruv_light
+local bg        = colors.bg
+local lsp_bg    = colors.lsp_bg
+local border_fg = colors.grey
+local text_fg   = colors.fg
 
 local function set_custom_hl()
   -- fzf-lua (uses its own groups, untouched by LSP floats)
@@ -28,11 +29,7 @@ local function set_custom_hl()
   vim.api.nvim_set_hl(0, "FloatBorder", { bg = lsp_bg, fg = border_fg })
 
   -- Misc
-  vim.api.nvim_set_hl(0, "WinSeparator", {
-    -- bg = bg,
-    fg = "#005f5f",
-    bold = true,
-  })
+  vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#005f5f", bold = true })
 end
 
 set_custom_hl()
@@ -51,3 +48,11 @@ vim.api.nvim_set_hl(0, 'LspInlayHint', {
   bg = '#ffe5b9',
   italic = true,
 })
+
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "qf",
+--   callback = function()
+--     vim.opt_local.winhighlight = "Normal:QuickfixNormal"
+--     vim.api.nvim_set_hl(0, "QuickfixNormal", { bg = lsp_bg })
+--   end,
+-- })
