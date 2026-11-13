@@ -12,3 +12,4 @@
 .vim/view
 fishd.*
 conf.d
+node_modules
