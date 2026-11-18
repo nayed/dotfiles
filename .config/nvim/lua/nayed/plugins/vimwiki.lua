@@ -1,5 +1,6 @@
 vim.g.vimwiki_list = { { path = '~/Codes/Misc/til' } }
-vim.g.vimwiki_global_ext = 1
+-- vim.g.vimwiki_global_ext = 1
+vim.g.vimwiki_global_ext = 0
 
 local function set_vimwiki_hl()
   vim.api.nvim_set_hl(0, 'VimwikiNormal', { bg = '#f2e5bc' })
