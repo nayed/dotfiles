@@ -25,6 +25,7 @@ require('mason-tool-installer').setup {
     -- LSPs
     'basedpyright',
     'expert',
+    'ltex-ls-plus',
     'lua-language-server',
     'ruby-lsp',
     'tsgo',

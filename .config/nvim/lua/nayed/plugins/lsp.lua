@@ -90,6 +90,7 @@ vim.lsp.enable({
   'basedpyright',
   'expert',
   'lua_ls',
+  'ltex_plus',
   -- 'gopls',
   'ruby_lsp',
   'rubocop',

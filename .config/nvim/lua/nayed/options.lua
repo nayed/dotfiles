@@ -30,3 +30,11 @@ vim.opt.shell = "/bin/bash"
 -- vim.o.signcolumn = 'yes:2' -- reserve 2 cells, gives (lsp) emoji room to breathe
 
 vim.o.laststatus = 3 -- one global status line
+
+vim.filetype.add({
+  extension = {
+    mdx = 'mdx',
+  }
+})
+
+vim.treesitter.language.register('markdown', 'mdx')
